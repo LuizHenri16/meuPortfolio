@@ -6,15 +6,15 @@
 /////////////////// Funções para ir de uma página a outra ///////////////////
 
 function goHomePage() { 
-  window.location.href = "/index.html"
+  window.location.href = "PageLuizHenrique/"
 };
 
 function goAboutPage() { 
-  window.location.href = "pages/About/about.html"
+  window.location.href = "PageLuizHenrique/pages/About/about.html"
 }
 
 function goTechnologiesPage() { 
-  window.location = "pages/Technologies/technologies.html"
+  window.location = "PageLuizHenrique/pages/Technologies/technologies.html"
 }
 
 function goToGitHub() {
