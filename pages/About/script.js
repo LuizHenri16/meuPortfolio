@@ -1,5 +1,5 @@
 function goHomePage() { 
-  window.location.href = "/index.html"
+  window.location.href = "PageLuizHenrique/"
 };
 
 function goAboutPage() { 
