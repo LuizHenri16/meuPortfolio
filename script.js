@@ -26,6 +26,6 @@ function goToInstagram() {
 }
 
 function goToLinkedIn() {
-  window.open("")
+  window.open("https://www.linkedin.com/in/luiz-bastos-395922213/")
 }
-/////////////////// -------------------------------- ////////////////////////
+/////////////////// Links acesso para as redes sociais ////////////////////////
