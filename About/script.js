@@ -9,3 +9,4 @@ function goAboutPage() {
 function goTechnologiesPage() { 
   window.location = "/technologies.html"
 }
+
