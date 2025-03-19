@@ -1,0 +1,247 @@
+:root {
+  --background-color: #fffbf9;
+  --primary-color: #9d5c63;
+  --secondary-color: #853b43;
+  --text-color: #fef5ef;
+  --box-shadow: 0px 2px 5px -1px rgba(14, 14, 14, 0.3);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--background-color);
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Source Code Pro", monospace;
+}
+
+.social-icons {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+} 
+
+.social-icons button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: .1s;
+}
+
+.social-icons button:hover {
+  opacity: 80%;
+  animation: shake-bottom 2s cubic-bezier(0.165, 0.840, 0.440, 1.000) infinite both;
+}
+
+.page-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.page-buttons button {
+  width: 5rem;
+  height: 2rem;
+  border-radius: 0.7rem;
+  border: 1px solid var(--primary-color);
+  background: none;
+  color: var(--primary-color);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  margin: 1.5rem 0;
+}
+
+.page-buttons button:hover,
+.toolsBtns button:hover {
+  background: var(--primary-color);
+  color: var(--text-color);
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+.page-buttons buttons:focus-within {
+  background: none;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2rem auto;
+}
+
+.container .content.fade-in-fwd {
+  animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.container .content .name-title,
+.container .content .stack-title {
+  margin: 1rem 0;
+  letter-spacing: 1px;
+  color: var(--secondary-color);
+}
+
+.container .content .name-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.container .content .stack-title {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.container .content .texto-1,
+.container .content .texto-2 {
+  width: 80%;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 2rem 0;
+  color: var(--secondary-color);
+}
+
+.container .content strong {
+  font-weight: 800;
+}
+
+.line {
+  width: 90%;
+  border: 0.1px solid var(--primary-color);
+}
+
+.small-line {
+  width: 4rem;
+  border: 0.1px solid var(--primary-color);
+}
+
+.swiper-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-content {
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 70%;
+  color: var(--secondary-color);
+}
+
+.slide-content ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.slide-content ul li {
+  font-size: 1rem;
+}
+
+.toolsBtns {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.toolsBtns button {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--primary-color);
+  background: none;
+  color: var(--primary-color);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-fwd {
+  0% {
+    transform: translateZ(-80px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shake-bottom {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 100%;
+  }
+  10% {
+    transform: rotate(2deg);
+  }
+  20%,
+  40%,
+  60% {
+    transform: rotate(-4deg);
+  }
+  30%,
+  50%,
+  70% {
+    transform: rotate(4deg);
+  }
+  80% {
+    transform: rotate(-2deg);
+  }
+  90% {
+    transform: rotate(2deg);
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .line {
+    width: 60%;
+  }
+  .container .content .texto-1,
+  .container .content .texto-2 {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .line {
+    width: 50%;
+  }
+}

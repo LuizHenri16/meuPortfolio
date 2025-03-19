@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet">
+
+  <title>Portfólio</title>
+</head>
+
+<body>
+  <header>
+    <div class="theme-switch">
+      <button class=""></button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-buttons">
+      <button class="homeBtn" onclick="exibirPagina('home')">HOME</button>
+      <button class="aboutBtn" onclick="exibirPagina('about')">ABOUT</button>
+      <button class="toolsBtn" onclick="exibirPagina('tools')">TOOLS</button>
+    </div>
+
+    <div class="container">
+      <div class="line"></div>
+
+      <div class="content">
+
+      </div>
+      <div class="line"></div>
+
+      <div class="social-icons">
+        <button class="github-icon" onclick="goToGitHub()"><img src="images/github-icon.svg" alt=""></button>
+        <button class="instagram-icon" onclick="goToInstagram()"><img src="images/instagram-icon.svg" alt=""></button>
+        <button class="linkedin-icon" onclick="goToLinkedIn()"><img src="images/linkedin-icon.svg" alt=""></button>
+      </div>
+  </main>
+
+  <script src="./javascript/script.js"></script>
+</body>
+
+</html>
