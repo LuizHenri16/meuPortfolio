@@ -1,7 +1,7 @@
 const contentDiv = document.querySelector('.container .content');
 
 const menu = [];
-menu.push(`    <img class="photo" src="./images/photo.png" alt="">
+menu.push(`    <img class="photo" src="./images/photo.png" alt="Foto jovem de 23 anos, meio doido, mas legal.">
                     <h3 class="name-title">Luiz Henrique</h3>
                     <div class="small-line"></div>
                     <h3 class="stack-title">JUNIOR JAVA DEVELOPER</h3>
