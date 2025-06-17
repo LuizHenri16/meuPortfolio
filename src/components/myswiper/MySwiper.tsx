@@ -13,23 +13,5 @@ const pages = [
 ];
 
 export const MySwiper: React.FC = () => {
-  return (
-    <>
-      <Swiper
-        centeredSlides={true}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        navigation
-      >
-        {pages.map((page) => (
-          <SwiperSlide
-            className="flex justify-center w-auto m-w-[100%]"
-            key={page.id}
-          >
-            <a>{page.id}</a>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </>
-  );
+  return <></>;
 };

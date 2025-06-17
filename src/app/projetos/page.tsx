@@ -10,9 +10,12 @@ export default function Projetos() {
                             lg:px-10 font-[Roboto]"
       >
         <div className=" text-custom-100 mt-5 text-xl self-start flex gap-10 ">
-          <a className="font-bold hover:text-custom-100/80" href="/home">
-            ← Voltar{" "}
-          </a>{" "}
+          <a
+            className="flex gap-5 font-bold hover:opacity-80 text-[#9D5C63]"
+            href="/home"
+          >
+            <img className="w-5" src="/icons/Arrow 1.svg" /> Voltar
+          </a>
           <p className="">// Projetos</p>
         </div>
 

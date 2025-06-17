@@ -2,9 +2,12 @@ export default function () {
   return (
     <>
       <div className="bg-[#f3f3f3] px-5 py-10 flex flex-col items-center justify-center font-[Roboto] tracking-wide text-[#6B3E23]">
-        <div className=" 0 text-xl self-start flex gap-10 ">
-          <a className="font-bold hover:text-custom-100/80" href="/projetos">
-            ← Voltar
+        <div className=" 0 text-xl self-start flex gap-5">
+          <a
+            className="flex gap-5 font-bold hover:opacity-80 text-[#9D5C63]"
+            href="/projetos"
+          >
+            <img className="w-5" src="/icons/Arrow 1.svg" /> Voltar
           </a>
         </div>
 

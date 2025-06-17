@@ -4,9 +4,9 @@ import { Template, MySwiper } from "@/components";
 export default function Skills() {
   return (
     <>
-      <div className="w-[100%] flex flex-col justify-center ">
+      <div className="w-[100%] flex flex-col justify-center items-center h-screen">
         <Template>
-          <main className="w-[50%] m-auto">{<MySwiper />}</main>
+          <main className="w-[50%] mx-auto">{}</main>
         </Template>
       </div>
     </>
