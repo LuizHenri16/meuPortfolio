@@ -2,7 +2,7 @@ import { Card, Template } from "@/components";
 
 export default function Projetos() {
   return (
-    <>
+    <div className="mb-10">
       <div
         className="flex flex-col items-center justify-center px-5
                             sm:px-4
@@ -14,7 +14,7 @@ export default function Projetos() {
             className="flex gap-5 font-bold hover:opacity-80 text-[#9D5C63]"
             href="/home"
           >
-            <img className="w-5" src="/icons/Arrow 1.svg" /> Voltar
+            <img className="w-5" src="/icons/Arrow 1.svg"  alt="arrow icone"/> Voltar
           </a>
           <p className="">// Projetos</p>
         </div>
@@ -22,7 +22,8 @@ export default function Projetos() {
         <div
           className="grid grid-cols-1
                                 md:grid-cols-2 gap-5
-                                lg:gap-10         "
+                                lg:gap-10
+                                "
         >
           <Card
             src="/images/fitzoneProjeto.png"
@@ -49,7 +50,7 @@ export default function Projetos() {
             resume="Sitema para cadastro de dados de empresas para consultas rápidas."
             href="/carteirarelacionamento"
           >
-            <div className="grid grid-cols-2 px-4 text-custom-100 text-sm">
+            <div className="grid grid-cols px-4 text-custom-100 text-sm">
               <ul>
                 <li>● Java</li>
                 <li>● Javaswing</li>
@@ -68,7 +69,7 @@ export default function Projetos() {
             resume="Site para facilitar doações para projetos sociais. "
             href="/home"
           >
-            <div className="grid grid-cols-2 px-4">
+            <div className="grid grid-cols px-4">
               <ul>
                 <li>● HTML</li>
                 <li>● Javascript</li>
@@ -82,6 +83,6 @@ export default function Projetos() {
           </Card>
         </div>
       </div>
-    </>
+    </div>
   );
 }
