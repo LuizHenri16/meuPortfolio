@@ -14,7 +14,7 @@ interface IconButtonProps {
 export const Button: React.FC<ButtonProps> = ({ id, name , onClick } : ButtonProps) => {
 
     return (
-        <button className="flex px-3 py-2 rounded-2xl text-tiny sm:text-sm whitespace-nowrap
+        <button className="flex px-3 py-2 rounded-2xl text-tiny md:text-sm whitespace-nowrap
                            border-2 border-custom-100 text-custom-100 cursor-pointer
                            hover:text-textcustom-100 hover:bg-custom-100 active:bg-custom-100/90 active:border-custom-100/90  
                            " id={ id } onClick={ onClick } >

@@ -1,4 +1,4 @@
-export default function () {
+export default function Fitzone() {
   return (
     <>
       <div className="bg-[#f3f3f3] px-5 py-10 flex flex-col items-center justify-center font-[Roboto] tracking-wide text-[#6B3E23]">
