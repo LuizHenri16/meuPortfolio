@@ -11,62 +11,61 @@ interface CardProps {
     techList?: string[]; 
 }
 
-export const Card: React.FC<CardProps> = ({
-    techList = [],
-    src,
-    href,
-    name,
-    resume
-}) => {
+export const Card: React.FC<CardProps> = ({techList = [], src, href, name, resume}) => {
     const imageAlt = `Imagem do projeto ${name}`;
 
     return (
-        <Link
-            href={href}
-            className="block group relative w-full h-full rounded-2xl border-2 border-custom-100 
-                 overflow-hidden transition-all duration-300 ease-in-out 
-                 hover:shadow-lg hover:shadow-custom-100/30 hover:scale-[1.01]"
+        <Link 
+            href={href} 
+            className="group block rounded-4xl shadow-md hover:shadow-xl transition-shadow duration-300 border-custom-100 bg-white overflow-hidden border"
         >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-
-                <div className="relative w-full  h-auto overflow-hidden">
-                    <Image
-                        src={src}
-                        alt={imageAlt}
-                        fill
-                        className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                        priority={false}
+            <div className="flex flex-col md:flex-row items-center md:items-start p-6 gap-6">
+                <div className="flex-shrink-0">
+                    <Image 
+                        src={src} 
+                        alt={imageAlt} 
+                        width={220} 
+                        height={220} 
+                        className="object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
                     />
                 </div>
 
-                <div className="flex flex-col justify-between p-4 md:p-6 bg-white">
+                <div className="flex flex-col justify-between w-full">
                     <div>
-                        <h2 className="text-xl md:text-2xl lg:text-3xl text-custom-100 font-bold font-[Roboto]">
+                        <h2 className="text-2xl md:text-3xl text-custom-100 font-bold font-[Roboto] group-hover:text-custom-200 transition-colors duration-300">
                             {name}
                         </h2>
-                        <p className="text-sm md:text-base text-gray-700 mt-2 line-clamp-3">
+                        <p className="text-sm md:text-base text-gray-600 mt-2 line-clamp-3">
                             {resume}
                         </p>
                     </div>
 
                     {techList.length > 0 && (
-                        <div className="flex justify-between flex-wrap gap-x-4 gap-y-2 mt-4 text-custom-100 text-sm">
-                            <ul className="list-none p-0 m-0">
+                        <div className="mt-4 grid grid-cols-2 gap-2">
+                            <ul className="space-y-1">
                                 {techList.slice(0, Math.ceil(techList.length / 2)).map((tech, index) => (
-                                    <li key={index} className="flex items-center gap-1">
-                                        <span className="text-custom-100 text-xs">●</span> {tech}
+                                    <li 
+                                        key={index} 
+                                        className="flex items-center gap-1 text-xs md:text-sm text-white bg-custom-100 px-2 py-1 rounded-md"
+                                    >
+                                        {tech}
                                     </li>
                                 ))}
                             </ul>
-                            <ul className="list-none p-0 m-0">
+                            <ul className="space-y-1">
                                 {techList.slice(Math.ceil(techList.length / 2)).map((tech, index) => (
-                                    <li key={index} className="flex items-center gap-1">
-                                        <span className="text-custom-100 text-xs">●</span> {tech}
+                                    <li 
+                                        key={index} 
+                                        className="flex items-center gap-1 text-xs md:text-sm text-white bg-custom-100 px-2 py-1 rounded-md"
+                                    >
+                                        {tech}
                                     </li>
                                 ))}
                             </ul>
                         </div>
                     )}
+
+                    <p className='text-sm text-custom-100 opacity-90 mt-5 self-end'>Clique para ver mais</p>
                 </div>
             </div>
         </Link>

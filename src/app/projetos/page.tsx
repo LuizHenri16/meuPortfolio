@@ -17,7 +17,7 @@ export default function Projetos() {
           <Card src="/images/fitzoneProjeto.png" name="Fitzone"
             resume="Sitema desktop de gerenciamento de academias."
             href="/projetos/fitzone"
-            techList={["Java", "Javaswing", "Hibernate", "MySQL"]}
+            techList={["Java", "Spring Boot", "Next.JS", "MySQL", "Typescript"]}
           />
           <Card
             src="/images/crProjeto.png"
@@ -32,6 +32,13 @@ export default function Projetos() {
             resume="Aplicativo todolist minimalista."
             href="/projetos/mytasks"
             techList={["Typescript", "React Native", "Figma"]}
+          />
+          <Card
+            src="/images/clh-logo2.png"
+            name="ERP - CLH"
+            href="/projetos/clh"
+            resume="Software web para gerenciamento de depósito de bebidas"
+            techList={["Typescript", "Next.Js", "PHP"]}
           />
         </section>
       </div>
