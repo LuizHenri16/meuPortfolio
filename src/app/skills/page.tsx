@@ -1,5 +1,5 @@
 "use client";
-import { Template, MySwiper } from "@/components";
+import { Template } from "@/components";
 
 export default function Skills() {
   return (
