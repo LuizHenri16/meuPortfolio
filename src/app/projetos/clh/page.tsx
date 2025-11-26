@@ -78,7 +78,7 @@ export default function ERPCLH() {
         <div className="mt-12 flex justify-center">
           <a
             className="flex items-center gap-3 bg-[#5e4534] text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-[#24292e] hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-            href="https://github.com/LuizHenri16/Fitzone"
+            href="https://github.com/CLH-project/ERP-Frontend"
             target="_blank"
             rel="noreferrer"
           >
