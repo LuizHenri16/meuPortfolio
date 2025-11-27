@@ -26,7 +26,7 @@ export const Button: React.FC<ButtonProps> = ({ id, name , onClick } : ButtonPro
 export const IconButton: React.FC<IconButtonProps> = ({ href, id, children, onClick } : IconButtonProps) => {
 
     return (
-        <a className=" w-14 cursor-pointer hover:opacity-80" href={href} id={ id } onClick={ onClick } target="_blank">
+        <a className="w-8 lg:w-10 cursor-pointer hover:opacity-80" href={href} id={ id } onClick={ onClick } target="_blank">
             {children}
         </a>
     )

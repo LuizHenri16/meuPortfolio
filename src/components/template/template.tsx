@@ -9,18 +9,18 @@ export const Template: React.FC<TemplateProps> = ({
   children,
 }: TemplateProps) => {
   return (
-    <>
+    <div className="w-full items-center justify-center flex flex-col gap-5">
       <Buttons />
       {children}
       <Icons />
-    </>
+    </div>
   );
 };
 
 const Buttons: React.FC = () => {
   return (
     <div className="flex flex-col justify-center items-center w-[90%]">
-      <div className="flex gap-1 ">
+      <div className="mb-5 flex gap-1 ">
         <Link href={"/home"}>
           <Button name="HOME" />
         </Link>
@@ -38,7 +38,7 @@ const Buttons: React.FC = () => {
         </Link>
       </div>
 
-      <div className="mt-6 border-1 border-custom-100/80 w-[100%] sm:w-[80%] md:[60%]"></div>
+      <div className=" border-1 border-custom-100/80 w-[100%] sm:w-[80%] md:[60%]"></div>
     </div>
   );
 };
@@ -46,7 +46,7 @@ const Buttons: React.FC = () => {
 const Icons: React.FC = () => {
   return (
     <div className="flex flex-col justify-center items-center w-[90%]">
-      <div className="mt-6 border-1 border-custom-100/80 w-[100%] sm:w-[80%] md:[60%]"></div>
+      <div className=" border-1 border-custom-100/80 w-[100%] sm:w-[80%] md:[60%]"></div>
 
       <div className="flex gap-3 mt-5">
         <IconButton href="https://github.com/LuizHenri16">
