@@ -27,7 +27,7 @@ export default function ERPCLH() {
           <h1 className="text-3xl md:text-4xl font-bold text-[#5e4534] mb-4">
             Projeto ERP-CLH
           </h1>
-          
+
           <h3 className="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed">
             O<span className="font-bold text-[#5e4534]"> ERP-CLH</span> é um sistema completo desenvolvido para o gerenciamento inteligente de comércios e depósitos de bebidas.
           </h3>
@@ -42,10 +42,10 @@ export default function ERPCLH() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <FeatureCard title="Clientes" desc="Cadastro completo, visualização de histórico e exclusão." />
-            <FeatureCard title="Fornecedores" desc="Gerenciamento da cadeia de suprimentos e contatos." />
-            <FeatureCard title="Produtos" desc="Controle de estoque, edição de preços e catálogo." />
-            <FeatureCard title="Vendas" desc="Registro de saídas e visualização de relatórios." />
-            <FeatureCard title="Permissões" desc="Controle de acesso granular por tipo de usuário." />
+            <FeatureCard title="Fornecedores" desc="Gerenciamento dos Fornecedores." />
+            <FeatureCard title="Produtos" desc="Controle de estoque, edição dos produtos e catálogo." />
+            <FeatureCard title="Vendas" desc="Registro de saídas." />
+            <FeatureCard title="Permissões" desc="Controle de acesso por tipo de usuário." />
             <FeatureCard title="Segurança" desc="Criptografia de ponta a ponta para dados sensíveis." />
           </div>
         </div>

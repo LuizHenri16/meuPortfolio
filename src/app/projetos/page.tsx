@@ -15,7 +15,7 @@ export default function Projetos() {
         <section
           className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10">
           <Card src="/images/fitzoneProjeto.png" name="Fitzone"
-            resume="Sitema desktop de gerenciamento de academias."
+            resume="Sistema desktop de gerenciamento de academias."
             href="/projetos/fitzone"
             techList={["Java", "Spring Boot", "Next.JS", "MySQL", "Typescript"]}
           />
