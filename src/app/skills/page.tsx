@@ -3,7 +3,7 @@ import { Skillcard, Template } from "@/components";
 
 export default function Skills() {
   return (
-    <div className="w-full flex flex-col justify-center items-center min-h-screen px-4">
+    <div className="w-full flex flex-col justify-center items-center min-h-screen px-4 py-4">
       <Template>
         <main className="flex flex-col justify-center items-center gap-8 mt-5 mb-5  ">
           <div className="flex flex-col items-center gap-4">

@@ -1,10 +1,10 @@
 <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_dd_571_134)">
-<path d="M6 10.5C6 9.04131 6.57946 7.64236 7.61091 6.61091C8.64236 5.57946 10.0413 5 11.5 5H44.5C45.9587 5 47.3576 5.57946 48.3891 6.61091C49.4205 7.64236 50 9.04131 50 10.5V43.5C50 44.9587 49.4205 46.3576 48.3891 47.3891C47.3576 48.4205 45.9587 49 44.5 49H11.5C10.0413 49 8.64236 48.4205 7.61091 47.3891C6.57946 46.3576 6 44.9587 6 43.5V10.5Z" stroke="#9D5C63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M17 24.25V38" stroke="#9D5C63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M17 16V16.0284" stroke="#9D5C63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M28 38V24.25" stroke="#9D5C63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M39 38V29.75C39 28.2913 38.4205 26.8924 37.3891 25.8609C36.3576 24.8295 34.9587 24.25 33.5 24.25C32.0413 24.25 30.6424 24.8295 29.6109 25.8609C28.5795 26.8924 28 28.2913 28 29.75" stroke="#9D5C63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 10.5C6 9.04131 6.57946 7.64236 7.61091 6.61091C8.64236 5.57946 10.0413 5 11.5 5H44.5C45.9587 5 47.3576 5.57946 48.3891 6.61091C49.4205 7.64236 50 9.04131 50 10.5V43.5C50 44.9587 49.4205 46.3576 48.3891 47.3891C47.3576 48.4205 45.9587 49 44.5 49H11.5C10.0413 49 8.64236 48.4205 7.61091 47.3891C6.57946 46.3576 6 44.9587 6 43.5V10.5Z" stroke="#ffffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17 24.25V38" stroke="#ffffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17 16V16.0284" stroke="#ffffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M28 38V24.25" stroke="#ffffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39 38V29.75C39 28.2913 38.4205 26.8924 37.3891 25.8609C36.3576 24.8295 34.9587 24.25 33.5 24.25C32.0413 24.25 30.6424 24.8295 29.6109 25.8609C28.5795 26.8924 28 28.2913 28 29.75" stroke="#ffffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 <defs>
 <filter id="filter0_dd_571_134" x="0.5" y="0.5" width="55" height="55" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
