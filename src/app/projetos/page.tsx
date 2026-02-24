@@ -5,8 +5,8 @@ export default function Projetos() {
     <div className="mb-10">
       <div
         className="flex flex-col items-center justify-center px-4 md:px-6 lg:px-10 font-[Roboto]">
-        <div className=" text-custom-100 mt-5 text-xl self-start flex gap-10 ">
-          <a className="flex gap-5 font-bold hover:opacity-80 text-[#9D5C63]" href="/home">
+        <div className=" text-terracota-100 mt-5 text-xl self-start flex gap-10 ">
+          <a className="flex gap-5 font-bold hover:opacity-80 text-terracota-100" href="/home">
             <img className="w-5" src="/icons/Arrow 1.svg" alt="arrow icone" /> Voltar
           </a>
           <p className="">// Projetos</p>

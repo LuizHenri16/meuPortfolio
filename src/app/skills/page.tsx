@@ -7,7 +7,7 @@ export default function Skills() {
       <Template>
         <main className="flex flex-col justify-center items-center gap-8 mt-5 mb-5  ">
           <div className="flex flex-col items-center gap-4">
-            <h2 className="px-2 py-1 rounded-lg bg-custom-100 text-white text-center">
+            <h2 className="px-2 py-1 rounded-lg bg-terracota-100 text-white text-center">
               Linguagens de Programação
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl">
@@ -18,7 +18,7 @@ export default function Skills() {
           </div>
 
           <div className="flex flex-col items-center gap-4 w-full">
-            <h2 className="px-2 py-1 rounded-lg bg-custom-100 text-white text-center">
+            <h2 className="px-2 py-1 rounded-lg bg-terracota-100 text-white text-center">
               Frontend
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl">
@@ -29,7 +29,7 @@ export default function Skills() {
           </div>
 
           <div className="flex flex-col items-center gap-4 w-full">
-            <h2 className="px-2 py-1 rounded-lg bg-custom-100 text-white text-center">
+            <h2 className="px-2 py-1 rounded-lg bg-terracota-100 text-white text-center">
               Backend e Banco de Dados
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl">
@@ -40,7 +40,7 @@ export default function Skills() {
           </div>
 
           <div className="flex flex-col items-center gap-4 w-full">
-            <h2 className="px-2 py-1 rounded-lg bg-custom-100 text-white text-center">
+            <h2 className="px-2 py-1 rounded-lg bg-terracota-100 text-white text-center">
               Ferramentas
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl">

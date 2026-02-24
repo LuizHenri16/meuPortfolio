@@ -14,7 +14,7 @@ interface IconButtonProps {
 export const Button: React.FC<ButtonProps> = ({ id, name, onClick }: ButtonProps) => {
 
     return (
-        <button className="p-2 text-white button3D whitespace-nowrap text-[12px] sm:text-sm md:text-base lg:text-lg" id={id} onClick={onClick} >
+        <button className="p-2 font-bold text-white flex items-center justify-center button3D whitespace-nowrap text-[12px] sm:text-sm md:text-base lg:text-lg" id={id} onClick={onClick} >
             {name}
         </button>
     )

@@ -2,7 +2,7 @@ import { Template } from "@/components"
 
 export default function About() {
     return (
-        <div className="flex flex-col items-center justify-center h-screen font-[Roboto] text-xl font-normal text-custom-100  ">
+        <div className="flex flex-col items-center justify-center h-screen font-[Roboto] text-xl font-normal text-terracota-800  ">
             <Template>
                 <div className="w-[70%] sm:w-[50%] md:w-[40%] text-center items-center flex flex-col gap-8 mt-10 mb-8" >
                     <p className="">

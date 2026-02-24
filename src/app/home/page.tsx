@@ -13,13 +13,13 @@ export default function Home() {
                         </div>
 
                         <div>
-                            <h1 className='text-4xl font-bold text-custom-100'>Luiz Henrique</h1>
+                            <h1 className='text-4xl font-bold text-terracota-800'>Luiz Henrique</h1>
                         </div>
 
-                        <div className="mt-10 border border-custom-100/80 w-[20%] lg:w-[50%] sm:w-[30%] md:[40%]"></div>
+                        <div className="mt-10 border border-terracota-100/80 w-[20%] lg:w-[50%] sm:w-[30%] md:[40%]"></div>
 
                         <div className='mt-10 mb-5'>
-                            <h2 className='text-2xl font-medium text-custom-100'>DESENVOLVEDOR FULLSTACK</h2>
+                            <h2 className='text-2xl font-medium text-terracota-100'>DESENVOLVEDOR FULLSTACK</h2>
                         </div>
                     </main >
                 </Template>
