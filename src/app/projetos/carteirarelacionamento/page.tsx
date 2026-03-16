@@ -6,7 +6,7 @@ export default function CRSystem() {
       <div className="w-full max-w-4xl bg-white border-1 border-custom-100 rounded-3xl shadow-xl overflow-hidden p-8 md:p-12">
 
         <div className="flex items-center mb-8">
-          <a className="group flex items-center gap-2 font-bold text-custom-100 transition-all hover:text-[#7a464c]" href="/projetos">
+          <a className="group flex items-center gap-2 font-bold text-custom-100 transition-all hover:text-[#7a464c]" href="/#projetos">
             <div className="p-2 bg-[#fff0f1] rounded-full group-hover:bg-[#ffe0e2] transition-colors">
               <img className="w-4 h-4" src="/icons/Arrow 1.svg" alt="Voltar" />
             </div>
