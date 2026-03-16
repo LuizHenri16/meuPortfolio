@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 interface ButtonProps {
     id?: string
     name?: string
@@ -27,4 +29,21 @@ export const IconButton: React.FC<IconButtonProps> = ({ href, id, children, onCl
             {children}
         </a>
     )
+}
+
+interface NavButtonProps {
+    iconUrl: string
+    text: string
+    href?: string
+    onClick?: (event: any) => void
+}
+
+export const NavButton: React.FC<NavButtonProps> = ({ iconUrl, text, onClick }: NavButtonProps) => {
+    return (
+        <button onClick={onClick} className="flex flex-row items-center justify-center gap-2 bg-white px-2 py-1 border-2 border-gray-50 cursor-pointer duration-200 hover:border-terracota-100 hover:bg-[#FFF5F6] rounded-2xl">
+            <Image src={iconUrl} alt={text} width={18} height={18} />
+            <p className="hidden md:block lg:block text-small font-medium font-[Sora] text-terracota-50">{text}</p>
+        </button>
+    )
+
 }
