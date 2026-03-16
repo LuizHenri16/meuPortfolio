@@ -71,3 +71,52 @@ export const Card: React.FC<CardProps> = ({ techList = [], src, href, name, resu
         </Link>
     );
 };
+
+interface SkillCardProps {
+    iconUrl: string;
+    iconBgColor?: string;
+    name: string;
+    timeExperience: string;
+}
+
+export const SkillCard: React.FC<SkillCardProps> = ({ iconUrl, iconBgColor, name, timeExperience }) => {
+    return (
+        <div className="flex flex-col items-center justify-center p-6 gap-2 glass-bdr glass-bg backdrop-blur-2xl rounded-4xl cursor-pointer shadow hover:shadow-lg hover:backdrop-blur-3xl hover:scale-105 duration-200">
+            <div className=''>
+                <Image src={iconUrl} alt={name} width={34} height={34} />
+            </div>
+            <p className="font-[Sora] text-terracota-800 text-sm font-bold">{name}</p>
+            <p className="font-[Sora] text-xs text-text2">{timeExperience}</p>
+        </div>
+    )
+}
+
+interface ProjectCardProps {
+    pageUrl: string;
+    name: string;
+    resume: string;
+    stack: string;
+    stacks: string[];
+    src: string;
+}
+
+export const ProjectCard: React.FC<ProjectCardProps> = ({ pageUrl, name, resume, stack, stacks, src }) => {
+    return (
+        <div className='hover:shadow-xl hover:scale-102 cursor-pointer glass-bg rounded-4xl duration-200'>
+            <Image className='w-full h-60' quality={100} src={src} alt={name} width={220} height={220} />
+            <div className='p-4'>
+                <p className='font-[Sora] text-text2 text-small font-light'>{stack}</p>
+                <p className='font-[Sora] text-terracota-800 text-lg font-bold'>{name}</p>
+                <p className='mb-2 mt-2 font-[Sora] text-text2 text-sm font-light'>{resume}</p>
+                <div className='w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-2 mb-2'>
+                    {stacks.map((stack, index) => (
+                        <div className='border-1 flex justify-center items-center p-1 text-center border-terracota-100 bg-[#FFF5F6] rounded-2xl text-small text-terracota-50 font-semibold font-[Sora]' key={index}>
+                            <p>{stack}</p>
+                        </div>
+                    ))}
+                </div>
+                <a className='text-sm text-terracota-800 opacity-90 mt-6' href={pageUrl}>Ver mais</a>
+            </div>
+        </div>
+    )
+}
