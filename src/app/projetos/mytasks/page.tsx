@@ -7,7 +7,7 @@ export default function Mytasks() {
         <div className="flex items-center mb-8">
           <a
             className="group flex items-center gap-2 font-bold text-[#9D5C63] transition-all hover:text-[#7a464c]"
-            href="/projetos"
+            href="/#projetos"
           >
             <div className="p-2 bg-[#fff0f1] rounded-full group-hover:bg-[#ffe0e2] transition-colors">
               <img className="w-4 h-4" src="/icons/Arrow 1.svg" alt="Voltar" />
@@ -16,7 +16,6 @@ export default function Mytasks() {
           </a>
         </div>
 
-        {/* Hero Section */}
         <div className="flex flex-col items-center text-center">
           <img
             className="w-32 md:w-48 drop-shadow-md mb-6"
@@ -27,7 +26,7 @@ export default function Mytasks() {
           <h1 className="text-3xl md:text-4xl font-bold text-[#7FBB95] mb-4">
             Mytasks - Todolist Minimalista
           </h1>
-          
+
           <h3 className="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed">
             O<span className="font-bold text-[#7FBB95]"> Mytasks</span> é um aplicativo simples, focado em cadastrar tarefas de forma rápida e direta, priorizando o design minimalista para máxima concentração.
           </h3>
@@ -42,16 +41,16 @@ export default function Mytasks() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <FeatureCard
-              title="Gestão de Tarefas" 
-              desc="Cadastro imediato, visualização limpa, marcação rápida de tarefas concluídas e exclusão de itens." 
+              title="Gestão de Tarefas"
+              desc="Cadastro imediato, visualização limpa, marcação rápida de tarefas concluídas e exclusão de itens."
             />
-            <FeatureCard 
-              title="Minimalismo" 
-              desc="Interface limpa e focada para evitar distrações, seguindo a filosofia 'menos é mais'." 
+            <FeatureCard
+              title="Minimalismo"
+              desc="Interface limpa e focada para evitar distrações, seguindo a filosofia 'menos é mais'."
             />
-            <FeatureCard 
-              title="Tecnologia" 
-              desc="Desenvolvido com React Native e Typescript, garantindo performance nativa e código robusto." 
+            <FeatureCard
+              title="Tecnologia"
+              desc="Desenvolvido com React Native e Typescript, garantindo performance nativa e código robusto."
             />
           </div>
         </div>
@@ -64,7 +63,7 @@ export default function Mytasks() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full justify-items-center">
-            
+
             <div className="group w-48 md:w-56 overflow-hidden rounded-3xl shadow-xl border border-gray-100">
               <img
                 className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
@@ -72,7 +71,7 @@ export default function Mytasks() {
                 alt="Imagem da tela de cadastro de tarefas"
               />
             </div>
-            
+
             <div className="group w-48 md:w-56 overflow-hidden rounded-3xl shadow-xl border border-gray-100">
               <img
                 className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
