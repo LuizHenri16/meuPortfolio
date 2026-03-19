@@ -13,7 +13,7 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Portfólio Luiz Henrique",
+  title: "Luiz Henrique - Engenheiro de Software",
   description: "Portfólio de Luiz Henrique",
 };
 

@@ -6,7 +6,7 @@ export const AboutSection: React.FC = () => {
                 <p className="font-[Sora] text-sm text-terracota-50 md:text-base lg:text-lg duration-200">Engenheiro de Software</p>
             </div>
             <p className="font-[Sora] text-base text-text2 font-light text-justify md:text-lg md:w-1/2 duration-200">Desenvolvedor Back-end com 2 anos de experiência em Java,
-                evoluindo para Full Stack com React. Focado em construir sistemas robustos no lado do servidor e integrá-los a interfaces dinâmicas, escolhendo sempre a melhor tecnologia para cada projeto.
+                evoluindo para Full Stack com React. Focado em construir APIs e integrá-los a interfaces dinâmicas, escolhendo sempre a melhor tecnologia para cada projeto.
             </p>
         </section>
     )
