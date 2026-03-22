@@ -12,6 +12,7 @@ export const SkillSection: React.FC = () => {
                 <SkillCard iconUrl="/icons/skills/react-icon.svg" name="React" timeExperience="1 anos - básico" />
                 <SkillCard iconUrl="/icons/skills/typescript-icon.svg" name="TypeScript" timeExperience="1 anos - básico" />
                 <SkillCard iconUrl="/icons/skills/mysql-icon.svg" name="Mysql" timeExperience="2 ano - intermediário" />
+                <SkillCard iconUrl="/icons/skills/supabase-icon.svg" name="Supabase" timeExperience="1 ano - básico" />
             </div>
         </section>
     )

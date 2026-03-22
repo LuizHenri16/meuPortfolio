@@ -1,4 +1,5 @@
 import { FeatureCard } from "@/components";
+import Image from "next/image";
 
 export default function CRSystem() {
   return (
@@ -66,18 +67,29 @@ export default function CRSystem() {
         </div>
 
         <hr className="my-10 border-gray-100" />
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center gap-5">
           <p className="text-custom-100 font-mono text-sm uppercase tracking-widest mb-6 border px-3 py-1 rounded-full">
             Galeira do Sistema
           </p>
 
-          <div className="w-full group overflow-hidden rounded-2xl shadow-lg border border-gray-100">
-            <img
-              className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
-              src="/images/crProjetoTelaInicial.png"
-              alt="Tela Inicial do Projeto CR"
-            />
-          </div>
+          <Image
+            className="w-3xl rounded-2xl shadow-lg border border-gray-200"
+            src="/images/insightprint1.png"
+            alt="Tela Inicial do Projeto CR"
+            quality={100}
+            width={220}
+            height={220}
+          />
+
+          <Image
+            className="w-3xl rounded-2xl shadow-lg border border-gray-200"
+            src="/images/insightprint1.png"
+            alt="Tela Inicial do Projeto CR"
+            quality={100}
+            width={220}
+            height={220}
+          />
+
         </div>
 
         <div className="mt-12 flex justify-center">
@@ -86,11 +98,6 @@ export default function CRSystem() {
             href="https://github.com/LuizHenri16/CRSystem"
             rel="noreferrer"
           >
-            <img
-              className="w-8"
-              src="/icons/github-icon.svg"
-              alt="GitHub"
-            />
             <span>Ver código no GitHub</span>
           </a>
         </div>
