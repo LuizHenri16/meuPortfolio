@@ -1,63 +1,39 @@
-export interface Skills {
+import {
+    SiOpenjdk,
+    SiSpringboot,
+    SiNestjs,
+    SiNextdotjs,
+    SiNodedotjs,
+    SiJavascript,
+    SiTypescript,
+    SiReact,
+    SiTailwindcss,
+    SiMysql,
+    SiPostgresql,
+    SiSupabase,
+    SiDocker,
+} from "react-icons/si";
+import { IconType } from "react-icons";
+
+export interface Skill {
     name: string;
-    alt: string;
-    icon: string;
+    icon: IconType;
+    color: string;
     level: string;
 }
 
-export const SKILLS: Skills[] = [
-    {
-        name: "Java",
-        alt: "icone do java",
-        icon: "/icons/skills/java-icon.svg",
-        level: "2 anos de experiencia"
-    },
-    {
-        name: "Spring Boot",
-        alt: "icone do springboot",
-        icon: "/icons/skills/springboot-icon.svg",
-        level: "2 anos de experiencia"
-    },
-    {
-        name: "Javascript",
-        alt: "icone do javascript",
-        icon: "/icons/skills/javascript-icon.svg",
-        level: "2 anos de experiencia"
-    },
-    {
-        name: "Typescript",
-        alt: "icone do typescript",
-        icon: "/icons/skills/typescript-icon.svg",
-        level: "2 anos de experiencia"
-    },
-    {
-        name: "HTML/CSS",
-        alt: "icone do html/css",
-        icon: "/icons/skills/htmlcss-icon.svg",
-        level: "2 anos de experiencia"
-    },
-    {
-        name: "React",
-        alt: "icone do react",
-        icon: "/icons/skills/react-icon.svg",
-        level: "2 anos de experiencia"
-    },
-    {
-        name: "TailwindCSS",
-        alt: "icone do tailwind",
-        icon: "/icons/skills/tailwindcss-icon.svg",
-        level: "2 anos de experiencia"
-    },
-    {
-        name: "MySQL",
-        alt: "icone do mysql",
-        icon: "/icons/skills/mysql-icon.svg",
-        level: "2 anos de experiencia"
-    },
-    {
-        name: "PostgreSQL",
-        alt: "icone do postgresql",
-        icon: "/icons/skills/postgre-icon.svg",
-        level: "2 anos de experiencia"
-    },
-]
+export const SKILLS: Skill[] = [
+    { name: "Java",        icon: SiOpenjdk,     color: "#ED8B00", level: "2 anos"  },
+    { name: "Spring Boot", icon: SiSpringboot,  color: "#6DB33F", level: "2 anos"  },
+    { name: "NestJS",      icon: SiNestjs,      color: "#E0234E", level: "1 ano"   },
+    { name: "Node.js",     icon: SiNodedotjs,   color: "#339933", level: "1 ano"   },
+    { name: "JavaScript",  icon: SiJavascript,  color: "#F7DF1E", level: "2 anos"  },
+    { name: "TypeScript",  icon: SiTypescript,  color: "#3178C6", level: "2 anos"  },
+    { name: "React",       icon: SiReact,       color: "#61DAFB", level: "2 anos"  },
+    { name: "Next.js",     icon: SiNextdotjs,   color: "#000000", level: "2 anos"  },
+    { name: "Tailwind",    icon: SiTailwindcss, color: "#06B6D4", level: "2 anos"  },
+    { name: "MySQL",       icon: SiMysql,       color: "#4479A1", level: "2 anos"  },
+    { name: "PostgreSQL",  icon: SiPostgresql,  color: "#4169E1", level: "1 ano"   },
+    { name: "Supabase",    icon: SiSupabase,    color: "#3ECF8E", level: "1 ano"   },
+    { name: "Docker",      icon: SiDocker,      color: "#2496ED", level: "6 meses" },
+];

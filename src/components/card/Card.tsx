@@ -1,19 +1,15 @@
 'use client';
 
-import { Skills } from '@/constants/skills';
-import Image from 'next/image';
+import { Skill } from '@/constants/skills';
 
-export const SkillCard = (skill: Skills) => {
-    const { name, alt, icon, level } = skill;
-
+export const SkillCard = ({ name, icon: Icon, color, level }: Skill) => {
     return (
-        <div className="flex flex-col items-center justify-center p-6 gap-2 glass-bdr glass-bg backdrop-blur-2xl rounded-4xl cursor-pointer shadow hover:shadow-lg hover:backdrop-blur-3xl hover:scale-105 duration-200">
-            <div className=''>
-                <Image src={icon} alt={alt} width={34} height={34} />
+        <div className="group flex flex-col items-center justify-center p-5 gap-2.5 glass-bdr glass-bg backdrop-blur-2xl rounded-3xl cursor-default shadow-sm hover:shadow-md hover:scale-105 transition-all duration-200">
+            <div className="p-2.5 rounded-2xl bg-white shadow-sm group-hover:shadow transition-shadow duration-200">
+                <Icon size={28} color={color} />
             </div>
-            <p className="font-[Sora] text-terracota-800 text-sm font-bold">{name}</p>
-            <p className="font-[Sora] text-xs text-text2">{level}</p>
+            <p className="font-[Sora] text-terracota-800 text-xs font-bold text-center leading-tight">{name}</p>
+            <p className="font-[Sora] text-[0.6rem] text-text3 text-center">{level}</p>
         </div>
-    )
-}
-
+    );
+};

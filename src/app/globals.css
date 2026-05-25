@@ -3,68 +3,88 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-sora);
   --font-mono: var(--font-geist-mono);
 
   --text-tiny: 0.6rem;
   --text-small: 0.7rem;
+
   --color-textcustom-100: #FEF5EF;
-  --color-terracota-50: #A7636B;
-  --color-terracota-100: #9D5C63;
-  --color-terracota-500: #7A4A50;
-  --color-terracota-800: #853B43;
+  --color-terracota-50:   #A7636B;
+  --color-terracota-100:  #9D5C63;
+  --color-terracota-500:  #7A4A50;
+  --color-terracota-800:  #853B43;
   --color-terracota-1000: #523236;
 
   --color-text2: #475569;
   --color-text3: #94a3b8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #000000;
-    --primario: #9D5C63
-  }
-}
-
+/* ─── Background ─────────────────────────────────────────── */
 .bg-portfolio {
   background-color: #F8F9FC;
 }
 
+/* ─── Glassmorphism ──────────────────────────────────────── */
 .glass-bg {
-  background: rgba(255, 255, 255, 0.60)
+  background: rgba(255, 255, 255, 0.60);
 }
-
 .glass-bdr {
   border: 1px solid rgba(255, 255, 255, 0.88);
 }
 
+/* ─── Nav shadow ─────────────────────────────────────────── */
 .shadow-nav {
   box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.25098039215686274);
 }
 
+/* ─── Botão 3D ───────────────────────────────────────────── */
 .button3D {
   border-radius: 12px;
   cursor: pointer;
-
   background: linear-gradient(to bottom, var(--color-terracota-50), var(--color-terracota-100));
   box-shadow: 0 6px 0 var(--color-terracota-500), 0 8px 20px rgba(0, 0, 0, 0.3);
   transform: translateY(0);
   transition: all 0.1s ease;
   border: 1px solid var(--color-terracota-100);
 }
-
 .button3D:hover {
   background: linear-gradient(to bottom, var(--color-terracota-100), var(--color-terracota-50));
 }
-
 .button3D:active {
   transform: translateY(6px);
   box-shadow: 0 3px 0 var(--color-terracota-500), 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Animação de entrada ────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease both;
+}
+
+/* ─── Páginas de projeto ─────────────────────────────────── */
+.project-page-bg {
+  background-color: #F8F9FC;
+}
+
+.project-card {
+  background: white;
+  border: 1px solid rgba(157, 92, 99, 0.15);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(157, 92, 99, 0.08);
 }
