@@ -1,3 +1,4 @@
+import { SKILLS } from "@/constants/skills"
 import { SkillCard } from "../card/Card"
 
 export const SkillSection: React.FC = () => {
@@ -7,12 +8,9 @@ export const SkillSection: React.FC = () => {
             <h2 className="font-[Sora] text-3xl mt-1 mb-8">Habilidades e Tecnologias</h2>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <SkillCard iconUrl="/icons/skills/java-icon.svg" name="Java" timeExperience="2 anos - intermediário" />
-                <SkillCard iconUrl="/icons/skills/springboot-icon.svg" name="Spring Boot" timeExperience="1 ano - intermediário" />
-                <SkillCard iconUrl="/icons/skills/react-icon.svg" name="React" timeExperience="1 anos - básico" />
-                <SkillCard iconUrl="/icons/skills/typescript-icon.svg" name="TypeScript" timeExperience="1 anos - básico" />
-                <SkillCard iconUrl="/icons/skills/mysql-icon.svg" name="Mysql" timeExperience="2 ano - intermediário" />
-                <SkillCard iconUrl="/icons/skills/supabase-icon.svg" name="Supabase" timeExperience="1 ano - básico" />
+                {SKILLS.map((skill, index) => (
+                    <SkillCard key={index} {...skill} />
+                ))}
             </div>
         </section>
     )

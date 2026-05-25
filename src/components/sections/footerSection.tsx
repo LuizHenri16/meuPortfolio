@@ -1,4 +1,4 @@
-export const FooterSection: React.FC = () => {
+export const FooterSection = () => {
     return (
         <footer className="mt-10 md:mt-20 max-w-[1120px] mx-auto px-4">
             <div className="flex flex-col justify-center items-center">
