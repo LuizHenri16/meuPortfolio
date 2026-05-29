@@ -1,5 +1,18 @@
 export const projects = [
     {
+        pageUrl: "https://acienciadalua.com.br",
+        name: "A Ciência da Lua",
+        resume: "Site para compra de materiais de estudo de Química e Ciências.",
+        stack: "Web • Full Stack",
+        stacks: ["Next.JS", "Nest.JS", "GO", "TypeScript", "Tailwind", "PostgreSQL", "Docker", "Prisma", "JWT", "Swagger", "VPS"],
+        images: [
+            "/images/acienciadaluaprint1.png",
+            "/images/acienciadaluaprint2.png",
+            "/images/acienciadaluaprint3.png",
+            "/images/acienciadaluaprint4.png",
+        ]
+    },
+    {
         pageUrl: "/projetos/fitzone",
         name: "Fitzone",
         resume: "Plataforma Full Stack para gestão operacional de academias, integrando controle de matrículas, treinos e pagamentos com uma ótima arquitetura em Spring Boot e Next.js.",
@@ -19,17 +32,6 @@ export const projects = [
         images: [
             "/images/insightprint1.png",
             "/images/insightprint2.png",
-        ]
-    },
-    {
-        pageUrl: "/projetos/mytasks",
-        name: "MyTasks",
-        resume: "Aplicação mobile com o foco em gerenciamento de tarefas pessoais, com uma interface simples e intuitiva.",
-        stack: "Mobile",
-        stacks: ["ReactNative", "TypeScript", "Android"],
-        images: [
-            "/images/mytaskApp-image2.jpg",
-            "/images/mytaskApp-image.jpg",
         ]
     },
     {

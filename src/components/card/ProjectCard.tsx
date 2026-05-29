@@ -56,7 +56,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ pageUrl, name, resume,
                         <button
                             onClick={prev}
                             aria-label="Imagem anterior"
-                            className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-sm shadow hover:bg-white transition-all duration-150 opacity-0 group-hover:opacity-100"
+                            className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full cursor-pointer bg-white/80 backdrop-blur-sm shadow hover:bg-white transition-all duration-150 opacity-0 group-hover:opacity-100"
                         >
                             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#853B43" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M15 18l-6-6 6-6" />
@@ -65,7 +65,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ pageUrl, name, resume,
                         <button
                             onClick={next}
                             aria-label="Próxima imagem"
-                            className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-sm shadow hover:bg-white transition-all duration-150 opacity-0 group-hover:opacity-100"
+                            className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-sm shadow cursor-pointer hover:bg-white transition-all duration-150 opacity-0 group-hover:opacity-100"
                         >
                             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#853B43" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M9 18l6-6-6-6" />
