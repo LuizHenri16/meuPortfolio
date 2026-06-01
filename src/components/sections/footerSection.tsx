@@ -7,7 +7,7 @@ export const FooterSection = () => {
                 </p>
                 <div className="flex gap-3">
                     <FooterLink href="https://github.com/LuizHenri16" label="GitHub" />
-                    <FooterLink href="https://www.linkedin.com/in/luiz-bastos-395922213/" label="LinkedIn" />
+                    <FooterLink href="https://www.linkedin.com/in/luiz-henrique-bastos-santana-395922213/" label="LinkedIn link" />
                     <FooterLink href="mailto:lbastos722@gmail.com" label="Contato" />
                 </div>
             </div>
@@ -16,12 +16,5 @@ export const FooterSection = () => {
 }
 
 const FooterLink = ({ href, label }: { href: string; label: string }) => (
-    <a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        className="font-[Sora] text-[0.68rem] font-semibold text-text3 hover:text-terracota-50 transition-colors duration-200"
-    >
-        {label}
-    </a>
+    <a href={href} target="_blank" rel="noreferrer" className="font-[Sora] text-[0.68rem] font-semibold text-text3 hover:text-terracota-50 transition-colors duration-200">{label}</a>
 )

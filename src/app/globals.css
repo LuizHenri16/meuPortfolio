@@ -15,10 +15,10 @@
   --text-small: 0.7rem;
 
   --color-textcustom-100: #FEF5EF;
-  --color-terracota-50:   #A7636B;
-  --color-terracota-100:  #9D5C63;
-  --color-terracota-500:  #7A4A50;
-  --color-terracota-800:  #853B43;
+  --color-terracota-50: #A7636B;
+  --color-terracota-100: #9D5C63;
+  --color-terracota-500: #7A4A50;
+  --color-terracota-800: #853B43;
   --color-terracota-1000: #523236;
 
   --color-text2: #475569;
@@ -27,13 +27,14 @@
 
 /* ─── Background ─────────────────────────────────────────── */
 .bg-portfolio {
-  background-color: #F8F9FC;
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
 
 /* ─── Glassmorphism ──────────────────────────────────────── */
 .glass-bg {
   background: rgba(255, 255, 255, 0.60);
 }
+
 .glass-bdr {
   border: 1px solid rgba(255, 255, 255, 0.88);
 }
@@ -53,9 +54,11 @@
   transition: all 0.1s ease;
   border: 1px solid var(--color-terracota-100);
 }
+
 .button3D:hover {
   background: linear-gradient(to bottom, var(--color-terracota-100), var(--color-terracota-50));
 }
+
 .button3D:active {
   transform: translateY(6px);
   box-shadow: 0 3px 0 var(--color-terracota-500), 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -67,6 +70,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
