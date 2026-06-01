@@ -28,7 +28,7 @@ export const SKILLS: Skill[] = [
     { name: "Java", icon: SiOpenjdk, color: "#ED8B00", level: "2 anos" },
     { name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F", level: "2 anos" },
     { name: "NestJS", icon: SiNestjs, color: "#E0234E", level: "1 ano" },
-    { name: "Node.js", icon: SiNodedotjs, color: "#339933", level: "1 ano" },
+    { name: "Node.js", icon: SiNodedotjs, color: "#339933", level: "2 anos" },
     { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", level: "5 anos" },
     { name: "TypeScript", icon: SiTypescript, color: "#3178C6", level: "2 anos" },
     { name: "React", icon: SiReact, color: "#61DAFB", level: "2 anos" },
