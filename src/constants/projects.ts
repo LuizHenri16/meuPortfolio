@@ -4,7 +4,7 @@ export const projects = [
         name: "A Ciência da Lua",
         resume: "Site para compra de materiais de estudo de Química e Ciências.",
         stack: "Web • Full Stack",
-        stacks: ["Next.JS", "Nest.JS", "GO", "TypeScript", "Tailwind", "PostgreSQL", "Docker", "Prisma", "JWT", "Swagger", "VPS", "Cloudflare"],
+        stacks: ["Next.JS", "Nest.JS", "GO", "TypeScript", "Tailwind", "PostgreSQL", "Docker", "Prisma", "JWT", "Swagger", "CI/CD", "Cloudflare"],
         images: [
             "/images/acienciadaluaprint1.png",
             "/images/acienciadaluaprint2.png",
@@ -43,6 +43,16 @@ export const projects = [
         images: [
             "/images/clhimagem1.jpg",
             "/images/clhimagem2.jpg",
+        ]
+    },
+    {
+        pageUrl: "/projetos/mytasks",
+        name: "MyTasks",
+        resume: "Aplicativo mobile minimalista para cadastro rápido de tarefas, com React Native e TypeScript.",
+        stack: "Mobile • React Native",
+        stacks: ["React Native", "TypeScript"],
+        images: [
+            "/images/mytaskApp-image.jpg",
         ]
     }
 ]

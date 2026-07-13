@@ -1,94 +1,240 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sora);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: #1A1A1A;
+  --color-bg: #FFFFFF;
+  --color-surface: #F5F0EB;
+  --color-primary: #5C6BF5;
+  --color-primary-dark: #3D4FE0;
+  --color-accent: #FFC857;
+  --color-muted: #6B6B6B;
+  --color-green: #22C55E;
 
-  --text-tiny: 0.6rem;
-  --text-small: 0.7rem;
-
-  --color-textcustom-100: #FEF5EF;
-  --color-terracota-50: #A7636B;
-  --color-terracota-100: #9D5C63;
-  --color-terracota-500: #7A4A50;
-  --color-terracota-800: #853B43;
-  --color-terracota-1000: #523236;
-
-  --color-text2: #475569;
-  --color-text3: #94a3b8;
+  --font-sans: var(--font-archivo), "Archivo", sans-serif;
 }
 
-/* ─── Background ─────────────────────────────────────────── */
-.bg-portfolio {
-  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+html {
+  scroll-behavior: smooth;
 }
 
-/* ─── Glassmorphism ──────────────────────────────────────── */
-.glass-bg {
-  background: rgba(255, 255, 255, 0.60);
-}
-
-.glass-bdr {
-  border: 1px solid rgba(255, 255, 255, 0.88);
-}
-
-/* ─── Nav shadow ─────────────────────────────────────────── */
-.shadow-nav {
-  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.25098039215686274);
-}
-
-/* ─── Botão 3D ───────────────────────────────────────────── */
-.button3D {
-  border-radius: 12px;
-  cursor: pointer;
-  background: linear-gradient(to bottom, var(--color-terracota-50), var(--color-terracota-100));
-  box-shadow: 0 6px 0 var(--color-terracota-500), 0 8px 20px rgba(0, 0, 0, 0.3);
-  transform: translateY(0);
-  transition: all 0.1s ease;
-  border: 1px solid var(--color-terracota-100);
-}
-
-.button3D:hover {
-  background: linear-gradient(to bottom, var(--color-terracota-100), var(--color-terracota-50));
-}
-
-.button3D:active {
-  transform: translateY(6px);
-  box-shadow: 0 3px 0 var(--color-terracota-500), 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* ─── Animação de entrada ────────────────────────────────── */
-@keyframes fadeInUp {
+/* ─── Animations ─────────────────────────────────────────── */
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.5s ease both;
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
 }
 
-/* ─── Páginas de projeto ─────────────────────────────────── */
-.project-page-bg {
-  background-color: #F8F9FC;
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-.project-card {
-  background: white;
-  border: 1px solid rgba(157, 92, 99, 0.15);
-  border-radius: 1.5rem;
-  box-shadow: 0 4px 24px rgba(157, 92, 99, 0.08);
+.animate-fade-up {
+  animation: fadeUp 0.55s ease both;
+}
+
+.animate-float {
+  animation: floatY 3.5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+/* ─── Neo-Brutalism base ─────────────────────────────────── */
+.brutal-border {
+  border: 2px solid #1A1A1A;
+  border-radius: 10px;
+}
+
+.brutal-round {
+  border-radius: 10px;
+}
+
+.brutal-shadow {
+  box-shadow: 4px 4px 0px #1A1A1A;
+}
+
+.brutal-shadow-sm {
+  box-shadow: 3px 3px 0px #1A1A1A;
+}
+
+.brutal-shadow-hover:hover {
+  box-shadow: 6px 6px 0px #1A1A1A;
+  transform: translate(-2px, -2px);
+}
+
+.brutal-card {
+  background: #FFFFFF;
+  border: 2px solid #1A1A1A;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #1A1A1A;
+}
+
+.brutal-card-hover {
+  transition: all 0.15s ease;
+}
+.brutal-card-hover:hover {
+  box-shadow: 7px 7px 0px #1A1A1A;
+  transform: translate(-2px, -2px);
+}
+
+.brutal-btn {
+  background: #1A1A1A;
+  color: #FFFFFF;
+  border: 2px solid #1A1A1A;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0px #1A1A1A;
+  transition: all 0.15s ease;
+}
+.brutal-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #1A1A1A;
+}
+.brutal-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #1A1A1A;
+}
+
+.brutal-btn-primary {
+  background: #5C6BF5;
+  color: #FFFFFF;
+  border: 2px solid #1A1A1A;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0px #1A1A1A;
+  transition: all 0.15s ease;
+}
+.brutal-btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #1A1A1A;
+}
+.brutal-btn-primary:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #1A1A1A;
+}
+
+.brutal-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  background: #FFFFFF;
+  border: 2px solid #1A1A1A;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+/* ─── Section Title ──────────────────────────────────────── */
+.brutal-section-title {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.brutal-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #5C6BF5;
+  border-radius: 2px;
+}
+
+/* ─── Decorative elements ────────────────────────────────── */
+.deco-star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #5C6BF5;
+  font-weight: 900;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+.deco-star-sm {
+  font-size: 0.9rem;
+  color: #FFC857;
+}
+
+.section-deco {
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* ─── Education cards ────────────────────────────────────── */
+.edu-badge-ongoing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.65rem;
+  background: #FFF3CD;
+  border: 2px solid #FFC857;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #92400E;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.edu-badge-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.65rem;
+  background: #DCFCE7;
+  border: 2px solid #22C55E;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #166534;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Reduced motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .brutal-card-hover:hover,
+  .brutal-btn:hover,
+  .brutal-btn:active,
+  .brutal-btn-primary:hover,
+  .brutal-btn-primary:active,
+  .brutal-shadow-hover:hover {
+    transform: none;
+  }
+  .animate-fade-up,
+  .animate-float,
+  .animate-spin-slow {
+    animation: none;
+  }
 }
