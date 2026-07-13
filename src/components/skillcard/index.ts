@@ -1,1 +1,0 @@
-export {Skillcard} from "./skillcard"

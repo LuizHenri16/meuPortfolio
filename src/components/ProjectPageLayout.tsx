@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { FeatureCard } from "@/components";
 
 interface ProjectPageProps {
     name: string;
@@ -25,105 +24,157 @@ export const ProjectPageLayout = ({
     isMobile = false,
 }: ProjectPageProps) => {
     return (
-        <div className="min-h-screen project-page-bg font-[Sora] py-10 px-5 flex justify-center">
-            <div className="w-full max-w-4xl project-card overflow-hidden p-8 md:p-12">
+        <div className="min-h-screen bg-[#F5F0EB] font-sans py-8 px-4 md:py-16 md:px-8 relative overflow-hidden">
+            
+            {/* ── Background Blur Orbs (Subtle Glass Contrast) ── */}
+            <div aria-hidden="true" className="absolute top-10 left-10 w-[350px] h-[350px] rounded-full bg-[#5C6BF5] opacity-[0.12] blur-[100px] pointer-events-none" />
+            <div aria-hidden="true" className="absolute bottom-20 right-10 w-[300px] h-[300px] rounded-full bg-[#FFC857] opacity-[0.12] blur-[100px] pointer-events-none" />
 
-                {/* Voltar */}
-                <div className="flex items-center mb-10">
+            {/* ── Main Container (Neo-Brutalist Frame with Rounded Corners) ── */}
+            <div className="relative z-10 w-full max-w-5xl mx-auto bg-white brutal-border brutal-shadow p-6 md:p-10 flex flex-col gap-10">
+                
+                {/* ── Top Navigation / Back ── */}
+                <div className="flex items-center justify-between border-b-2 border-ink pb-6">
                     <a
-                        className="group flex items-center gap-2 text-sm font-semibold text-terracota-100 hover:text-terracota-800 transition-colors duration-200"
                         href="/#projetos"
+                        className="group inline-flex items-center gap-2 text-xs font-black text-ink uppercase tracking-wider hover:text-[#5C6BF5] transition-colors duration-150"
                     >
-                        <div className="p-1.5 bg-[#fff0f1] rounded-full group-hover:bg-[#ffe0e2] transition-colors">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <div className="p-1 bg-white brutal-border brutal-shadow-sm group-hover:shadow-[5px_5px_0px_#1A1A1A] group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M19 12H5M12 5l-7 7 7 7" />
                             </svg>
                         </div>
                         Voltar aos projetos
                     </a>
+
+                    <span className="brutal-tag bg-[#FFC857] text-[0.65rem] font-black text-ink uppercase tracking-widest brutal-shadow-sm">
+                        {type}
+                    </span>
                 </div>
 
-                {/* Header */}
-                <div className="flex flex-col items-center text-center gap-4 mb-10">
-                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-3xl overflow-hidden shadow-md border border-gray-100 flex items-center justify-center bg-white">
-                        <Image
-                            src={logoSrc}
-                            alt={logoAlt}
-                            width={128}
-                            height={128}
-                            className="w-full h-full object-cover"
-                            quality={100}
-                        />
-                    </div>
+                {/* ── Header / Hero Section (Rounded corners matching main UI) ── */}
+                <div className="flex flex-col items-start gap-8 bg-[#F5F0EB]/50 backdrop-blur-sm brutal-border p-6 md:p-8 brutal-shadow relative overflow-hidden">
+                    
+                    {/* Small inner glow for contrast */}
+                    <div aria-hidden="true" className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-[#5C6BF5] opacity-20 blur-2xl pointer-events-none" />
 
-                    <div>
-                        <span className="inline-block font-[Sora] text-[0.65rem] font-semibold text-terracota-50 tracking-widest uppercase mb-2">
-                            {type}
-                        </span>
-                        <h1 className="font-[Cormorant_Garamond] text-3xl md:text-4xl font-bold text-terracota-800">
+                    <div className="flex-1 flex flex-col gap-4 relative z-10 w-full">
+                        <h1 className="font-sans font-black text-3xl sm:text-4xl md:text-5xl text-ink leading-[0.95] tracking-[-0.03em] uppercase">
                             {name}
                         </h1>
-                        <p className="mt-3 font-[Sora] text-text2 text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed">
+                        <p className="font-sans text-sm md:text-base text-ink font-[500] leading-relaxed max-w-3xl">
                             {tagline}
                         </p>
                     </div>
                 </div>
 
-                <div className="border-t border-gray-100 my-8" />
-
-                {/* Funcionalidades */}
-                <div className="mb-10">
-                    <h2 className="font-[Sora] text-xl font-bold text-terracota-800 mb-5">
+                {/* ── Features Section ── */}
+                <div>
+                    <h2 className="font-sans font-black text-lg md:text-xl text-ink uppercase tracking-[-0.02em] mb-6 flex items-center gap-2">
+                        <span aria-hidden="true" className="deco-star deco-star-sm">✦</span>
                         Principais Funcionalidades
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {features.map((f, i) => (
-                            <FeatureCard key={i} title={f.title} desc={f.desc} />
-                        ))}
-                    </div>
-                </div>
-
-                <div className="border-t border-gray-100 my-8" />
-
-                {/* Galeria */}
-                <div className="mb-10">
-                    <div className="flex items-center gap-3 mb-6">
-                        <h2 className="font-[Sora] text-xl font-bold text-terracota-800">
-                            Galeria
-                        </h2>
-                        <span className="text-[0.65rem] font-semibold font-[Sora] text-terracota-50 tracking-widest uppercase border border-terracota-100/30 px-2.5 py-0.5 rounded-full">
-                            {isMobile ? "Mobile" : "Sistema"}
-                        </span>
-                    </div>
-
-                    <div className={`grid gap-4 ${isMobile ? "grid-cols-2 max-w-sm mx-auto" : "grid-cols-1 md:grid-cols-2"}`}>
-                        {gallery.map((img, i) => (
-                            <div key={i} className="group overflow-hidden rounded-2xl shadow-md border border-gray-100">
-                                <Image
-                                    src={img.src}
-                                    alt={img.alt}
-                                    width={800}
-                                    height={600}
-                                    quality={95}
-                                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                                />
+                            <div
+                                key={i}
+                                className="brutal-card brutal-card-hover p-5 flex flex-col gap-3 relative overflow-hidden"
+                            >
+                                {/* Subtle blur decoration inside cards */}
+                                <div aria-hidden="true" className="absolute -bottom-6 -right-6 w-12 h-12 rounded-full bg-[#5C6BF5] opacity-5 blur-md" />
+                                
+                                <span className="font-sans font-black text-2xl text-[#5C6BF5]/20 leading-none">
+                                    {String(i + 1).padStart(2, "0")}
+                                </span>
+                                
+                                <div>
+                                    <h3 className="font-sans font-black text-ink text-sm uppercase tracking-tight mb-1.5">
+                                        {f.title}
+                                    </h3>
+                                    <p className="font-sans text-ink text-xs font-[500] leading-relaxed">
+                                        {f.desc}
+                                    </p>
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                {/* GitHub */}
-                <div className="flex justify-center">
+                {/* ── Gallery Section ── */}
+                <div className="border-t-2 border-ink pt-10">
+                    <div className="flex items-center justify-between mb-8">
+                        <h2 className="font-sans font-black text-lg md:text-xl text-ink uppercase tracking-[-0.02em] flex items-center gap-2">
+                            <span aria-hidden="true" className="deco-star deco-star-sm">✦</span>
+                            Galeria do Projeto
+                        </h2>
+                        
+                        <span className="brutal-tag text-[0.65rem] font-black text-ink uppercase tracking-wider">
+                            {isMobile ? "Mobile View" : "Desktop View"}
+                        </span>
+                    </div>
+
+                    <div className={
+                        isMobile
+                            ? "flex flex-wrap justify-center gap-6"
+                            : "grid grid-cols-1 md:grid-cols-2 gap-6"
+                    }>
+                        {gallery.map((img, i) => (
+                            <div
+                                key={i}
+                                className={`
+                                    group relative overflow-hidden brutal-border bg-white
+                                    brutal-shadow hover:shadow-[7px_7px_0px_#1A1A1A]
+                                    hover:-translate-x-0.5 hover:-translate-y-0.5
+                                    transition-all duration-200
+                                    ${isMobile ? "w-48" : ""}
+                                    ${!isMobile && i === 0 && gallery.length >= 3 ? "md:col-span-2" : ""}
+                                `}
+                            >
+                                <Image
+                                    src={img.src}
+                                    alt={img.alt}
+                                    width={1200}
+                                    height={800}
+                                    quality={100}
+                                    className="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-300"
+                                />
+                                
+                                {/* Caption on Hover */}
+                                <div className="absolute bottom-0 left-0 right-0 bg-ink/90 backdrop-blur-xs px-4 py-2.5 translate-y-full group-hover:translate-y-0 transition-transform duration-200 border-t-2 border-ink">
+                                    <p className="font-sans text-[0.65rem] font-bold text-white uppercase tracking-wider truncate">
+                                        {img.alt}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* ── Footer CTA ── */}
+                <div className="border-t-2 border-ink pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <p className="font-sans text-sm font-bold text-ink uppercase tracking-tight text-center sm:text-left">
+                        Quer explorar os detalhes deste projeto?
+                    </p>
+
                     <a
                         href={githubUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2.5 bg-terracota-800 text-white px-7 py-3.5 rounded-2xl font-semibold text-sm shadow-md hover:bg-terracota-1000 hover:-translate-y-0.5 transition-all duration-200"
+                        className="brutal-btn-primary font-sans font-bold text-xs uppercase tracking-widest px-6 py-3.5 flex items-center gap-3 shrink-0"
                     >
-                        <Image src="/icons/github-icon.svg" alt="GitHub" width={18} height={18} className="invert" />
-                        Ver código no GitHub
+                        <Image
+                            src="/icons/github-icon.svg"
+                            alt="GitHub"
+                            width={16}
+                            height={16}
+                            className="invert"
+                        />
+                        Ver Código no GitHub
+                        <span className="group-hover:translate-x-0.5 transition-transform duration-150">→</span>
                     </a>
                 </div>
+
             </div>
         </div>
     );
