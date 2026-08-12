@@ -10,6 +10,22 @@ export const projects = [
             "/images/acienciadaluaprint2.png",
             "/images/acienciadaluaprint3.png",
             "/images/acienciadaluaprint4.png",
+            "/images/acienciadaluaprint5.png",
+        ]
+    },
+    {
+        pageUrl: "#",
+        name: "Topodesk",
+        resume: "Projeto experimental com objetivo de reproduzir as funcionalidades do software de topografia Topograph98 com visual moderno.",
+        stack: "Desktop • Full Stack",
+        stacks: ["GO", "TypeScript", "Wails", "TailwindCSS", "Topografia"],
+        images: [
+            "/images/topodeskprint1.png",
+            "/images/topodeskprint2.png",
+            "/images/topodeskprint3.png",
+            "/images/topodeskprint4.png",
+            "/images/topodeskprint5.png",
+            "/images/topodeskprint6.png",
         ]
     },
     {

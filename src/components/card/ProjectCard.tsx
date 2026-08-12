@@ -96,17 +96,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ pageUrl, name, resume,
                     ))}
                 </div>
 
-                <a
-                    href={pageUrl}
-                    target={pageUrl.startsWith('http') ? '_blank' : undefined}
-                    rel={pageUrl.startsWith('http') ? 'noreferrer' : undefined}
-                    className='inline-flex items-center gap-1.5 text-xs font-black font-sans text-primary hover:text-primary-dark transition-colors duration-150 mt-1 uppercase tracking-wide'
-                >
-                    Ver detalhes
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                </a>
+                {pageUrl !== "#" && (
+                    <a
+                        href={pageUrl}
+                        target={pageUrl.startsWith('http') ? '_blank' : undefined}
+                        rel={pageUrl.startsWith('http') ? 'noreferrer' : undefined}
+                        className='inline-flex items-center gap-1.5 text-xs font-black font-sans text-primary hover:text-primary-dark transition-colors duration-150 mt-1 uppercase tracking-wide'
+                    >
+                        Ver detalhes
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                )}
             </div>
         </div>
     );
