@@ -135,10 +135,7 @@ padding: 1.5rem;
 
 .runtime-dashboard {
 margin-bottom: 1.5rem;
-padding: 1rem;
-border: 1px solid var(--n-200);
-border-radius: 0.875rem;
-background: #fafafa;
+padding-block: 1rem;
 }
 
 .runtime-dashboard__header {
@@ -306,7 +303,7 @@ background: repeating-linear-gradient(135deg, #dedede 0 2px, transparent 2px 4px
 }
 
 .runtime-dashboard__note {
-margin-top: 0.6rem;
+margin-top: 1rem;
 color: var(--n-500);
 font-size: 1rem;
 line-height: 1.45;
@@ -370,7 +367,7 @@ padding: 1.5rem 2rem;
 }
 
 .runtime-dashboard {
-padding: 1.1rem;
+padding-block: 1.1rem;
 }
 
 .modal-footer {
@@ -384,7 +381,7 @@ padding: 2rem 2.5rem;
 }
 
 .runtime-dashboard {
-padding: 1.35rem;
+padding-block: 1.35rem;
 }
 
 .runtime-dashboard__grid {
