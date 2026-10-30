@@ -1,0 +1,106 @@
+/* ---------- Breakpoints ---------- */
+@media (min-width: 640px) {
+    .hero {
+        padding-top: 9rem;
+        padding-bottom: 8rem;
+    }
+
+    .hero-title-row {
+        gap: 1.5rem;
+    }
+
+    .hero-brace {
+        font-size: 6rem;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        line-height: 1;
+    }
+
+    .hero-subtitle {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+
+    .philosophy {
+        margin-bottom: 8rem;
+    }
+
+    .headline {
+        font-size: 2.25rem;
+        line-height: 1.18;
+    }
+
+    .philosophy-text {
+        margin-top: 3rem;
+        font-size: 1.125rem;
+        line-height: 1.625;
+    }
+
+    .pillars {
+        gap: 1.5rem;
+        padding-top: 3.5rem;
+    }
+
+    .pillar p {
+        font-size: 0.875rem;
+        line-height: 1.375;
+    }
+
+    .projects {
+        margin-bottom: 8rem;
+    }
+
+    .project-desc {
+        font-size: 0.875rem;
+        line-height: 1.625;
+    }
+
+    .academic-card h3 {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+
+    .meta .truncate {
+        max-width: none;
+    }
+
+    .quote-text {
+        font-size: 13px;
+    }
+
+    .accreditation h4 {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-brace {
+        font-size: 10.4rem;
+    }
+
+    .hero-title {
+        font-size: 4.875rem;
+    }
+
+    .headline {
+        font-size: 2.6rem;
+    }
+
+    .pillars {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .project {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .framework-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+

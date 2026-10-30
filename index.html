@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Luiz Henrique | Engenheiro de Software</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            surface: '#fcfcfc',
+            subtle: '#888888',
+            faint: '#eaeaea',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="min-h-screen bg-white text-[#111111] antialiased selection:bg-black selection:text-white pb-32">
+  <div class="container">
+
+    <header class="hero" data-purpose="hero-header">
+      <div class="hero-title-row">
+        <span class="hero-brace hero-brace-left">{</span>
+        <div class="hero-scroll hero-scroll-name">
+          <h1 class="hero-title hero-intro hero-intro-name">LUIZ HENRIQUE</h1>
+        </div>
+        <span class="hero-brace hero-brace-right">}</span>
+      </div>
+      <div class="hero-scroll hero-scroll-sub">
+        <p class="hero-subtitle hero-intro hero-intro-sub">ENGENHEIRO DE SOFTWARE / ARQUITETO DE SISTEMAS</p>
+      </div>
+    </header>
+
+    <section class="philosophy" data-purpose="philosophy-statement">
+      <h2 class="headline">
+        Construindo sistemas escaláveis com foco em alto desempenho e arquitetura limpa.
+      </h2>
+
+      <div class="philosophy-text">
+        <p>
+          Minha abordagem em engenharia de software foca em transformar problemas complexos em sistemas limpos,
+          estruturados e fáceis de manter. Acredito que arquitetura de software e código limpo são essenciais para
+          construir aplicações confiáveis que crescem sem interrupções.
+        </p>
+        <p>
+          Priorizo o <strong>design de sistemas</strong> distribuídos pensados para estabilidade, alto desempenho e baixa latência. Meu
+          objetivo é criar soluções escaláveis que resistam às tendências temporárias da tecnologia.
+        </p>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <h3>ALTO DESEMPENHO</h3>
+          <p>Latência de milissegundos e ingestão sem bloqueios.</p>
+        </div>
+        <div class="pillar">
+          <h3>TOLERÂNCIA A FALHAS</h3>
+          <p>Segurança por consenso e estado auto-recuperável.</p>
+        </div>
+        <div class="pillar">
+          <h3>SEM BLOAT</h3>
+          <p>Simpatia mecânica e abstrações mínimas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" data-purpose="projects-list">
+      <h2 class="section-title">Projetos</h2>
+
+      <div class="project-list">
+
+        <article class="project">
+          <div class="project-info">
+            <h3>A Ciência da Lua</h3>
+            <p class="project-desc">
+              Plataforma de e-commerce de materiais didáticos de Ciências criada para estudantes do Ensino Fundamental/Médio e vestibulandos e para professores que buscam materiais prontos para a sala de aula — mapas conceituais, resumos, exercícios, slides, jogos e planos de aula, todos autorais e produzidos pela Profa. Lua (UFRN).
+            </p>
+            <p class="project-stack">Next.js · TailwindCSS · TypeScript · GO · Cloudflare · Docker & Dockerhub · Github-Actions</p>
+          </div>
+          <div class="project-action">
+            <button type="button" command="show-modal" commandfor="modal-ciencia-da-lua" class="project-button">
+              <div class="project-button__top">
+                <div class="project-button__surface project-button__surface--action">
+                  <span class="project-button__text">ARQUITETURA E CÓDIGO</span>
+                  <div class="project-button__icon">
+                    <svg class="project-button__icon-svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z">
+                      </path>
+                    </svg>
+                  </div>
+                  <div class="project-button__overlay"></div>
+                </div>
+              </div>
+            </button>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-info">
+            <h3>MovieMatch</h3>
+            <p class="project-desc">
+              Aplicativo mobile MovieMatch. Feito para guardar seus filmes favoritos e avaliar junto a sua dupla.
+            </p>
+            <p class="project-stack">Kotlin · Supabase · PostgreSQL</p>
+          </div>
+          <div class="project-action">
+            <button type="button" command="show-modal" commandfor="modal-moviematch" class="project-button">
+              <div class="project-button__top">
+                <div class="project-button__surface project-button__surface--action">
+                  <span class="project-button__text">ARQUITETURA E CÓDIGO</span>
+                  <div class="project-button__icon">
+                    <svg class="project-button__icon-svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z">
+                      </path>
+                    </svg>
+                  </div>
+                  <div class="project-button__overlay"></div>
+                </div>
+              </div>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+    <section class="framework" data-purpose="pedagogical-framework">
+      <h2 class="section-title">Educação</h2>
+      <div class="framework-grid">
+        <div class="column">
+          <div class="column-label">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            <span>PROGRESSÃO CURRICULAR</span>
+          </div>
+
+          <div class="card academic-card">
+            <h3>Técnico em Desenvolvimento de Sistemas</h3>
+            <div class="progress">
+              <div class="progress-fill" style="width: 100%"></div>
+            </div>
+            <div class="meta">
+              <span>NÚCLEO: CONCLUÍDO</span>
+              <span>100,0% CONFERIDO</span>
+            </div>
+            <div class="meta meta--bottom">
+              <span class="truncate">INSTITUIÇÃO: SENAC</span>
+              <span class="strong">STATUS: CONCLUÍDO</span>
+            </div>
+          </div>
+
+          <div class="card academic-card">
+            <h3>Bacharelado em Engenharia de Software</h3>
+            <div class="progress">
+              <div class="progress-fill" style="width: 25%"></div>
+            </div>
+            <div class="meta">
+              <span>PROGRESSO DO CURSO</span>
+              <span>25,0% CONCLUÍDO</span>
+            </div>
+            <div class="meta meta--bottom">
+              <span class="truncate">INSTITUIÇÃO: DESCOMPLICA</span>
+              <span class="strong">STATUS: EM ANDAMENTO</span>
+            </div>
+          </div>
+
+          <div class="quote-box">
+            <div class="quote-icon">”</div>
+            <div>
+              <p class="quote-text">“A simplicidade é pré-requisito para confiabilidade.”</p>
+              <p class="quote-author">— EDSGER W. DIJKSTRA</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="column-label">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            <span>OBJETIVOS PROFISSIONAIS</span>
+          </div>
+
+          <div class="card accreditations">
+            <div class="accreditation">
+              <div class="accreditation-row">
+                <div>
+                  <span class="accreditation-kind">DESIGN DE SISTEMAS</span>
+                  <h4>Projetar sistemas confiáveis e escaláveis</h4>
+                </div>
+              </div>
+              <p class="accreditation-id">CONSTRUINDO UMA BASE SÓLIDA EM SISTEMAS DISTRIBUÍDOS</p>
+            </div>
+
+            <div class="accreditation">
+              <div class="accreditation-row">
+                <div>
+                  <span class="accreditation-kind">NUVEM &amp; INFRAESTRUTURA</span>
+                  <h4>Ampliar as habilidades práticas em engenharia em nuvem</h4>
+                </div>
+              </div>
+              <p class="accreditation-id">APRENDENDO A IMPLANTAR E OPERAR SERVIÇOS PRONTOS PARA PRODUÇÃO</p>
+            </div>
+
+            <div class="accreditation">
+              <div class="accreditation-row">
+                <div>
+                  <span class="accreditation-kind">ENGENHARIA DE SOFTWARE</span>
+                  <h4>Continuar melhorando por meio de projetos práticos</h4>
+                </div>
+              </div>
+              <p class="accreditation-id">FOCANDO EM CÓDIGO LIMPO, TESTES E APRENDIZADO CONTÍNUO</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <dialog id="modal-moviematch" class="modal" closedby="any" aria-labelledby="modal-moviematch-title">
+    <header class="modal-header">
+      <div>
+        <span class="modal-eyebrow">ARQUITETURA E CÓDIGO</span>
+        <h2 id="modal-moviematch-title" class="modal-title">MovieMatch</h2>
+      </div>
+      <button type="button" class="modal-close" command="close" commandfor="modal-moviematch" aria-label="Fechar">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </header>
+    <div class="modal-body" data-purpose="modal-content">
+      <figure class="modal-architecture">
+        <img
+          src="examples/moviematch_arquitetura.svg"
+          alt="Diagrama da arquitetura do projeto MovieMatch"
+          loading="lazy"
+        />
+        <figcaption>Arquitetura do projeto MovieMatch</figcaption>
+      </figure>
+    </div>
+    <footer class="modal-footer" aria-label="Repositório do projeto">
+      <a href="https://github.com/LuizHenri16/Moviematch-APP" target="_blank" rel="noopener noreferrer">
+        GitHub — MovieMatch
+      </a>
+    </footer>
+  </dialog>
+
+  <dialog id="modal-ciencia-da-lua" class="modal" closedby="any" aria-labelledby="modal-ciencia-da-lua-title">
+    <header class="modal-header">
+      <div>
+        <span class="modal-eyebrow">ARQUITETURA E CÓDIGO</span>
+        <h2 id="modal-ciencia-da-lua-title" class="modal-title">A Ciência da Lua</h2>
+      </div>
+      <button type="button" class="modal-close" command="close" commandfor="modal-ciencia-da-lua" aria-label="Fechar">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </header>
+    <div class="modal-body" data-purpose="modal-content">
+      <figure class="modal-architecture">
+        <img
+          src="examples/acienciadalua_simples.svg"
+          alt="Diagrama da arquitetura do projeto A Ciência da Lua"
+          loading="lazy"
+        />
+        <figcaption>Arquitetura do projeto A Ciência da Lua</figcaption>
+      </figure>
+    </div>
+    <footer class="modal-footer" aria-label="Repositórios do projeto">
+      <a href="https://github.com/LuizHenri16/acienciadalua_frontend" target="_blank" rel="noopener noreferrer">
+        GitHub — Frontend
+      </a>
+      <a href="https://github.com/LuizHenri16/acienciadalua_backend" target="_blank" rel="noopener noreferrer">
+        GitHub — Backend
+      </a>
+    </footer>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>

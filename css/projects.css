@@ -1,0 +1,60 @@
+/* ---------- Projetos ---------- */
+.projects {
+    margin-bottom: 6rem;
+}
+
+.projects .section-title {
+    margin-bottom: 2.5rem;
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.project:last-child {
+    padding-bottom: 0.5rem;
+}
+
+.project-info {
+    max-width: 36rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.project-info h3 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--n-950);
+}
+
+.project-desc {
+    font-size: 0.75rem;
+    line-height: 1.625;
+    color: var(--n-600);
+}
+
+.project-stack {
+    padding-top: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--n-400);
+}
+
+.project-action {
+    flex-shrink: 0;
+    padding-top: 0.25rem;
+}
+

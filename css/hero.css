@@ -1,0 +1,41 @@
+.hero {
+    margin-top: 8rem;
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+.hero-title-row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    user-select: none;
+}
+
+.hero-brace {
+    font-size: 7.8rem;
+    font-weight: 200;
+    line-height: 0.9;
+    color: var(--brace);
+    transform: scaleY(1.1) translateY(-0.25rem);
+}
+
+.hero-title {
+    padding-inline: 0.25rem;
+    font-size: 5.2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.hero-subtitle {
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 14.3px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--n-500);
+}
+
