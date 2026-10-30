@@ -1,121 +1,94 @@
-/* ---------- 1) Entrada (ao carregar) ---------- */
 @keyframes hero-brace-in {
-    from {
-        opacity: 0;
-        scale: 0.5;
-        filter: blur(6px);
-    }
+from { opacity: 0;
+scale: 0.5;
+filter: blur(6px);
+}
 }
 
 @keyframes hero-text-in {
-    from {
-        opacity: 0;
-        translate: 0 1.25rem;
-        filter: blur(10px);
-    }
+from { opacity: 0;
+translate: 0 1.25rem;
+filter: blur(10px);
+}
 }
 
-.hero-brace {
-    animation: hero-brace-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
+.hero-brace { animation: hero-brace-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) both }
 
-.hero-intro-name {
-    animation: hero-text-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
-}
+.hero-intro-name { animation: hero-text-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both; }
 
 .hero-intro-sub {
-    animation: hero-text-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.65s both;
+animation: hero-text-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.65s both;
 }
 
-/* ---------- 2) Scroll-driven (vai e volta sozinha) ---------- */
 @keyframes hero-brace-out-left {
-    to {
-        translate: -60vw 0;
-    }
+to { translate: -60vw 0; }
 }
 
 @keyframes hero-brace-out-right {
-    to {
-        translate: 60vw 0;
-    }
+to { translate: 60vw 0; }
 }
 
 @keyframes hero-lift-name {
-    to {
-        translate: 0 -140px;
-        opacity: 0;
-    }
+to { translate: 0 -140px; opacity: 0; }
 }
 
 @keyframes hero-lift-sub {
-    to {
-        translate: 0 -100px;
-        opacity: 0;
-    }
+to { translate: 0 -100px; opacity: 0; }
 }
 
 @supports (animation-timeline: scroll()) {
-    .hero-scroll {
-        animation-duration: 1ms;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: both;
-        animation-timeline: scroll(root block);
-        animation-range: 0px 55vh;
-    }
-
-    .hero-scroll-name {
-        animation-name: hero-lift-name;
-    }
-
-    .hero-scroll-sub {
-        animation-name: hero-lift-sub;
-    }
-
-    .hero-brace-left,
-    .hero-brace-right {
-        animation-duration: 1.2s, 1ms;
-        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1), ease-in-out;
-        animation-timeline: auto, scroll(root block);
-        animation-range: normal, 0px 55vh;
-    }
-
-    .hero-brace-left {
-        animation-name: hero-brace-in, hero-brace-out-left;
-    }
-
-    .hero-brace-right {
-        animation-name: hero-brace-in, hero-brace-out-right;
-    }
+.hero-scroll {
+animation-duration: 1ms;
+animation-timing-function: ease-in-out;
+animation-fill-mode: both;
+animation-timeline: scroll(root block);
+animation-range: 0px 55vh;
 }
+
+.hero-scroll-name {
+animation-name: hero-lift-name;
+}
+
+.hero-scroll-sub {
+animation-name: hero-lift-sub;
+}
+
+.hero-brace-left, .hero-brace-right {
+animation-duration: 1.2s, 1ms;
+animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1), ease-in-out;
+animation-timeline: auto, scroll(root block);
+animation-range: normal, 0px 55vh;
+}
+
+.hero-brace-left { animation-name: hero-brace-in, hero-brace-out-left; }
+
+.hero-brace-right { animation-name: hero-brace-in, hero-brace-out-right; }
+}
+
 @supports not (animation-timeline: scroll()) {
-    .hero-brace-left {
-        translate: calc(var(--hero-p, 0) * -60vw) 0;
-    }
+.hero-brace-left { translate: calc(var(--hero-p, 0) * -60vw) 0;}
 
-    .hero-brace-right {
-        translate: calc(var(--hero-p, 0) * 60vw) 0;
-    }
+.hero-brace-right { translate: calc(var(--hero-p, 0) * 60vw) 0; }
 
-    .hero-scroll-name {
-        translate: 0 calc(var(--hero-p, 0) * -140px);
-        opacity: calc(1 - var(--hero-p, 0));
-    }
+.hero-scroll-name {
+translate: 0 calc(var(--hero-p, 0) * -140px);
+opacity: calc(1 - var(--hero-p, 0));
+}
 
-    .hero-scroll-sub {
-        translate: 0 calc(var(--hero-p, 0) * -100px);
-        opacity: calc(1 - var(--hero-p, 0));
-    }
+.hero-scroll-sub {
+translate: 0 calc(var(--hero-p, 0) * -100px);
+opacity: calc(1 - var(--hero-p, 0));
+}
 }
 
 @media (prefers-reduced-motion: reduce) {
-
-    .hero-brace,
-    .hero-intro,
-    .hero-scroll {
-        animation: none !important;
-        translate: none !important;
-        opacity: 1 !important;
-        filter: none !important;
-    }
+.hero-brace,
+.hero-intro,
+.hero-scroll {
+animation: none !important;
+translate: none !important;
+opacity: 1 !important;
+filter: none !important;
+}
 }
 

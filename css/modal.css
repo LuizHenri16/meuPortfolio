@@ -1,192 +1,480 @@
 body:has(dialog[open]) {
-    overflow: hidden;
+overflow: hidden;
 }
 
 dialog.modal {
-    padding: 0;
-    border: 1px solid var(--border);
-    border-radius: 1.25rem;
-    background: var(--white);
-    color: #111111;
-    box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.25);
+padding: 0;
+border: 1px solid var(--border);
+border-radius: 1.25rem;
+background: var(--white);
+color: #111111;
+box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.25);
 
-    width: min(52rem, calc(100% - 2rem));
-    max-height: min(46rem, calc(100dvh - 2rem));
-    overflow: hidden;
-    overscroll-behavior: contain;
+width: min(52rem, calc(100% - 2rem));
+max-height: min(46rem, calc(100dvh - 2rem));
+overflow: hidden;
+overscroll-behavior: contain;
 
-    opacity: 0;
-    translate: 0 1.25rem;
-    scale: 0.98;
-    transition:
-        opacity 0.25s ease,
-        translate 0.25s ease,
-        scale 0.25s ease,
-        overlay 0.25s allow-discrete,
-        display 0.25s allow-discrete;
+opacity: 0;
+translate: 0 1.25rem;
+scale: 0.98;
+transition:
+opacity 0.25s ease,
+translate 0.25s ease,
+scale 0.25s ease,
+overlay 0.25s allow-discrete,
+display 0.25s allow-discrete;
+}
+
+#modal-ciencia-da-lua {
+width: min(68rem, calc(100% - 2rem));
+max-height: min(54rem, calc(100dvh - 2rem));
 }
 
 dialog.modal[open] {
-    opacity: 1;
-    translate: 0 0;
-    scale: 1;
-    display: flex;
-    flex-direction: column;
+opacity: 1;
+translate: 0 0;
+scale: 1;
+display: flex;
+flex-direction: column;
 }
 
 @starting-style {
-    dialog.modal[open] {
-        opacity: 0;
-        translate: 0 1.25rem;
-        scale: 0.98;
-    }
+dialog.modal[open] {
+opacity: 0;
+translate: 0 1.25rem;
+scale: 0.98;
+}
 }
 
 dialog.modal::backdrop {
-    background: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(0);
-    transition:
-        background 0.25s ease,
-        backdrop-filter 0.25s ease,
-        overlay 0.25s allow-discrete,
-        display 0.25s allow-discrete;
+background: rgba(0, 0, 0, 0);
+backdrop-filter: blur(0);
+transition:
+background 0.25s ease,
+backdrop-filter 0.25s ease,
+overlay 0.25s allow-discrete,
+display 0.25s allow-discrete;
 }
 
 dialog.modal[open]::backdrop {
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(4px);
+background: rgba(0, 0, 0, 0.45);
+backdrop-filter: blur(4px);
 }
 
 @starting-style {
-    dialog.modal[open]::backdrop {
-        background: rgba(0, 0, 0, 0);
-        backdrop-filter: blur(0);
-    }
+dialog.modal[open]::backdrop {
+background: rgba(0, 0, 0, 0);
+backdrop-filter: blur(0);
+}
 }
 
 @media (prefers-reduced-motion: reduce) {
 
-    dialog.modal,
-    dialog.modal::backdrop {
-        transition: none;
-    }
+dialog.modal,
+dialog.modal::backdrop {
+transition: none;
+}
 }
 
-/* Conteúdo do modal */
 .modal-header {
-    flex-shrink: 0;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid var(--n-100);
+flex-shrink: 0;
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+gap: 1rem;
+padding: 1.25rem 1.5rem;
+border-bottom: 1px solid var(--n-100);
 }
 
 .modal-eyebrow {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--n-400);
+display: block;
+font-family: var(--font-mono);
+font-size: 13px;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+color: var(--n-400);
 }
 
 .modal-title {
-    margin-top: 0.125rem;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    color: var(--n-950);
+margin-top: 0.125rem;
+font-size: 1.4625rem;
+line-height: 2.275rem;
+font-weight: 700;
+letter-spacing: -0.025em;
+color: var(--n-950);
 }
 
 .modal-close {
-    flex-shrink: 0;
-    width: 2rem;
-    height: 2rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    color: var(--n-500);
-    transition: background-color 150ms ease, color 150ms ease;
+flex-shrink: 0;
+width: 2rem;
+height: 2rem;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 9999px;
+color: var(--n-500);
+transition: background-color 150ms ease, color 150ms ease;
 }
 
 .modal-close:hover {
-    background: var(--n-100);
-    color: var(--black);
+background: var(--n-100);
+color: var(--black);
 }
 
 .modal-close svg {
-    width: 1rem;
-    height: 1rem;
+width: 1rem;
+height: 1rem;
 }
 
 .modal-body {
-    flex: 1;
-    overflow-y: auto;
-    padding: 1.5rem;
+flex: 1;
+overflow-y: auto;
+padding: 1.5rem;
+}
+
+.runtime-dashboard {
+margin-bottom: 1.5rem;
+padding: 1rem;
+border: 1px solid var(--n-200);
+border-radius: 0.875rem;
+background: #fafafa;
+}
+
+.runtime-dashboard__header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 0.75rem;
+margin-bottom: 0.9rem;
+}
+
+.runtime-dashboard__eyebrow {
+margin-bottom: 0.15rem;
+color: var(--n-500);
+font-family: var(--font-mono);
+font-size: 0.6rem;
+font-weight: 600;
+letter-spacing: 0.08em;
+}
+
+.runtime-dashboard__header h3 {
+color: var(--n-950);
+font-size: 1rem;
+line-height: 1.4;
+font-weight: 700;
+}
+
+.runtime-dashboard__capacity {
+display: grid;
+gap: 0.1rem;
+flex-shrink: 0;
+text-align: right;
+}
+
+.runtime-dashboard__capacity > span,
+.runtime-dashboard__capacity small {
+color: var(--n-500);
+font-family: var(--font-mono);
+font-size: 0.55rem;
+}
+
+.runtime-dashboard__capacity strong {
+display: flex;
+justify-content: flex-end;
+gap: 0.3rem;
+color: var(--n-700);
+font-family: var(--font-mono);
+font-size: 0.75rem;
+}
+
+.runtime-dashboard__capacity strong span:last-child {
+color: #24804a;
+}
+
+.runtime-dashboard__grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 0.6rem;
+}
+
+.runtime-card {
+min-width: 0;
+padding: 0.65rem;
+border: 1px solid var(--n-200);
+border-radius: 0.65rem;
+background: var(--white);
+}
+
+.runtime-card__header {
+margin-bottom: 0.45rem;
+}
+
+.runtime-card__header h4 {
+color: var(--n-900);
+font-size: 0.78rem;
+font-weight: 700;
+}
+
+.runtime-card__comparison {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 0.45rem;
+}
+
+.runtime-card__state {
+min-width: 0;
+padding: 0.45rem;
+border-radius: 0.45rem;
+}
+
+.runtime-card__state--before {
+background: #fff3f2;
+}
+
+.runtime-card__state--optimized {
+background: #f0f8f2;
+}
+
+.runtime-card__state h5 {
+margin-bottom: 0.4rem;
+color: #b33b35;
+font-family: var(--font-mono);
+font-size: 0.55rem;
+font-weight: 600;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+}
+
+.runtime-card__state--optimized h5 {
+color: #287c49;
+}
+
+.runtime-card__metric + .runtime-card__metric {
+margin-top: 0.4rem;
+}
+
+.runtime-card__metric-label {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: baseline;
+gap: 0.1rem 0.2rem;
+color: var(--n-600);
+font-size: 0.55rem;
+line-height: 1.2;
+}
+
+.runtime-card__metric-label strong {
+color: var(--n-800);
+font-family: var(--font-mono);
+font-size: 0.53rem;
+font-weight: 600;
+overflow-wrap: anywhere;
+text-align: right;
+}
+
+.runtime-card__metric-label strong span {
+color: var(--n-500);
+font-weight: 400;
+}
+
+.runtime-card__track {
+height: 0.25rem;
+margin-top: 0.22rem;
+overflow: hidden;
+border-radius: 999px;
+background: rgba(23, 23, 23, 0.08);
+}
+
+.runtime-card__track span {
+display: block;
+height: 100%;
+border-radius: inherit;
+}
+
+.runtime-card__state--before .runtime-card__track span {
+background: #d65b54;
+}
+
+.runtime-card__state--optimized .runtime-card__track span {
+background: #43a467;
+}
+
+.runtime-card__track--unknown {
+background: repeating-linear-gradient(135deg, #dedede 0 2px, transparent 2px 4px);
+}
+
+.runtime-dashboard__note {
+margin-top: 0.6rem;
+color: var(--n-500);
+font-size: 1rem;
+line-height: 1.45;
 }
 
 .modal-architecture {
-    margin: 0;
+margin: 0;
 }
 
 .modal-architecture img {
-    display: block;
-    width: 100%;
-    height: auto;
+display: block;
+width: 100%;
+height: auto;
 }
 
 .modal-architecture figcaption {
-    margin-top: 0.75rem;
-    color: var(--n-500);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+margin-top: 0.75rem;
+color: var(--n-500);
+font-family: var(--font-mono);
+font-size: 0.975rem;
 }
 
 .modal-footer {
-    flex-shrink: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    padding: 1rem 1.5rem;
-    border-top: 1px solid var(--n-100);
+flex-shrink: 0;
+display: flex;
+flex-wrap: wrap;
+gap: 0.75rem;
+padding: 1rem 1.5rem;
+border-top: 1px solid var(--n-100);
 }
 
 .modal-footer a {
-    color: var(--n-700);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
+color: var(--n-700);
+font-family: var(--font-mono);
+font-size: 0.975rem;
+font-weight: 600;
+text-decoration: underline;
+text-underline-offset: 0.2em;
 }
 
 .modal-footer a:hover {
-    color: var(--black);
+color: var(--black);
 }
 
 .modal-footer a:focus-visible {
-    outline: 2px solid var(--n-700);
-    outline-offset: 3px;
+outline: 2px solid var(--n-700);
+outline-offset: 3px;
 }
 
 @media (min-width: 640px) {
-    .modal-header {
-        padding-inline: 2rem;
-    }
+.modal-header {
+padding-inline: 2rem;
+}
 
-    .modal-title {
-        font-size: 1.25rem;
-    }
+.modal-title {
+font-size: 1.625rem;
+}
 
-    .modal-body {
-        padding: 1.5rem 2rem;
-    }
+.modal-body {
+padding: 1.5rem 2rem;
+}
 
-    .modal-footer {
-        padding-inline: 2rem;
-    }
+.runtime-dashboard {
+padding: 1.1rem;
+}
+
+.modal-footer {
+padding-inline: 2rem;
+}
+}
+
+@media (min-width: 768px) {
+#modal-ciencia-da-lua .modal-body {
+padding: 2rem 2.5rem;
+}
+
+.runtime-dashboard {
+padding: 1.35rem;
+}
+
+.runtime-dashboard__grid {
+gap: 0.85rem;
+}
+
+.runtime-card {
+padding: 0.85rem;
+}
+
+.runtime-card__header h4 {
+font-size: 0.9rem;
+}
+
+.runtime-card__comparison {
+gap: 0.6rem;
+}
+
+.runtime-card__state {
+padding: 0.75rem;
+}
+
+.runtime-card__state h5 {
+font-size: 0.68rem;
+}
+
+.runtime-card__metric-label {
+font-size: 0.72rem;
+}
+
+.runtime-card__metric-label strong {
+font-size: 0.68rem;
+}
+
+.runtime-card__track {
+height: 0.35rem;
+margin-top: 0.35rem;
+}
+}
+
+@media (max-width: 520px) {
+#modal-ciencia-da-lua {
+position: fixed;
+inset: 0;
+width: 100vw;
+height: 100vh;
+height: 100dvh;
+max-height: 100vh;
+max-height: 100dvh;
+max-width: none;
+margin: 0;
+border: 0;
+border-radius: 0;
+}
+
+.runtime-dashboard__header {
+align-items: stretch;
+flex-direction: column;
+}
+
+.runtime-dashboard__capacity {
+text-align: left;
+}
+
+.runtime-dashboard__capacity strong {
+justify-content: flex-start;
+}
+
+.runtime-dashboard__grid {
+grid-template-columns: 1fr;
+}
+
+.runtime-card__comparison {
+grid-template-columns: 1fr;
+gap: 0.5rem;
+}
+
+.runtime-card__state {
+padding: 0.6rem;
+}
+
+.runtime-card__state h5 {
+margin-bottom: 0.3rem;
+}
+
+.runtime-card__metric-label {
+font-size: 0.62rem;
+}
+
+.runtime-card__metric-label strong {
+font-size: 0.6rem;
+}
 }

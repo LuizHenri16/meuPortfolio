@@ -1,6 +1,4 @@
  (function () {
-    // Invoker Commands: abre/fecha o dialog via atributos HTML, sem JS.
-    // Se o navegador não suportar, replicamos o comportamento.
     if (!('commandForElement' in HTMLButtonElement.prototype)) {
       document.addEventListener('click', function (e) {
         var btn = e.target.closest('button[commandfor]');

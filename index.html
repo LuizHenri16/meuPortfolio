@@ -6,48 +6,41 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Luiz Henrique | Engenheiro de Software</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description"
+    content="Portfólio de Luiz Henrique, engenheiro de software com foco em sistemas escaláveis, desempenho e arquitetura limpa." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Luiz Henrique | Engenheiro de Software" />
+  <meta property="og:description"
+    content="Conheça os projetos, a experiência e os objetivos de Luiz Henrique em engenharia de software." />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link rel="stylesheet" href="style.css" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
     rel="stylesheet" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-          colors: {
-            surface: '#fcfcfc',
-            subtle: '#888888',
-            faint: '#eaeaea',
-          }
-        }
-      }
-    }
-  </script>
 </head>
 
-<body class="min-h-screen bg-white text-[#111111] antialiased selection:bg-black selection:text-white pb-32">
+<body>
   <div class="container">
 
-    <header class="hero" data-purpose="hero-header">
+    <header class="hero">
       <div class="hero-title-row">
-        <span class="hero-brace hero-brace-left">{</span>
+        <span class="hero-brace hero-brace-left" aria-hidden="true">{</span>
         <div class="hero-scroll hero-scroll-name">
           <h1 class="hero-title hero-intro hero-intro-name">LUIZ HENRIQUE</h1>
         </div>
-        <span class="hero-brace hero-brace-right">}</span>
+        <span class="hero-brace hero-brace-right" aria-hidden="true">}</span>
       </div>
       <div class="hero-scroll hero-scroll-sub">
         <p class="hero-subtitle hero-intro hero-intro-sub">ENGENHEIRO DE SOFTWARE / ARQUITETO DE SISTEMAS</p>
       </div>
     </header>
 
-    <section class="philosophy" data-purpose="philosophy-statement">
+    <main>
+    <section class="philosophy">
       <h2 class="headline">
         Construindo sistemas escaláveis com foco em alto desempenho e arquitetura limpa.
       </h2>
@@ -80,7 +73,7 @@
       </div>
     </section>
 
-    <section class="projects" data-purpose="projects-list">
+    <section class="projects">
       <h2 class="section-title">Projetos</h2>
 
       <div class="project-list">
@@ -95,19 +88,12 @@
           </div>
           <div class="project-action">
             <button type="button" command="show-modal" commandfor="modal-ciencia-da-lua" class="project-button">
-              <div class="project-button__top">
-                <div class="project-button__surface project-button__surface--action">
-                  <span class="project-button__text">ARQUITETURA E CÓDIGO</span>
-                  <div class="project-button__icon">
-                    <svg class="project-button__icon-svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z">
-                      </path>
-                    </svg>
-                  </div>
-                  <div class="project-button__overlay"></div>
-                </div>
-              </div>
+              ARQUITETURA E CÓDIGO
+              <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path
+                  d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z">
+                </path>
+              </svg>
             </button>
           </div>
         </article>
@@ -122,40 +108,33 @@
           </div>
           <div class="project-action">
             <button type="button" command="show-modal" commandfor="modal-moviematch" class="project-button">
-              <div class="project-button__top">
-                <div class="project-button__surface project-button__surface--action">
-                  <span class="project-button__text">ARQUITETURA E CÓDIGO</span>
-                  <div class="project-button__icon">
-                    <svg class="project-button__icon-svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z">
-                      </path>
-                    </svg>
-                  </div>
-                  <div class="project-button__overlay"></div>
-                </div>
-              </div>
+              ARQUITETURA E CÓDIGO
+              <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path
+                  d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z">
+                </path>
+              </svg>
             </button>
           </div>
         </article>
 
       </div>
     </section>
-    <section class="framework" data-purpose="pedagogical-framework">
+    <section class="framework">
       <h2 class="section-title">Educação</h2>
       <div class="framework-grid">
         <div class="column">
-          <div class="column-label">
+          <h3 class="column-label">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
             <span>PROGRESSÃO CURRICULAR</span>
-          </div>
+          </h3>
 
           <div class="card academic-card">
-            <h3>Técnico em Desenvolvimento de Sistemas</h3>
+            <h4>Técnico em Desenvolvimento de Sistemas</h4>
             <div class="progress">
               <div class="progress-fill" style="width: 100%"></div>
             </div>
@@ -170,7 +149,7 @@
           </div>
 
           <div class="card academic-card">
-            <h3>Bacharelado em Engenharia de Software</h3>
+            <h4>Bacharelado em Engenharia de Software</h4>
             <div class="progress">
               <div class="progress-fill" style="width: 25%"></div>
             </div>
@@ -194,14 +173,14 @@
         </div>
 
         <div class="column">
-          <div class="column-label">
+          <h3 class="column-label">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
             <span>OBJETIVOS PROFISSIONAIS</span>
-          </div>
+          </h3>
 
           <div class="card accreditations">
             <div class="accreditation">
@@ -237,6 +216,7 @@
         </div>
       </div>
     </section>
+    </main>
   </div>
 
   <dialog id="modal-moviematch" class="modal" closedby="any" aria-labelledby="modal-moviematch-title">
@@ -251,10 +231,10 @@
         </svg>
       </button>
     </header>
-    <div class="modal-body" data-purpose="modal-content">
+    <div class="modal-body">
       <figure class="modal-architecture">
         <img
-          src="examples/moviematch_arquitetura.svg"
+          src="examples/moviematch_arquitetura.webp"
           alt="Diagrama da arquitetura do projeto MovieMatch"
           loading="lazy"
         />
@@ -280,10 +260,147 @@
         </svg>
       </button>
     </header>
-    <div class="modal-body" data-purpose="modal-content">
+    <div class="modal-body">
+      <section class="runtime-dashboard" aria-labelledby="runtime-dashboard-title">
+        <header class="runtime-dashboard__header">
+          <div>
+            <p class="runtime-dashboard__eyebrow">CONSUMO EM IDLE</p>
+            <h3 id="runtime-dashboard-title">Antes e depois da otimização</h3>
+          </div>
+          <div class="runtime-dashboard__capacity" aria-label="Limite total de memória: antes 3.912 MiB, usando 978 MiB por container; depois 704 MiB somados">
+            <span>Limite total de RAM</span>
+            <strong><span>3.912 MiB</span><span aria-hidden="true">→</span><span>704 MiB</span></strong>
+            <small>978 MiB por container antes <span aria-hidden="true">·</span> otimizado</small>
+          </div>
+        </header>
+
+        <div class="runtime-dashboard__grid">
+          <article class="runtime-card" aria-label="Comparação de uso do backend">
+            <header class="runtime-card__header">
+              <h4>Backend</h4>
+            </header>
+            <div class="runtime-card__comparison">
+              <section class="runtime-card__state runtime-card__state--before" aria-label="Antes da otimização">
+                <h5>NestJS · Antes</h5>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>RAM</span><strong>~140 / 978 MiB <span>(~14,31%)</span></strong></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso estimado de memória RAM do backend antes da otimização" aria-valuemin="0" aria-valuemax="100" aria-valuenow="14.31"><span style="width: 14.31%"></span></div>
+                </div>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>CPU</span><strong>Não medido</strong></div>
+                  <div class="runtime-card__track runtime-card__track--unknown" aria-hidden="true"></div>
+                </div>
+              </section>
+              <section class="runtime-card__state runtime-card__state--optimized" aria-label="Após a otimização">
+                <h5>Go · Otimizado</h5>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>RAM</span><strong>5,434 / 128 MiB <span>(4,24%)</span></strong></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do backend otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="4.24"><span style="width: 4.24%"></span></div>
+                </div>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>CPU</span><strong>0,00%</strong></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de CPU do backend otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width: 0%"></span></div>
+                </div>
+              </section>
+            </div>
+          </article>
+
+          <article class="runtime-card" aria-label="Comparação de uso do Nginx">
+            <header class="runtime-card__header">
+              <h4>Nginx</h4>
+            </header>
+            <div class="runtime-card__comparison">
+              <section class="runtime-card__state runtime-card__state--before" aria-label="Antes da otimização, valor mantido igual ao snapshot atual">
+                <h5>Antes</h5>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>RAM</span><strong>1,207 / 978 MiB <span>(0,12%)</span></strong></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do Nginx antes da otimização" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0.12"><span style="width: 0.12%"></span></div>
+                </div>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>CPU</span><strong>Não medido</strong></div>
+                  <div class="runtime-card__track runtime-card__track--unknown" aria-hidden="true"></div>
+                </div>
+              </section>
+              <section class="runtime-card__state runtime-card__state--optimized" aria-label="Após a otimização">
+                <h5>Otimizado</h5>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>RAM</span><strong>1,207 / 32 MiB <span>(3,77%)</span></strong></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do Nginx otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="3.77"><span style="width: 3.77%"></span></div>
+                </div>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>CPU</span><strong>0,00%</strong></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de CPU do Nginx otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width: 0%"></span></div>
+                </div>
+              </section>
+            </div>
+          </article>
+
+          <article class="runtime-card" aria-label="Comparação de uso do banco de dados">
+            <header class="runtime-card__header">
+              <h4>Banco de dados</h4>
+            </header>
+            <div class="runtime-card__comparison">
+              <section class="runtime-card__state runtime-card__state--before" aria-label="Antes da otimização">
+                <h5>Antes</h5>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>RAM</span><strong>~32 / 978 MiB <span>(~3,27%)</span></strong></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso estimado de memória RAM do banco de dados antes da otimização" aria-valuemin="0" aria-valuemax="100" aria-valuenow="3.27"><span style="width: 3.27%"></span></div>
+                </div>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>CPU</span><strong>Não medido</strong></div>
+                  <div class="runtime-card__track runtime-card__track--unknown" aria-hidden="true"></div>
+                </div>
+              </section>
+              <section class="runtime-card__state runtime-card__state--optimized" aria-label="Após a otimização">
+                <h5>Otimizado</h5>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>RAM</span><strong>17,8 / 320 MiB <span>(5,56%)</span></strong></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do banco de dados otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="5.56"><span style="width: 5.56%"></span></div>
+                </div>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>CPU</span><strong>0,00%</strong></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de CPU do banco de dados otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width: 0%"></span></div>
+                </div>
+              </section>
+            </div>
+          </article>
+
+          <article class="runtime-card" aria-label="Comparação de uso do frontend">
+            <header class="runtime-card__header">
+              <h4>Frontend</h4>
+            </header>
+            <div class="runtime-card__comparison">
+              <section class="runtime-card__state runtime-card__state--before" aria-label="Antes da otimização, valor mantido igual ao snapshot atual">
+                <h5>Antes</h5>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>RAM</span><strong>85,55 / 978 MiB <span>(8,75%)</span></strong></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do frontend antes da otimização" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8.75"><span style="width: 8.75%"></span></div>
+                </div>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>CPU</span><strong>Não medido</strong></div>
+                  <div class="runtime-card__track runtime-card__track--unknown" aria-hidden="true"></div>
+                </div>
+              </section>
+              <section class="runtime-card__state runtime-card__state--optimized" aria-label="Após a otimização">
+                <h5>Otimizado</h5>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>RAM</span><strong>85,55 / 224 MiB <span>(38,19%)</span></strong></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do frontend otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38.19"><span style="width: 38.19%"></span></div>
+                </div>
+                <div class="runtime-card__metric">
+                  <div class="runtime-card__metric-label"><span>CPU</span><strong>0,00%</strong></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de CPU do frontend otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width: 0%"></span></div>
+                </div>
+              </section>
+            </div>
+          </article>
+        </div>
+        <p class="runtime-dashboard__note">Antes, cada container tinha limite de 978 MiB (3.912 MiB no total). Uso anterior do backend e banco estimado; Nginx e frontend mantidos iguais ao snapshot atual. CPU anterior não medida. Barras mostram a porcentagem do limite de RAM de cada container.</p>
+      </section>
+
       <figure class="modal-architecture">
         <img
-          src="examples/acienciadalua_simples.svg"
+          src="examples/acienciadalua_simples.webp"
           alt="Diagrama da arquitetura do projeto A Ciência da Lua"
           loading="lazy"
         />
