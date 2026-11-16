@@ -118,6 +118,26 @@
           </div>
         </article>
 
+        <article class="project">
+          <div class="project-info">
+            <h3>Pulse</h3>
+            <p class="project-desc">
+              App fitness offline-first para registrar treinos: fichas personalizáveis (Full Body, PPL, ABC, ABCD), 400+ exercícios com detalhes, execução guiada com séries/cargas/descanso, histórico separado por equipamento e visualizador 3D anatômico. Salvo localmente, sem login nem anúncios.
+            </p>
+            <p class="project-stack">Kotlin · Room · Jetpack Compose · Material 3</p>
+          </div>
+          <div class="project-action">
+            <button type="button" command="show-modal" commandfor="modal-pulse" class="project-button">
+              ARQUITETURA E CÓDIGO
+              <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path
+                  d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z">
+                </path>
+              </svg>
+            </button>
+          </div>
+        </article>
+
       </div>
     </section>
     <section class="framework">
@@ -445,6 +465,41 @@
       </a>
       <a href="https://github.com/LuizHenri16/acienciadalua_backend" target="_blank" rel="noopener noreferrer">
         GitHub — Backend
+      </a>
+    </footer>
+  </dialog>
+
+  <dialog id="modal-pulse" class="modal" closedby="any" aria-labelledby="modal-pulse-title">
+    <header class="modal-header">
+      <div>
+        <span class="modal-eyebrow">ARQUITETURA E CÓDIGO</span>
+        <h2 id="modal-pulse-title" class="modal-title">Pulse</h2>
+      </div>
+      <button type="button" class="modal-close" command="close" commandfor="modal-pulse" aria-label="Fechar">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </header>
+    <div class="modal-body">
+      <figure class="modal-architecture">
+        <img
+          src="examples/pulse_arquitetura.webp"
+          alt="Diagrama da arquitetura do projeto Pulse"
+          loading="lazy"
+        />
+        <figcaption>Arquitetura do projeto Pulse</figcaption>
+      </figure>
+    </div>
+    <footer class="modal-footer" aria-label="Links do projeto">
+      <a href="https://github.com/LuizHenri16/Pulse" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+      <a href="https://luizhenri16.github.io/Pulse/" target="_blank" rel="noopener noreferrer">
+        Site do projeto
+      </a>
+      <a href="https://www.instagram.com/pulse.app.open/" target="_blank" rel="noopener noreferrer">
+        Instagram
       </a>
     </footer>
   </dialog>
