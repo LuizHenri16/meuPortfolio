@@ -40,8 +40,8 @@ color:var(--n-800);
 .card{
 border:1px solid var(--border);
 border-radius:1rem;
-background:var(--white);
-box-shadow:0 1px 3px rgba(0,0,0,0.02);
+background:var(--surface);
+box-shadow:var(--shadow-card);
 }
 
 .academic-card{

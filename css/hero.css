@@ -1,5 +1,5 @@
 .hero{
-margin-top:clamp(3rem,12vh,8rem);
+margin-top:clamp(4.25rem,12vh,8rem);
 margin-bottom:clamp(2.5rem,8vh,5rem);
 text-align:center;
 }

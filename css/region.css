@@ -1,0 +1,218 @@
+.region {
+  margin-top: clamp(4.5rem, 10vw, 8rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.region-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+  padding-top: 0.5rem;
+}
+
+.map-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.map-card__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid var(--n-100);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--n-500);
+}
+
+.map-card__coords {
+  font-variant-numeric: tabular-nums;
+  color: var(--n-700);
+}
+
+.map-canvas {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.75rem;
+}
+
+.brazil-map {
+  width: 100%;
+  max-width: 26rem;
+  height: auto;
+  overflow: visible;
+}
+
+.brazil-map__grid line {
+  stroke: var(--n-100);
+  stroke-width: 1;
+}
+
+.brazil-map__land {
+  fill: var(--surface-subtle);
+  stroke: var(--n-400);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.brazil-map__route {
+  fill: none;
+  stroke: var(--n-400);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+  opacity: 0.75;
+}
+
+.map-pin {
+  cursor: pointer;
+  outline: none;
+}
+
+.map-pin__ring {
+  fill: none;
+  stroke: var(--black);
+  stroke-width: 1.5;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0.7);
+  transition: opacity 180ms ease, transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.map-pin__dot {
+  fill: var(--surface);
+  stroke: var(--n-700);
+  stroke-width: 2;
+  transition: fill 160ms ease, stroke 160ms ease;
+}
+
+.map-pin__label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--n-500);
+  transition: fill 160ms ease;
+}
+
+.map-pin:hover .map-pin__dot,
+.map-pin:focus-visible .map-pin__dot {
+  stroke: var(--black);
+}
+
+.map-pin:focus-visible .map-pin__ring {
+  opacity: 0.45;
+  transform: scale(1);
+}
+
+.map-pin.is-active .map-pin__ring {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.map-pin.is-active .map-pin__dot {
+  fill: var(--black);
+  stroke: var(--black);
+}
+
+.map-pin.is-active .map-pin__label {
+  fill: var(--n-950);
+}
+
+.locations-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.location-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.location-list li {
+  flex: 1;
+  display: flex;
+}
+
+.location-list li + li {
+  border-top: 1px solid var(--n-100);
+}
+
+.location-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1.35rem 1.5rem;
+  text-align: left;
+  transition: background-color 160ms ease;
+}
+
+.location-item:hover {
+  background: var(--surface-subtle);
+}
+
+.location-item.is-active {
+  background: var(--surface-subtle);
+}
+
+.location-item:focus-visible {
+  outline: 2px solid var(--n-700);
+  outline-offset: -2px;
+}
+
+.location-item__eyebrow {
+  font-family: var(--font-mono);
+  font-size: clamp(0.62rem, 1.4vw, 0.78rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--n-400);
+}
+
+.location-item.is-active .location-item__eyebrow {
+  color: var(--n-700);
+}
+
+.location-item__title {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--n-950);
+}
+
+.location-item__desc {
+  font-size: 0.925rem;
+  line-height: 1.5;
+  color: var(--n-600);
+}
+
+@media (min-width: 768px) {
+  .region-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-pin__ring,
+  .map-pin__dot,
+  .map-pin__label,
+  .location-item {
+    transition: none;
+  }
+}

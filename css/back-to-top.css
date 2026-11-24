@@ -1,0 +1,64 @@
+.back-to-top {
+  position: fixed;
+  right: clamp(1.25rem, 3vw, 2rem);
+  bottom: clamp(1.25rem, 3vw, 2rem);
+  z-index: 40;
+  width: 2.875rem;
+  height: 2.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background: var(--surface);
+  color: var(--n-900);
+  box-shadow: var(--shadow-float);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 12px, 0) scale(0.92);
+  transition:
+    opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.back-to-top--visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.back-to-top--visible:hover {
+  border-color: var(--n-900);
+  background: var(--n-900);
+  color: var(--white);
+  transform: translate3d(0, -2px, 0) scale(1);
+}
+
+.back-to-top--visible:active {
+  transform: translate3d(0, 0, 0) scale(0.96);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--n-700);
+  outline-offset: 3px;
+}
+
+.back-to-top svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+body:has(dialog[open]) .back-to-top {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 12px, 0) scale(0.92);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: none;
+  }
+}

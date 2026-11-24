@@ -1,0 +1,30 @@
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 3px;
+  background: transparent;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.reading-progress__fill {
+  width: 100%;
+  height: 100%;
+  background: var(--black);
+  transform-origin: left center;
+  transform: scaleX(0);
+  will-change: transform;
+}
+
+body:has(dialog[open]) .reading-progress {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress {
+    transition: none;
+  }
+}

@@ -15,15 +15,106 @@
     content="Conheça os projetos, a experiência e os objetivos de Luiz Henrique em engenharia de software." />
   <meta name="twitter:card" content="summary" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var theme = saved === 'dark' || saved === 'light'
+          ? saved
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (e) {}
+    })();
+  </script>
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
   <link rel="stylesheet" href="style.css" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;family=Sora:wght@600;700&amp;family=Unkempt:wght@700&amp;display=swap"
     rel="stylesheet" />
 </head>
 
 <body>
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress__fill"></div>
+  </div>
+
+  <div class="floating-controls" aria-label="Controles rápidos e navegação">
+    <button
+      type="button"
+      class="theme-toggle"
+      aria-label="Alternar tema"
+      data-label="Tema escuro"
+      aria-pressed="false"
+    >
+      <svg class="theme-toggle__icon--moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+      </svg>
+      <svg class="theme-toggle__icon--sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" stroke-width="1.8"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" stroke-linecap="round" stroke-width="1.8"></path>
+      </svg>
+    </button>
+
+    <button
+      type="button"
+      class="zen-toggle"
+      aria-label="Ativar Modo Zen"
+      data-label="Modo Zen"
+      aria-pressed="false"
+    >
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+      </svg>
+    </button>
+
+    <span class="floating-controls__divider" aria-hidden="true"></span>
+
+    <nav class="rail-nav" aria-label="Navegação por seções">
+      <span class="rail-nav__indicator" aria-hidden="true"></span>
+      <a href="#sec-filosofia" class="rail-nav__btn" data-section="sec-filosofia" data-label="Filosofia" aria-label="Ir para Filosofia">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 6h16M4 12h12M4 18h8"></path>
+        </svg>
+      </a>
+      <a href="#sec-projetos" class="rail-nav__btn" data-section="sec-projetos" data-label="Projetos" aria-label="Ir para Projetos">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="4" width="7" height="7" rx="1.5"></rect>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+        </svg>
+      </a>
+      <a href="#sec-educacao" class="rail-nav__btn" data-section="sec-educacao" data-label="Educação" aria-label="Ir para Educação">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+      </a>
+      <a href="#sec-competencias" class="rail-nav__btn" data-section="sec-competencias" data-label="Competências" aria-label="Ir para Competências Técnicas">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+      </a>
+      <a href="#sec-curriculo" class="rail-nav__btn" data-section="sec-curriculo" data-label="Currículo" aria-label="Ir para Currículo">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="8" y1="13" x2="16" y2="13"></line>
+          <line x1="8" y1="17" x2="13" y2="17"></line>
+        </svg>
+      </a>
+      <a href="#sec-localizacao" class="rail-nav__btn" data-section="sec-localizacao" data-label="Localização" aria-label="Ir para Localização e Jornada">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+      </a>
+    </nav>
+  </div>
+
   <div class="container">
 
     <header class="hero">
@@ -40,7 +131,7 @@
     </header>
 
     <main>
-    <section class="philosophy">
+    <section id="sec-filosofia" class="philosophy" data-zen-reading>
       <h2 class="headline">
         Construindo sistemas escaláveis com foco em alto desempenho e arquitetura limpa.
       </h2>
@@ -73,14 +164,87 @@
       </div>
     </section>
 
-    <section class="projects">
-      <h2 class="section-title">Projetos</h2>
+    <section id="sec-projetos" class="projects" data-zen-reading>
+      <div class="projects-header">
+        <h2 class="section-title">Projetos</h2>
+        <div class="project-search" role="search">
+          <svg class="project-search__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" stroke-width="1.8"></circle>
+            <path d="m20 20-3.5-3.5" stroke-linecap="round" stroke-width="1.8"></path>
+          </svg>
+          <input
+            id="project-search"
+            class="project-search__input"
+            type="search"
+            placeholder="Filtrar por nome ou stack..."
+            aria-label="Filtrar projetos por nome ou tecnologias"
+            autocomplete="off"
+          />
+          <button
+            type="button"
+            class="project-search__clear"
+            aria-label="Limpar pesquisa"
+            title="Limpar pesquisa"
+            hidden
+          >
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
 
-      <div class="project-list">
+      <div class="projects-toolbar">
+        <div class="projects-tabs" role="tablist" aria-label="Selecionar projeto">
+          <button type="button" class="project-tab is-active" role="tab" aria-selected="true" data-project-index="0">
+            <span class="project-tab__num" aria-hidden="true">01</span>
+            <span>A Ciência da Lua</span>
+          </button>
+          <button type="button" class="project-tab" role="tab" aria-selected="false" data-project-index="1">
+            <span class="project-tab__num" aria-hidden="true">02</span>
+            <span>MovieMatch</span>
+          </button>
+          <button type="button" class="project-tab" role="tab" aria-selected="false" data-project-index="2">
+            <span class="project-tab__num" aria-hidden="true">03</span>
+            <span>Pulse</span>
+          </button>
+        </div>
 
-        <article class="project">
+        <div class="projects-nav" aria-label="Navegação entre projetos">
+          <button type="button" class="projects-nav__btn projects-nav__prev" aria-label="Projeto anterior" title="Projeto anterior" disabled>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+          <span class="projects-counter" aria-live="polite">01 / 03</span>
+          <button type="button" class="projects-nav__btn projects-nav__next" aria-label="Próximo projeto" title="Próximo projeto">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="project-list" aria-label="Vitrine horizontal de projetos">
+
+        <article class="project project--lua">
           <div class="project-info">
-            <h3>A Ciência da Lua</h3>
+            <header class="project-brand">
+              <div class="project-brand__mark project-brand__mark--lua">
+                <img
+                  src="assets/lua-icon.webp"
+                  alt="Logo A Ciência da Lua"
+                  width="56"
+                  height="62"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+              <div class="project-brand__heading">
+                <h3 class="project-brand__title">A Ciência da <span class="project-brand__accent">Lua</span></h3>
+              </div>
+            </header>
             <p class="project-desc">
               Plataforma de e-commerce de materiais didáticos de Ciências criada para estudantes do Ensino Fundamental/Médio e vestibulandos e para professores que buscam materiais prontos para a sala de aula, mapas conceituais, resumos, exercícios, slides, jogos e planos de aula, todos autorais e produzidos pela Profa. Lua (UFRN).
             </p>
@@ -95,12 +259,33 @@
                 </path>
               </svg>
             </button>
+            <a class="project-site-link" href="https://acienciadalua.com.br/" target="_blank" rel="noopener noreferrer">
+              <span>Visitar aplicação</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7M7 7h10v10"></path>
+              </svg>
+            </a>
           </div>
         </article>
 
-        <article class="project">
+        <article class="project project--moviematch">
           <div class="project-info">
-            <h3>MovieMatch</h3>
+            <header class="project-brand">
+              <div class="project-brand__mark project-brand__mark--moviematch">
+                <img
+                  src="assets/moviematch-logo.webp"
+                  alt="Logo MovieMatch"
+                  width="54"
+                  height="67"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+              <div class="project-brand__heading">
+                <h3 class="project-brand__title">Movie<span class="project-brand__accent">Match</span></h3>
+              </div>
+            </header>
             <p class="project-desc">
               Aplicativo mobile MovieMatch. Feito para guardar seus filmes favoritos e avaliar junto a sua dupla.
             </p>
@@ -115,12 +300,31 @@
                 </path>
               </svg>
             </button>
+            <a class="project-site-link" href="https://luizhenri16.github.io/Moviematch-landingpage/" target="_blank" rel="noopener noreferrer">
+              <span>Visitar landing page</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7M7 7h10v10"></path>
+              </svg>
+            </a>
           </div>
         </article>
 
-        <article class="project">
+        <article class="project project--pulse">
           <div class="project-info">
-            <h3>Pulse</h3>
+            <header class="project-brand">
+              <div class="project-brand__mark project-brand__mark--pulse" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 18C10 10.5 16.5 6 32 6C49 6 56 12 56 28C56 46 47 58 29 58C15 58 8 49 8 33C8 24 10 21 10 18Z" fill="#C8F32D" />
+                  <path d="M24 46V18H35C41 18 45 21.5 45 27C45 32.5 41 36 35 36H24" stroke="#141C3A" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="project-brand__heading project-brand__heading--pulse">
+                <h3 class="project-brand__title">Pulse</h3>
+                <svg class="pulse-squiggle" viewBox="0 0 92 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M2 7.5C15 2.5 29 10.5 44 6.5C59 2.5 74 9.5 90 4.5" stroke="#FF785A" stroke-width="3.2" stroke-linecap="round" />
+                </svg>
+              </div>
+            </header>
             <p class="project-desc">
               Aplicativo fitness offline-first para registrar treinos com fichas personalizáveis (modelos Full Body, PPL, ABC, ABCD), biblioteca de 400+ exercícios com detalhes de músculos e equipamentos, execução guiada com séries/cargas/descanso, histórico de progresso separado por tipo de equipamento (barra/halter/máquina) e visualizador anatômico 3D em desenvolvimento. Tudo salvo localmente no aparelho, sem login obrigatório nem anúncios.
             </p>
@@ -135,12 +339,23 @@
                 </path>
               </svg>
             </button>
+            <a class="project-site-link" href="https://luizhenri16.github.io/Pulse/" target="_blank" rel="noopener noreferrer">
+              <span>Visitar landing page</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7M7 7h10v10"></path>
+              </svg>
+            </a>
           </div>
         </article>
 
       </div>
+
+      <div class="projects-empty" role="status" aria-live="polite" hidden>
+        <p>Nenhum projeto encontrado para <strong class="projects-empty__query"></strong>.</p>
+        <button type="button" class="projects-empty__reset">Limpar filtro</button>
+      </div>
     </section>
-    <section class="framework">
+    <section id="sec-educacao" class="framework" data-zen-reading>
       <h2 class="section-title">Educação</h2>
       <div class="framework-grid">
         <div class="column">
@@ -236,7 +451,351 @@
         </div>
       </div>
     </section>
-    <section class="cv-section" aria-labelledby="cv-title">
+    <section id="sec-competencias" class="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title" class="section-title">Competências Técnicas</h2>
+
+      <div class="skills-grid">
+        <article class="card skill-card">
+          <header class="skill-card__header">
+            <h3 class="skill-card__title">Backend</h3>
+            <span class="skill-card__index" aria-hidden="true">01</span>
+          </header>
+          <ul class="skill-badges">
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-java" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
+                  <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
+                  <path d="M6 2v3M10 2v3M14 2v3" />
+                </svg>
+                <span>Java</span>
+              </button>
+              <span id="skill-tip-java" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Intermediário</span>
+                <span class="skill-tooltip__time">2+ anos de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-spring" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2 20 6.5v11L12 22 4 17.5v-11Z" />
+                  <path d="M12 7v5M8.5 9.5a5 5 0 1 0 7 0" />
+                </svg>
+                <span>Spring Boot</span>
+              </button>
+              <span id="skill-tip-spring" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Intermediário</span>
+                <span class="skill-tooltip__time">2 anos de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-ts" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="3" />
+                  <path d="M7.5 11.5h4.5M9.75 11.5v5.5" />
+                  <path d="M16.5 12c-.5-.4-1.1-.5-1.7-.5-1 0-1.6.5-1.6 1.2 0 .8.7 1.1 1.7 1.4 1 .3 1.7.6 1.7 1.5 0 .9-.7 1.4-1.8 1.4-.7 0-1.4-.2-1.9-.6" />
+                </svg>
+                <span>TypeScript</span>
+              </button>
+              <span id="skill-tip-ts" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Avançado</span>
+                <span class="skill-tooltip__time">3 anos de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-node" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2 20.5 7v10L12 22 3.5 17V7Z" />
+                  <path d="M9.5 15V9l5 6V9" />
+                </svg>
+                <span>Node.js</span>
+              </button>
+              <span id="skill-tip-node" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Avançado</span>
+                <span class="skill-tooltip__time">3 anos de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-nest" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 4l3 3h8l3-3v8c0 5-3.2 8.5-7 10-3.8-1.5-7-5-7-10Z" />
+                  <path d="M9.5 12.5h5" />
+                </svg>
+                <span>NestJS</span>
+              </button>
+              <span id="skill-tip-nest" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Intermediário</span>
+                <span class="skill-tooltip__time">1,5 ano de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-go" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M11 8.5a4 4 0 1 0 0 7h1.5v-3.5H10" />
+                  <circle cx="17.5" cy="12" r="3.5" />
+                  <path d="M2 10h2.5M2 14h2" />
+                </svg>
+                <span>Golang</span>
+              </button>
+              <span id="skill-tip-go" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Intermediário</span>
+                <span class="skill-tooltip__time">1+ ano de uso</span>
+              </span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card skill-card">
+          <header class="skill-card__header">
+            <h3 class="skill-card__title">Frontend</h3>
+            <span class="skill-card__index" aria-hidden="true">02</span>
+          </header>
+          <ul class="skill-badges">
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-html" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 3h16l-1.5 15L12 21l-6.5-3Z" />
+                  <path d="M9.5 10 7.5 12l2 2M14.5 10l2 2-2 2" />
+                </svg>
+                <span>HTML</span>
+              </button>
+              <span id="skill-tip-html" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Avançado</span>
+                <span class="skill-tooltip__time">4 anos de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-css" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 3h16l-1.5 15L12 21l-6.5-3Z" />
+                  <path d="M8.5 9.5h7l-.5 2.5h-5.5l.3 2 2.2.7 2.2-.7.2-1" />
+                </svg>
+                <span>CSS</span>
+              </button>
+              <span id="skill-tip-css" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Avançado</span>
+                <span class="skill-tooltip__time">4 anos de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-tailwind" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6.5 9.5c1-2.5 2.8-3.5 5.5-3.5 3.6 0 4.5 2.7 6.3 3.1 1.2.3 2.2-.1 3.2-1.1-1 2.5-2.8 3.5-5.5 3.5-3.6 0-4.5-2.7-6.3-3.1-1.2-.3-2.2.1-3.2 1.1Z" />
+                  <path d="M2.5 15.5c1-2.5 2.8-3.5 5.5-3.5 3.6 0 4.5 2.7 6.3 3.1 1.2.3 2.2-.1 3.2-1.1-1 2.5-2.8 3.5-5.5 3.5-3.6 0-4.5-2.7-6.3-3.1-1.2-.3-2.2.1-3.2 1.1Z" />
+                </svg>
+                <span>Tailwind CSS</span>
+              </button>
+              <span id="skill-tip-tailwind" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Avançado</span>
+                <span class="skill-tooltip__time">2,5 anos de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-react" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true">
+                  <circle cx="12" cy="12" r="1.75" fill="currentColor" stroke="none" />
+                  <ellipse cx="12" cy="12" rx="9.5" ry="3.75" />
+                  <ellipse cx="12" cy="12" rx="9.5" ry="3.75" transform="rotate(60 12 12)" />
+                  <ellipse cx="12" cy="12" rx="9.5" ry="3.75" transform="rotate(120 12 12)" />
+                </svg>
+                <span>React</span>
+              </button>
+              <span id="skill-tip-react" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Avançado</span>
+                <span class="skill-tooltip__time">3 anos de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-next" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M9 15.5v-7l7.5 9.5M15 8.5v4" />
+                </svg>
+                <span>Next.js</span>
+              </button>
+              <span id="skill-tip-next" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Avançado</span>
+                <span class="skill-tooltip__time">2+ anos de uso</span>
+              </span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card skill-card">
+          <header class="skill-card__header">
+            <h3 class="skill-card__title">DevOps</h3>
+            <span class="skill-card__index" aria-hidden="true">03</span>
+          </header>
+          <ul class="skill-badges">
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-docker" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 13h14c.8 0 1.5-.3 2.1-.9.5.7 1.4 1 2.4.7-.3 3.7-3.4 6.2-8.5 6.2-5.4 0-9.5-2.5-10-6Z" />
+                  <path d="M6 10h2.5v3H6zM9.5 10H12v3H9.5zM13 10h2.5v3H13zM9.5 7H12v3H9.5z" />
+                </svg>
+                <span>Docker</span>
+              </button>
+              <span id="skill-tip-docker" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Intermediário</span>
+                <span class="skill-tooltip__time">2 anos de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-dockerhub" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="7" height="6" rx="1" />
+                  <rect x="14" y="4" width="7" height="6" rx="1" />
+                  <rect x="3" y="14" width="7" height="6" rx="1" />
+                  <rect x="14" y="14" width="7" height="6" rx="1" />
+                </svg>
+                <span>Docker Hub</span>
+              </button>
+              <span id="skill-tip-dockerhub" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Intermediário</span>
+                <span class="skill-tooltip__time">1,5 ano de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-gha" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="6" cy="6" r="2.5" />
+                  <circle cx="18" cy="8" r="2.5" />
+                  <circle cx="12" cy="18" r="2.5" />
+                  <path d="M8.5 6.5h7M6.8 8.4l3.8 7.4M17.2 10.4l-3.8 5.4" />
+                </svg>
+                <span>GitHub Actions</span>
+              </button>
+              <span id="skill-tip-gha" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Intermediário</span>
+                <span class="skill-tooltip__time">1,5 ano de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-linux" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="16" rx="2.5" />
+                  <path d="m7.5 10 3 2.5-3 2.5M12.5 15h4" />
+                </svg>
+                <span>Linux</span>
+              </button>
+              <span id="skill-tip-linux" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Intermediário</span>
+                <span class="skill-tooltip__time">3 anos de uso</span>
+              </span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card skill-card">
+          <header class="skill-card__header">
+            <h3 class="skill-card__title">Banco de Dados</h3>
+            <span class="skill-card__index" aria-hidden="true">04</span>
+          </header>
+          <ul class="skill-badges">
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-mysql" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <ellipse cx="12" cy="6" rx="7.5" ry="3" />
+                  <path d="M4.5 6v12c0 1.65 3.36 3 7.5 3s7.5-1.35 7.5-3V6" />
+                  <path d="M4.5 12c0 1.65 3.36 3 7.5 3s7.5-1.35 7.5-3" />
+                </svg>
+                <span>MySQL</span>
+              </button>
+              <span id="skill-tip-mysql" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Intermediário</span>
+                <span class="skill-tooltip__time">2,5 anos de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-postgres" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 10c0-3.3 2.7-6 6-6s6 2.7 6 6v4.5c0 2-1.3 3.5-3 3.5-1.4 0-2.5-.9-3-2.2-.5 1.3-1.6 2.2-3 2.2-1.7 0-3-1.5-3-3.5Z" />
+                  <path d="M12 15.8v3.7a1.5 1.5 0 0 0 3 0" />
+                  <circle cx="9.5" cy="9.5" r="0.75" fill="currentColor" stroke="none" />
+                  <circle cx="14.5" cy="9.5" r="0.75" fill="currentColor" stroke="none" />
+                </svg>
+                <span>PostgreSQL</span>
+              </button>
+              <span id="skill-tip-postgres" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Intermediário</span>
+                <span class="skill-tooltip__time">2+ anos de uso</span>
+              </span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card skill-card">
+          <header class="skill-card__header">
+            <h3 class="skill-card__title">Skills</h3>
+            <span class="skill-card__index" aria-hidden="true">05</span>
+          </header>
+          <ul class="skill-badges">
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-poo" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3 19 7v10l-7 4-7-4V7Z" />
+                  <path d="m12 12 7-4M12 12v9M12 12 5 8" />
+                </svg>
+                <span>POO</span>
+              </button>
+              <span id="skill-tip-poo" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Avançado</span>
+                <span class="skill-tooltip__time">3 anos de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-cleancode" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M8 4a2 2 0 0 0-2 2v3.5a2 2 0 0 1-2 2 2 2 0 0 1 2 2V17a2 2 0 0 0 2 2" />
+                  <path d="M16 4a2 2 0 0 1 2 2v3.5a2 2 0 0 0 2 2 2 2 0 0 0-2 2V17a2 2 0 0 1-2 2" />
+                  <path d="m10 12.2 1.4 1.4 2.8-3.2" />
+                </svg>
+                <span>Clean Code</span>
+              </button>
+              <span id="skill-tip-cleancode" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Consolidado</span>
+                <span class="skill-tooltip__time">2,5 anos de uso</span>
+              </span>
+            </li>
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-solid" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 20h16M6 20V8M10 20V8M14 20V8M18 20V8M4 8l8-4 8 4Z" />
+                </svg>
+                <span>SOLID</span>
+              </button>
+              <span id="skill-tip-solid" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Consolidado</span>
+                <span class="skill-tooltip__time">2 anos de uso</span>
+              </span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card skill-card">
+          <header class="skill-card__header">
+            <h3 class="skill-card__title">AI Agents</h3>
+            <span class="skill-card__index" aria-hidden="true">06</span>
+          </header>
+          <ul class="skill-badges">
+            <li class="skill-item">
+              <button type="button" class="skill-badge" aria-describedby="skill-tip-ai" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="7" y="7" width="10" height="10" rx="2.5" />
+                  <path d="M12 3v4M12 17v4M3 12h4M17 12h4M10.5 11.5h.01M13.5 11.5h.01M10 14.5h4" />
+                </svg>
+                <span>AI Agents Skills</span>
+              </button>
+              <span id="skill-tip-ai" class="skill-tooltip" role="tooltip">
+                <span class="skill-tooltip__level">Intermediário</span>
+                <span class="skill-tooltip__time">1+ ano de uso</span>
+              </span>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section id="sec-curriculo" class="cv-section" aria-labelledby="cv-title">
       <div class="cv-section__content">
         <p class="cv-section__eyebrow">CURRÍCULO <span aria-hidden="true">/</span> ATUALIZADO 2026</p>
         <h2 id="cv-title">Currículo detalhado.</h2>
@@ -251,6 +810,121 @@
             <path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
           </svg>
         </a>
+      </div>
+    </section>
+    <section id="sec-localizacao" class="region" aria-labelledby="region-title">
+      <h2 id="region-title" class="section-title">Localização &amp; Jornada</h2>
+
+      <div class="region-grid">
+        <div class="card map-card">
+          <div class="map-card__bar">
+            <span>BRASIL · MAPA DE ATUAÇÃO</span>
+            <span class="map-card__coords" aria-live="polite">12°53′S 38°19′W</span>
+          </div>
+
+          <div class="map-canvas">
+            <svg
+              class="brazil-map"
+              viewBox="0 0 520 500"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-labelledby="brazil-map-title brazil-map-desc"
+            >
+              <title id="brazil-map-title">Mapa estilizado do Brasil com pontos da jornada acadêmica e profissional</title>
+              <desc id="brazil-map-desc">Mapa destacando a Bahia pelos polos EAD em Lauro de Freitas (SENAC) e Salvador (Descomplica), além do Rio Grande do Norte pelo projeto A Ciência da Lua com a UFRN.</desc>
+
+              <g class="brazil-map__grid" aria-hidden="true">
+                <line x1="110" y1="20" x2="110" y2="480" />
+                <line x1="210" y1="20" x2="210" y2="480" />
+                <line x1="310" y1="20" x2="310" y2="480" />
+                <line x1="410" y1="20" x2="410" y2="480" />
+                <line x1="30" y1="100" x2="490" y2="100" />
+                <line x1="30" y1="200" x2="490" y2="200" />
+                <line x1="30" y1="300" x2="490" y2="300" />
+                <line x1="30" y1="400" x2="490" y2="400" />
+              </g>
+
+              <path
+                class="brazil-map__land"
+                d="M 286 44 L 304 74 L 318 99 L 362 118 L 389 122 L 423 131 L 458 154 L 462 178 L 452 197 L 423 234 L 416 271 L 404 314 L 373 342 L 341 355 L 318 394 L 266 461 L 227 418 L 254 371 L 242 338 L 222 300 L 221 268 L 141 209 L 96 212 L 52 173 L 92 137 L 124 77 L 134 82 L 190 33 L 201 48 L 239 66 Z"
+              />
+
+              <path class="brazil-map__route" d="M 423 234 Q 452 194 458 154" />
+
+              <g
+                class="map-pin is-active"
+                data-location="salvador"
+                data-coords="12°53′S 38°19′W"
+                role="button"
+                tabindex="0"
+                aria-pressed="true"
+                aria-label="Bahia: Polo SENAC EAD em Lauro de Freitas e polo Descomplica EAD em Salvador"
+              >
+                <circle class="map-pin__ring" cx="423" cy="234" r="14" />
+                <circle class="map-pin__dot" cx="423" cy="234" r="6" />
+                <text class="map-pin__label" x="423" y="264" text-anchor="middle">Bahia · BA</text>
+              </g>
+
+              <g
+                class="map-pin"
+                data-location="rn"
+                data-coords="05°47′S 35°12′W"
+                role="button"
+                tabindex="0"
+                aria-pressed="false"
+                aria-label="Rio Grande do Norte: Projeto em produção com a UFRN"
+              >
+                <circle class="map-pin__ring" cx="458" cy="154" r="14" />
+                <circle class="map-pin__dot" cx="458" cy="154" r="6" />
+                <text class="map-pin__label" x="475" y="158">RN</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="card locations-card">
+          <ul class="location-list">
+            <li>
+              <button
+                type="button"
+                class="location-item is-active"
+                data-location="salvador"
+                data-coords="12°53′S 38°19′W"
+                aria-pressed="true"
+              >
+                <span class="location-item__eyebrow">LAURO DE FREITAS, BA · POLO SENAC EAD (2023 – 2025)</span>
+                <span class="location-item__title">Desenvolvimento de Sistemas &amp; Base Full Stack</span>
+                <span class="location-item__desc">Formação técnica EAD concluída pelo polo de Lauro de Freitas do SENAC, com base sólida em sistemas web e distribuídos.</span>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="location-item"
+                data-location="salvador"
+                data-coords="12°58′S 38°30′W"
+                aria-pressed="false"
+              >
+                <span class="location-item__eyebrow">SALVADOR, BA · POLO DESCOMPLICA (2026 – 2030)</span>
+                <span class="location-item__title">Bacharelado em Engenharia de Software</span>
+                <span class="location-item__desc">Graduação em andamento pelo polo presente em Salvador da Faculdade Digital Descomplica com foco em arquitetura e sistemas escaláveis.</span>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="location-item"
+                data-location="rn"
+                data-coords="05°47′S 35°12′W"
+                aria-pressed="false"
+              >
+                <span class="location-item__eyebrow">RIO GRANDE DO NORTE · UFRN (2026)</span>
+                <span class="location-item__title">A Ciência da Lua — Plataforma em Produção</span>
+                <span class="location-item__desc">Arquitetura full stack e infraestrutura em VPS para materiais didáticos autorais produzidos pela Profa. Lua (UFRN).</span>
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
     </main>
@@ -281,11 +955,57 @@
     </header>
     <div class="modal-body">
       <figure class="modal-architecture">
-        <img
-          src="examples/moviematch_arquitetura.webp"
-          alt="Diagrama da arquitetura do projeto MovieMatch"
-          loading="lazy"
-        />
+        <svg viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mm-arch-title mm-arch-desc">
+          <title id="mm-arch-title">Arquitetura do projeto MovieMatch</title>
+          <desc id="mm-arch-desc">Diagrama de arquitetura do aplicativo MovieMatch em Kotlin Multiplatform e Compose integrado à TMDB API, Supabase Postgres e Login Google.</desc>
+          <defs>
+            <marker id="mm-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 1 1.5 L 8.5 5 L 1 8.5" fill="none" stroke="#525252" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </marker>
+          </defs>
+
+          <rect width="920" height="420" fill="#000000" />
+
+          <g class="arch-step arch-step--1">
+            <rect x="28" y="162" width="168" height="96" rx="16" fill="#fff0a6" />
+            <text x="112" y="204" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">Grupo de</text>
+            <text x="112" y="226" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">amigos</text>
+          </g>
+
+          <g class="arch-step arch-step--2">
+            <line x1="200" y1="210" x2="270" y2="210" stroke="#525252" stroke-width="2" marker-end="url(#mm-arrow)" />
+            <rect x="276" y="132" width="246" height="156" rx="18" fill="#b2f2bb" />
+            <text x="399" y="178" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">App mobile</text>
+            <text x="399" y="202" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="500" fill="#111111">Kotlin Multiplatform</text>
+            <text x="399" y="224" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="500" fill="#111111">+ Compose</text>
+            <text x="399" y="248" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626">(Android e iOS)</text>
+          </g>
+
+          <g class="arch-step arch-step--3">
+            <line x1="526" y1="174" x2="624" y2="84" stroke="#525252" stroke-width="2" marker-end="url(#mm-arrow)" />
+            <text x="564" y="114" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">busca</text>
+            <rect x="630" y="38" width="262" height="84" rx="16" fill="#ffc9c9" />
+            <text x="761" y="74" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">TMDB API</text>
+            <text x="761" y="97" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626">(busca de filmes)</text>
+          </g>
+
+          <g class="arch-step arch-step--4">
+            <line x1="526" y1="210" x2="624" y2="210" stroke="#525252" stroke-width="2" marker-end="url(#mm-arrow)" />
+            <text x="575" y="198" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">salva e avalia</text>
+            <rect x="630" y="164" width="262" height="92" rx="16" fill="#a5d8ff" />
+            <text x="761" y="194" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">Supabase</text>
+            <text x="761" y="216" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13.5" fill="#262626">Postgres (filmes, grupos,</text>
+            <text x="761" y="236" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13.5" fill="#262626">sessões, notas)</text>
+          </g>
+
+          <g class="arch-step arch-step--5">
+            <line x1="526" y1="246" x2="624" y2="336" stroke="#525252" stroke-width="2" marker-end="url(#mm-arrow)" />
+            <text x="564" y="308" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">entrar</text>
+            <rect x="630" y="298" width="262" height="84" rx="16" fill="#d0bfff" />
+            <text x="761" y="334" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">Login Google</text>
+            <text x="761" y="357" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626">(Supabase Auth)</text>
+          </g>
+        </svg>
         <figcaption>Arquitetura do projeto MovieMatch</figcaption>
       </figure>
     </div>
@@ -450,11 +1170,62 @@
       </section>
 
       <figure class="modal-architecture">
-        <img
-          src="examples/acienciadalua_simples.webp"
-          alt="Diagrama da arquitetura do projeto A Ciência da Lua"
-          loading="lazy"
-        />
+        <svg viewBox="0 0 920 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="acl-arch-title acl-arch-desc">
+          <title id="acl-arch-title">Arquitetura do projeto A Ciência da Lua</title>
+          <desc id="acl-arch-desc">Diagrama de arquitetura do projeto A Ciência da Lua: Frontend, Nginx proxy, API Go, PostgreSQL e integrações Mercado Pago, Resend e Arquivos.</desc>
+          <defs>
+            <marker id="acl-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 1 1.5 L 8.5 5 L 1 8.5" fill="none" stroke="#525252" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </marker>
+          </defs>
+
+          <rect width="920" height="290" fill="#000000" />
+
+          <g class="arch-step arch-step--1">
+            <rect x="24" y="26" width="168" height="88" rx="16" fill="#a5d8ff" />
+            <text x="108" y="76" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">Frontend</text>
+          </g>
+
+          <g class="arch-step arch-step--2">
+            <line x1="196" y1="70" x2="242" y2="70" stroke="#525252" stroke-width="2" marker-end="url(#acl-arrow)" />
+            <rect x="248" y="26" width="174" height="88" rx="16" fill="#fff0a6" />
+            <text x="335" y="64" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">Nginx</text>
+            <text x="335" y="87" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626">(proxy)</text>
+          </g>
+
+          <g class="arch-step arch-step--3">
+            <line x1="426" y1="70" x2="472" y2="70" stroke="#525252" stroke-width="2" marker-end="url(#acl-arrow)" />
+            <rect x="478" y="26" width="192" height="88" rx="16" fill="#b2f2bb" />
+            <text x="574" y="76" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">API Go</text>
+          </g>
+
+          <g class="arch-step arch-step--4">
+            <line x1="674" y1="70" x2="720" y2="70" stroke="#525252" stroke-width="2" marker-end="url(#acl-arrow)" />
+            <rect x="726" y="26" width="170" height="88" rx="16" fill="#a5d8ff" />
+            <text x="811" y="76" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">PostgreSQL</text>
+          </g>
+
+          <g class="arch-step arch-step--5">
+            <line x1="538" y1="118" x2="462" y2="172" stroke="#525252" stroke-width="2" marker-end="url(#acl-arrow)" />
+            <rect x="358" y="178" width="178" height="84" rx="16" fill="#ffc9c9" />
+            <text x="447" y="214" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15.5" font-weight="600" fill="#111111">Mercado Pago</text>
+            <text x="447" y="237" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626">(pagamentos)</text>
+          </g>
+
+          <g class="arch-step arch-step--6">
+            <line x1="574" y1="118" x2="606" y2="172" stroke="#525252" stroke-width="2" marker-end="url(#acl-arrow)" />
+            <rect x="552" y="178" width="152" height="84" rx="16" fill="#ffc9c9" />
+            <text x="628" y="214" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15.5" font-weight="600" fill="#111111">Resend</text>
+            <text x="628" y="237" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626">(e-mails)</text>
+          </g>
+
+          <g class="arch-step arch-step--7">
+            <line x1="612" y1="118" x2="778" y2="172" stroke="#525252" stroke-width="2" marker-end="url(#acl-arrow)" />
+            <rect x="720" y="178" width="176" height="84" rx="16" fill="#fff0a6" />
+            <text x="808" y="214" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15.5" font-weight="600" fill="#111111">Arquivos</text>
+            <text x="808" y="237" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626">(uploads e files)</text>
+          </g>
+        </svg>
         <figcaption>Arquitetura do projeto A Ciência da Lua</figcaption>
       </figure>
 
@@ -466,8 +1237,106 @@
       <a href="https://github.com/LuizHenri16/acienciadalua_backend" target="_blank" rel="noopener noreferrer">
         GitHub — Backend
       </a>
+      <a href="https://acienciadalua.com.br/" target="_blank" rel="noopener noreferrer">
+        Site do projeto
+      </a>
     </footer>
   </dialog>
+
+  <dialog id="modal-pulse" class="modal" closedby="any" aria-labelledby="modal-pulse-title">
+    <header class="modal-header">
+      <div>
+        <span class="modal-eyebrow">ARQUITETURA E CÓDIGO</span>
+        <h2 id="modal-pulse-title" class="modal-title">Pulse</h2>
+      </div>
+      <button type="button" class="modal-close" command="close" commandfor="modal-pulse" aria-label="Fechar">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </header>
+    <div class="modal-body">
+      <figure class="modal-architecture">
+        <svg viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pulse-arch-title pulse-arch-desc">
+          <title id="pulse-arch-title">Arquitetura do projeto Pulse</title>
+          <desc id="pulse-arch-desc">Diagrama de arquitetura offline-first do aplicativo Android Pulse em Kotlin, Jetpack Compose, Material 3 e banco local Room.</desc>
+          <defs>
+            <marker id="pulse-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 1 1.5 L 8.5 5 L 1 8.5" fill="none" stroke="#525252" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </marker>
+          </defs>
+
+          <rect width="920" height="420" fill="#000000" />
+
+          <g class="arch-step arch-step--1">
+            <rect x="32" y="162" width="168" height="96" rx="16" fill="#fff0a6" />
+            <text x="116" y="204" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">Usuário</text>
+            <text x="116" y="226" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626">(Offline-first)</text>
+          </g>
+
+          <g class="arch-step arch-step--2">
+            <line x1="204" y1="210" x2="290" y2="210" stroke="#525252" stroke-width="2" marker-end="url(#pulse-arrow)" />
+            <text x="247" y="198" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">treina</text>
+
+            <rect x="296" y="138" width="234" height="144" rx="18" fill="#b2f2bb" />
+            <text x="413" y="186" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">App Android</text>
+            <text x="413" y="210" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#111111">Kotlin · Jetpack Compose</text>
+            <text x="413" y="232" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626">(Material 3 · Execução guiada)</text>
+          </g>
+
+          <g class="arch-step arch-step--3">
+            <line x1="534" y1="176" x2="634" y2="88" stroke="#525252" stroke-width="2" marker-end="url(#pulse-arrow)" />
+            <text x="572" y="118" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">consulta</text>
+
+            <rect x="640" y="42" width="248" height="84" rx="16" fill="#ffc9c9" />
+            <text x="764" y="79" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#111111">Catálogo de Exercícios</text>
+            <text x="764" y="101" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626">(400+ exercícios e músculos)</text>
+          </g>
+
+          <g class="arch-step arch-step--4">
+            <line x1="534" y1="210" x2="634" y2="210" stroke="#525252" stroke-width="2" marker-end="url(#pulse-arrow)" />
+            <text x="584" y="198" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">salva local</text>
+
+            <rect x="640" y="168" width="248" height="84" rx="16" fill="#a5d8ff" />
+            <text x="764" y="205" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#111111">Room / SQLite Local</text>
+            <text x="764" y="227" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626">(Fichas, cargas e histórico)</text>
+          </g>
+
+          <g class="arch-step arch-step--5">
+            <line x1="534" y1="244" x2="634" y2="332" stroke="#525252" stroke-width="2" marker-end="url(#pulse-arrow)" />
+            <text x="572" y="302" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">renderiza</text>
+
+            <rect x="640" y="294" width="248" height="84" rx="16" fill="#d0bfff" />
+            <text x="764" y="331" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#111111">Visualizador Anatômico 3D</text>
+            <text x="764" y="353" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626">(Em desenvolvimento)</text>
+          </g>
+        </svg>
+        <figcaption>Arquitetura do projeto Pulse</figcaption>
+      </figure>
+    </div>
+    <footer class="modal-footer" aria-label="Repositório do projeto">
+      <a href="https://github.com/LuizHenri16/Pulse-app" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+      <a href="https://luizhenri16.github.io/Pulse/" target="_blank" rel="noopener noreferrer">
+        Site do projeto
+      </a>
+    </footer>
+  </dialog>
+
+  <button
+    type="button"
+    class="back-to-top"
+    aria-label="Voltar ao topo"
+    title="Voltar ao topo"
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 19V5m0 0-6 6m6-6 6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+    </svg>
+  </button>
+
   <script src="script.js"></script>
 </body>
 </html>

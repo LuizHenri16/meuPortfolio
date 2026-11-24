@@ -7,7 +7,7 @@ max-width: 100%;
 padding: 0.65rem 1rem;
 border: 1px solid var(--n-200);
 border-radius: 999px;
-background: var(--white);
+background: var(--surface);
 color: var(--n-900);
 font: 600 0.875rem/1.2 var(--font-sans);
 text-align: left;
