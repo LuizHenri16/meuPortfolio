@@ -57,6 +57,13 @@ body:has(dialog[open]) .back-to-top {
   transform: translate3d(0, 12px, 0) scale(0.92);
 }
 
+@media (max-width: 767px) {
+  .back-to-top {
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .back-to-top {
     transition: none;

@@ -300,6 +300,8 @@ width: min(100%, 22rem);
 .project {
 flex: 0 0 100%;
 width: 100%;
+min-width: 0;
+max-width: 100%;
 scroll-snap-align: start;
 scroll-snap-stop: always;
 display: flex;
@@ -315,6 +317,8 @@ transition: border-color 180ms ease, background-color 180ms ease;
 }
 
 .project-info {
+min-width: 0;
+width: 100%;
 max-width: 36rem;
 display: flex;
 flex-direction: column;

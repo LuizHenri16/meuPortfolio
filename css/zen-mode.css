@@ -206,14 +206,22 @@ body:has(dialog[open]) .floating-controls {
 
 @media (max-width: 767px) {
   .floating-controls {
-    top: 0.75rem;
-    right: auto;
-    left: 50%;
+    top: max(0.75rem, env(safe-area-inset-top));
+    left: 0;
+    right: 0;
+    width: fit-content;
+    max-width: calc(100% - 1rem);
+    margin-inline: auto;
     flex-direction: row;
-    max-width: calc(100vw - 1rem);
     padding: 0.25rem;
     gap: 0.125rem;
-    transform: translate3d(-50%, 0, 0);
+    transform: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .floating-controls::-webkit-scrollbar {
+    display: none;
   }
 
   .floating-controls__divider {
@@ -245,6 +253,23 @@ body:has(dialog[open]) .floating-controls {
 
   .floating-controls [data-label]::after {
     display: none;
+  }
+}
+
+@media (max-width: 374px) {
+  .theme-toggle,
+  .zen-toggle,
+  .rail-nav__btn,
+  .rail-nav__indicator {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+
+  .theme-toggle svg,
+  .zen-toggle svg,
+  .rail-nav__btn svg {
+    width: 0.875rem;
+    height: 0.875rem;
   }
 }
 

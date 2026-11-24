@@ -1,4 +1,5 @@
 .hero{
+overflow-x:clip;
 margin-top:clamp(4.25rem,12vh,8rem);
 margin-bottom:clamp(2.5rem,8vh,5rem);
 text-align:center;
@@ -30,7 +31,7 @@ transform:scaleY(1.1)translateY(-0.25rem);
 min-width:0;
 padding-inline:0.25rem;
 max-width:100%;
-font-size:clamp(1.2rem,8.3vw,4.875rem);
+font-size:clamp(1.05rem,7.5vw,4.875rem);
 line-height:1;
 font-weight:800;
 letter-spacing:-0.025em;
