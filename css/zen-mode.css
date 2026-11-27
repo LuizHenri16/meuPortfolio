@@ -26,6 +26,60 @@
   flex-shrink: 0;
 }
 
+.lang-switch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.125rem;
+  padding: 0.125rem;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background: var(--surface-subtle);
+  flex-shrink: 0;
+}
+
+.lang-switch__btn {
+  position: relative;
+  width: 2.125rem;
+  height: 1.625rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--n-500);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    background-color 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lang-switch__btn:hover {
+  color: var(--n-950);
+}
+
+.lang-switch__btn:active {
+  transform: scale(0.92);
+}
+
+.lang-switch__btn:focus-visible {
+  outline: 2px solid var(--n-700);
+  outline-offset: 2px;
+}
+
+.lang-switch__btn[aria-pressed="true"] {
+  background: var(--n-950);
+  color: var(--white);
+}
+
 .rail-nav {
   position: relative;
   display: flex;
@@ -228,7 +282,19 @@ body:has(dialog[open]) .floating-controls {
     width: 1px;
     height: 1.25rem;
     margin-block: 0;
-    margin-inline: 0.15rem;
+    margin-inline: 0.125rem;
+  }
+
+  .lang-switch {
+    flex-direction: row;
+    gap: 0.0625rem;
+    padding: 0.125rem;
+  }
+
+  .lang-switch__btn {
+    width: 1.625rem;
+    height: 1.75rem;
+    font-size: 0.625rem;
   }
 
   .rail-nav {
@@ -240,15 +306,15 @@ body:has(dialog[open]) .floating-controls {
   .zen-toggle,
   .rail-nav__btn,
   .rail-nav__indicator {
-    width: 2.125rem;
-    height: 2.125rem;
+    width: 2rem;
+    height: 2rem;
   }
 
   .theme-toggle svg,
   .zen-toggle svg,
   .rail-nav__btn svg {
-    width: 0.95rem;
-    height: 0.95rem;
+    width: 0.925rem;
+    height: 0.925rem;
   }
 
   .floating-controls [data-label]::after {
@@ -257,24 +323,31 @@ body:has(dialog[open]) .floating-controls {
 }
 
 @media (max-width: 374px) {
+  .lang-switch__btn {
+    width: 1.45rem;
+    height: 1.625rem;
+    font-size: 0.575rem;
+  }
+
   .theme-toggle,
   .zen-toggle,
   .rail-nav__btn,
   .rail-nav__indicator {
-    width: 1.875rem;
-    height: 1.875rem;
+    width: 1.75rem;
+    height: 1.75rem;
   }
 
   .theme-toggle svg,
   .zen-toggle svg,
   .rail-nav__btn svg {
-    width: 0.875rem;
-    height: 0.875rem;
+    width: 0.85rem;
+    height: 0.85rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .floating-controls,
+  .lang-switch__btn,
   .rail-nav__indicator,
   .zen-toggle,
   .rail-nav__btn,

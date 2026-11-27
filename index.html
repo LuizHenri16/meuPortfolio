@@ -24,6 +24,11 @@
           : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', theme);
         document.documentElement.style.colorScheme = theme;
+
+        var savedLang = localStorage.getItem('lang');
+        var lang = savedLang === 'en' ? 'en' : 'pt';
+        document.documentElement.setAttribute('data-lang', lang);
+        document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
       } catch (e) {}
     })();
   </script>
@@ -40,7 +45,7 @@
     <div class="reading-progress__fill"></div>
   </div>
 
-  <div class="floating-controls" aria-label="Controles rápidos e navegação">
+  <div class="floating-controls" aria-label="Controles rápidos e navegação" data-i18n-attr="aria-label:controls.groupLabel">
     <button
       type="button"
       class="theme-toggle"
@@ -69,16 +74,35 @@
       </svg>
     </button>
 
+    <div class="lang-switch" role="group" aria-label="Selecionar idioma" data-i18n-attr="aria-label:lang.groupLabel">
+      <button
+        type="button"
+        class="lang-switch__btn"
+        data-lang-option="pt"
+        data-label="Português"
+        aria-label="Português"
+        aria-pressed="true"
+      >PT</button>
+      <button
+        type="button"
+        class="lang-switch__btn"
+        data-lang-option="en"
+        data-label="English"
+        aria-label="English"
+        aria-pressed="false"
+      >EN</button>
+    </div>
+
     <span class="floating-controls__divider" aria-hidden="true"></span>
 
-    <nav class="rail-nav" aria-label="Navegação por seções">
+    <nav class="rail-nav" aria-label="Navegação por seções" data-i18n-attr="aria-label:nav.groupLabel">
       <span class="rail-nav__indicator" aria-hidden="true"></span>
-      <a href="#sec-filosofia" class="rail-nav__btn" data-section="sec-filosofia" data-label="Filosofia" aria-label="Ir para Filosofia">
+      <a href="#sec-filosofia" class="rail-nav__btn" data-section="sec-filosofia" data-label="Filosofia" aria-label="Ir para Filosofia" data-i18n-attr="data-label:nav.philosophyLabel,aria-label:nav.philosophyAria">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M4 6h16M4 12h12M4 18h8"></path>
         </svg>
       </a>
-      <a href="#sec-projetos" class="rail-nav__btn" data-section="sec-projetos" data-label="Projetos" aria-label="Ir para Projetos">
+      <a href="#sec-projetos" class="rail-nav__btn" data-section="sec-projetos" data-label="Projetos" aria-label="Ir para Projetos" data-i18n-attr="data-label:nav.projectsLabel,aria-label:nav.projectsAria">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="3" y="4" width="7" height="7" rx="1.5"></rect>
           <rect x="14" y="4" width="7" height="7" rx="1.5"></rect>
@@ -86,19 +110,19 @@
           <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
         </svg>
       </a>
-      <a href="#sec-educacao" class="rail-nav__btn" data-section="sec-educacao" data-label="Educação" aria-label="Ir para Educação">
+      <a href="#sec-educacao" class="rail-nav__btn" data-section="sec-educacao" data-label="Educação" aria-label="Ir para Educação" data-i18n-attr="data-label:nav.educationLabel,aria-label:nav.educationAria">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
           <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
         </svg>
       </a>
-      <a href="#sec-competencias" class="rail-nav__btn" data-section="sec-competencias" data-label="Competências" aria-label="Ir para Competências Técnicas">
+      <a href="#sec-competencias" class="rail-nav__btn" data-section="sec-competencias" data-label="Competências" aria-label="Ir para Competências Técnicas" data-i18n-attr="data-label:nav.skillsLabel,aria-label:nav.skillsAria">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <polyline points="16 18 22 12 16 6"></polyline>
           <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
       </a>
-      <a href="#sec-curriculo" class="rail-nav__btn" data-section="sec-curriculo" data-label="Currículo" aria-label="Ir para Currículo">
+      <a href="#sec-curriculo" class="rail-nav__btn" data-section="sec-curriculo" data-label="Currículo" aria-label="Ir para Currículo" data-i18n-attr="data-label:nav.cvLabel,aria-label:nav.cvAria">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
           <polyline points="14 2 14 8 20 8"></polyline>
@@ -106,7 +130,7 @@
           <line x1="8" y1="17" x2="13" y2="17"></line>
         </svg>
       </a>
-      <a href="#sec-localizacao" class="rail-nav__btn" data-section="sec-localizacao" data-label="Localização" aria-label="Ir para Localização e Jornada">
+      <a href="#sec-localizacao" class="rail-nav__btn" data-section="sec-localizacao" data-label="Localização" aria-label="Ir para Localização e Jornada" data-i18n-attr="data-label:nav.locationLabel,aria-label:nav.locationAria">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
           <circle cx="12" cy="10" r="3"></circle>
@@ -126,23 +150,23 @@
         <span class="hero-brace hero-brace-right" aria-hidden="true">}</span>
       </div>
       <div class="hero-scroll hero-scroll-sub">
-        <p class="hero-subtitle hero-intro hero-intro-sub">ENGENHEIRO DE SOFTWARE / ARQUITETO DE SISTEMAS</p>
+        <p class="hero-subtitle hero-intro hero-intro-sub" data-i18n="hero.subtitle">ENGENHEIRO DE SOFTWARE / ARQUITETO DE SISTEMAS</p>
       </div>
     </header>
 
     <main>
     <section id="sec-filosofia" class="philosophy" data-zen-reading>
-      <h2 class="headline">
+      <h2 class="headline" data-i18n="philosophy.headline">
         Construindo sistemas escaláveis com foco em alto desempenho e arquitetura limpa.
       </h2>
 
       <div class="philosophy-text">
-        <p>
+        <p data-i18n="philosophy.p1">
           Minha abordagem em engenharia de software foca em transformar problemas complexos em sistemas limpos,
           estruturados e fáceis de manter. Acredito que arquitetura de software e código limpo são essenciais para
           construir aplicações confiáveis que crescem sem interrupções.
         </p>
-        <p>
+        <p data-i18n-html="philosophy.p2">
           Priorizo o <strong>design de sistemas</strong> distribuídos pensados para estabilidade, alto desempenho e baixa latência. Meu
           objetivo é criar soluções escaláveis que resistam às tendências temporárias da tecnologia.
         </p>
@@ -150,23 +174,23 @@
 
       <div class="pillars">
         <div class="pillar">
-          <h3>ALTO DESEMPENHO</h3>
-          <p>Latência de milissegundos e ingestão sem bloqueios.</p>
+          <h3 data-i18n="philosophy.pillar1Title">ALTO DESEMPENHO</h3>
+          <p data-i18n="philosophy.pillar1Desc">Latência de milissegundos e ingestão sem bloqueios.</p>
         </div>
         <div class="pillar">
-          <h3>TOLERÂNCIA A FALHAS</h3>
-          <p>Segurança por consenso e estado auto-recuperável.</p>
+          <h3 data-i18n="philosophy.pillar2Title">TOLERÂNCIA A FALHAS</h3>
+          <p data-i18n="philosophy.pillar2Desc">Segurança por consenso e estado auto-recuperável.</p>
         </div>
         <div class="pillar">
-          <h3>SEM BLOAT</h3>
-          <p>Simpatia mecânica e abstrações mínimas.</p>
+          <h3 data-i18n="philosophy.pillar3Title">SEM BLOAT</h3>
+          <p data-i18n="philosophy.pillar3Desc">Simpatia mecânica e abstrações mínimas.</p>
         </div>
       </div>
     </section>
 
     <section id="sec-projetos" class="projects" data-zen-reading>
       <div class="projects-header">
-        <h2 class="section-title">Projetos</h2>
+        <h2 class="section-title" data-i18n="projects.title">Projetos</h2>
         <div class="project-search" role="search">
           <svg class="project-search__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="11" cy="11" r="7" stroke-width="1.8"></circle>
@@ -178,6 +202,7 @@
             type="search"
             placeholder="Filtrar por nome ou stack..."
             aria-label="Filtrar projetos por nome ou tecnologias"
+            data-i18n-attr="placeholder:projects.searchPlaceholder,aria-label:projects.searchAria"
             autocomplete="off"
           />
           <button
@@ -185,6 +210,7 @@
             class="project-search__clear"
             aria-label="Limpar pesquisa"
             title="Limpar pesquisa"
+            data-i18n-attr="aria-label:projects.clearSearch,title:projects.clearSearch"
             hidden
           >
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -195,7 +221,7 @@
       </div>
 
       <div class="projects-toolbar">
-        <div class="projects-tabs" role="tablist" aria-label="Selecionar projeto">
+        <div class="projects-tabs" role="tablist" aria-label="Selecionar projeto" data-i18n-attr="aria-label:projects.tabsAria">
           <button type="button" class="project-tab is-active" role="tab" aria-selected="true" data-project-index="0">
             <span class="project-tab__num" aria-hidden="true">01</span>
             <span>A Ciência da Lua</span>
@@ -210,14 +236,14 @@
           </button>
         </div>
 
-        <div class="projects-nav" aria-label="Navegação entre projetos">
-          <button type="button" class="projects-nav__btn projects-nav__prev" aria-label="Projeto anterior" title="Projeto anterior" disabled>
+        <div class="projects-nav" aria-label="Navegação entre projetos" data-i18n-attr="aria-label:projects.navAria">
+          <button type="button" class="projects-nav__btn projects-nav__prev" aria-label="Projeto anterior" title="Projeto anterior" data-i18n-attr="aria-label:projects.prevLabel,title:projects.prevLabel" disabled>
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
           </button>
           <span class="projects-counter" aria-live="polite">01 / 03</span>
-          <button type="button" class="projects-nav__btn projects-nav__next" aria-label="Próximo projeto" title="Próximo projeto">
+          <button type="button" class="projects-nav__btn projects-nav__next" aria-label="Próximo projeto" title="Próximo projeto" data-i18n-attr="aria-label:projects.nextLabel,title:projects.nextLabel">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
@@ -225,7 +251,7 @@
         </div>
       </div>
 
-      <div class="project-list" aria-label="Vitrine horizontal de projetos">
+      <div class="project-list" aria-label="Vitrine horizontal de projetos" data-i18n-attr="aria-label:projects.showcaseAria">
 
         <article class="project project--lua">
           <div class="project-info">
@@ -234,6 +260,7 @@
                 <img
                   src="assets/lua-icon.webp"
                   alt="Logo A Ciência da Lua"
+                  data-i18n-attr="alt:projects.luaLogoAlt"
                   width="56"
                   height="62"
                   loading="lazy"
@@ -245,14 +272,14 @@
                 <h3 class="project-brand__title">A Ciência da <span class="project-brand__accent">Lua</span></h3>
               </div>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="projects.luaDesc">
               Plataforma de e-commerce de materiais didáticos de Ciências criada para estudantes do Ensino Fundamental/Médio e vestibulandos e para professores que buscam materiais prontos para a sala de aula, mapas conceituais, resumos, exercícios, slides, jogos e planos de aula, todos autorais e produzidos pela Profa. Lua (UFRN).
             </p>
             <p class="project-stack">Next.js · TailwindCSS · TypeScript · GO · Cloudflare · Docker & Dockerhub · Github-Actions</p>
           </div>
           <div class="project-action">
             <button type="button" command="show-modal" commandfor="modal-ciencia-da-lua" class="project-button">
-              ARQUITETURA E CÓDIGO
+              <span data-i18n="projects.cta">ARQUITETURA E CÓDIGO</span>
               <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                 <path
                   d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z">
@@ -260,7 +287,7 @@
               </svg>
             </button>
             <a class="project-site-link" href="https://acienciadalua.com.br/" target="_blank" rel="noopener noreferrer">
-              <span>Visitar aplicação</span>
+              <span data-i18n="projects.visitApp">Visitar aplicação</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M7 17 17 7M7 7h10v10"></path>
               </svg>
@@ -275,6 +302,7 @@
                 <img
                   src="assets/moviematch-logo.webp"
                   alt="Logo MovieMatch"
+                  data-i18n-attr="alt:projects.mmLogoAlt"
                   width="54"
                   height="67"
                   loading="lazy"
@@ -286,14 +314,14 @@
                 <h3 class="project-brand__title">Movie<span class="project-brand__accent">Match</span></h3>
               </div>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="projects.mmDesc">
               Aplicativo mobile MovieMatch. Feito para guardar seus filmes favoritos e avaliar junto a sua dupla.
             </p>
             <p class="project-stack">Kotlin · Supabase · PostgreSQL</p>
           </div>
           <div class="project-action">
             <button type="button" command="show-modal" commandfor="modal-moviematch" class="project-button">
-              ARQUITETURA E CÓDIGO
+              <span data-i18n="projects.cta">ARQUITETURA E CÓDIGO</span>
               <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                 <path
                   d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z">
@@ -301,7 +329,7 @@
               </svg>
             </button>
             <a class="project-site-link" href="https://luizhenri16.github.io/Moviematch-landingpage/" target="_blank" rel="noopener noreferrer">
-              <span>Visitar landing page</span>
+              <span data-i18n="projects.visitLanding">Visitar landing page</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M7 17 17 7M7 7h10v10"></path>
               </svg>
@@ -325,14 +353,14 @@
                 </svg>
               </div>
             </header>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="projects.pulseDesc">
               Aplicativo fitness offline-first para registrar treinos com fichas personalizáveis (modelos Full Body, PPL, ABC, ABCD), biblioteca de 400+ exercícios com detalhes de músculos e equipamentos, execução guiada com séries/cargas/descanso, histórico de progresso separado por tipo de equipamento (barra/halter/máquina) e visualizador anatômico 3D em desenvolvimento. Tudo salvo localmente no aparelho, sem login obrigatório nem anúncios.
             </p>
             <p class="project-stack">Kotlin · Room · Jetpack Compose · Material 3</p>
           </div>
           <div class="project-action">
             <button type="button" command="show-modal" commandfor="modal-pulse" class="project-button">
-              ARQUITETURA E CÓDIGO
+              <span data-i18n="projects.cta">ARQUITETURA E CÓDIGO</span>
               <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                 <path
                   d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z">
@@ -340,7 +368,7 @@
               </svg>
             </button>
             <a class="project-site-link" href="https://luizhenri16.github.io/Pulse/" target="_blank" rel="noopener noreferrer">
-              <span>Visitar landing page</span>
+              <span data-i18n="projects.visitLanding">Visitar landing page</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M7 17 17 7M7 7h10v10"></path>
               </svg>
@@ -351,12 +379,12 @@
       </div>
 
       <div class="projects-empty" role="status" aria-live="polite" hidden>
-        <p>Nenhum projeto encontrado para <strong class="projects-empty__query"></strong>.</p>
-        <button type="button" class="projects-empty__reset">Limpar filtro</button>
+        <p><span data-i18n="projects.emptyPrefix">Nenhum projeto encontrado para</span> <strong class="projects-empty__query"></strong>.</p>
+        <button type="button" class="projects-empty__reset" data-i18n="projects.resetFilter">Limpar filtro</button>
       </div>
     </section>
     <section id="sec-educacao" class="framework" data-zen-reading>
-      <h2 class="section-title">Educação</h2>
+      <h2 class="section-title" data-i18n="education.title">Educação</h2>
       <div class="framework-grid">
         <div class="column">
           <h3 class="column-label">
@@ -365,43 +393,43 @@
                 d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
-            <span>PROGRESSÃO CURRICULAR</span>
+            <span data-i18n="education.progressionLabel">PROGRESSÃO CURRICULAR</span>
           </h3>
 
           <div class="card academic-card">
-            <h4>Técnico em Desenvolvimento de Sistemas</h4>
+            <h4 data-i18n="education.senacTitle">Técnico em Desenvolvimento de Sistemas</h4>
             <div class="progress">
               <div class="progress-fill" style="width: 100%"></div>
             </div>
             <div class="meta">
-              <span>NÚCLEO: CONCLUÍDO</span>
-              <span>100,0% CONFERIDO</span>
+              <span data-i18n="education.senacCore">NÚCLEO: CONCLUÍDO</span>
+              <span data-i18n="education.senacVerified">100,0% CONFERIDO</span>
             </div>
             <div class="meta meta--bottom">
-              <span class="truncate">INSTITUIÇÃO: SENAC</span>
-              <span class="strong">STATUS: CONCLUÍDO</span>
+              <span class="truncate" data-i18n="education.senacInstitution">INSTITUIÇÃO: SENAC</span>
+              <span class="strong" data-i18n="education.senacStatus">STATUS: CONCLUÍDO</span>
             </div>
           </div>
 
           <div class="card academic-card">
-            <h4>Bacharelado em Engenharia de Software</h4>
+            <h4 data-i18n="education.descomplicaTitle">Bacharelado em Engenharia de Software</h4>
             <div class="progress">
               <div class="progress-fill" style="width: 25%"></div>
             </div>
             <div class="meta">
-              <span>PROGRESSO DO CURSO</span>
-              <span>25,0% CONCLUÍDO</span>
+              <span data-i18n="education.descomplicaProgress">PROGRESSO DO CURSO</span>
+              <span data-i18n="education.descomplicaCompleted">25,0% CONCLUÍDO</span>
             </div>
             <div class="meta meta--bottom">
-              <span class="truncate">INSTITUIÇÃO: DESCOMPLICA</span>
-              <span class="strong">STATUS: EM ANDAMENTO</span>
+              <span class="truncate" data-i18n="education.descomplicaInstitution">INSTITUIÇÃO: DESCOMPLICA</span>
+              <span class="strong" data-i18n="education.descomplicaStatus">STATUS: EM ANDAMENTO</span>
             </div>
           </div>
 
           <div class="quote-box">
             <div class="quote-icon">”</div>
             <div>
-              <p class="quote-text">“A simplicidade é pré-requisito para confiabilidade.”</p>
+              <p class="quote-text" data-i18n="education.quote">“A simplicidade é pré-requisito para confiabilidade.”</p>
               <p class="quote-author">— EDSGER W. DIJKSTRA</p>
             </div>
           </div>
@@ -414,50 +442,50 @@
                 d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
-            <span>OBJETIVOS PROFISSIONAIS</span>
+            <span data-i18n="education.objectivesLabel">OBJETIVOS PROFISSIONAIS</span>
           </h3>
 
           <div class="card accreditations">
             <div class="accreditation">
               <div class="accreditation-row">
                 <div>
-                  <span class="accreditation-kind">DESIGN DE SISTEMAS</span>
-                  <h4>Projetar sistemas confiáveis e escaláveis</h4>
+                  <span class="accreditation-kind" data-i18n="education.obj1Kind">DESIGN DE SISTEMAS</span>
+                  <h4 data-i18n="education.obj1Title">Projetar sistemas confiáveis e escaláveis</h4>
                 </div>
               </div>
-              <p class="accreditation-id">CONSTRUINDO UMA BASE SÓLIDA EM SISTEMAS DISTRIBUÍDOS</p>
+              <p class="accreditation-id" data-i18n="education.obj1Desc">CONSTRUINDO UMA BASE SÓLIDA EM SISTEMAS DISTRIBUÍDOS</p>
             </div>
 
             <div class="accreditation">
               <div class="accreditation-row">
                 <div>
-                  <span class="accreditation-kind">NUVEM &amp; INFRAESTRUTURA</span>
-                  <h4>Ampliar as habilidades práticas em engenharia em nuvem</h4>
+                  <span class="accreditation-kind" data-i18n="education.obj2Kind">NUVEM &amp; INFRAESTRUTURA</span>
+                  <h4 data-i18n="education.obj2Title">Ampliar as habilidades práticas em engenharia em nuvem</h4>
                 </div>
               </div>
-              <p class="accreditation-id">APRENDENDO A IMPLANTAR E OPERAR SERVIÇOS PRONTOS PARA PRODUÇÃO</p>
+              <p class="accreditation-id" data-i18n="education.obj2Desc">APRENDENDO A IMPLANTAR E OPERAR SERVIÇOS PRONTOS PARA PRODUÇÃO</p>
             </div>
 
             <div class="accreditation">
               <div class="accreditation-row">
                 <div>
-                  <span class="accreditation-kind">ENGENHARIA DE SOFTWARE</span>
-                  <h4>Continuar melhorando por meio de projetos práticos</h4>
+                  <span class="accreditation-kind" data-i18n="education.obj3Kind">ENGENHARIA DE SOFTWARE</span>
+                  <h4 data-i18n="education.obj3Title">Continuar melhorando por meio de projetos práticos</h4>
                 </div>
               </div>
-              <p class="accreditation-id">FOCANDO EM CÓDIGO LIMPO, TESTES E APRENDIZADO CONTÍNUO</p>
+              <p class="accreditation-id" data-i18n="education.obj3Desc">FOCANDO EM CÓDIGO LIMPO, TESTES E APRENDIZADO CONTÍNUO</p>
             </div>
           </div>
         </div>
       </div>
     </section>
     <section id="sec-competencias" class="skills" aria-labelledby="skills-title">
-      <h2 id="skills-title" class="section-title">Competências Técnicas</h2>
+      <h2 id="skills-title" class="section-title" data-i18n="skills.title">Competências Técnicas</h2>
 
       <div class="skills-grid">
         <article class="card skill-card">
           <header class="skill-card__header">
-            <h3 class="skill-card__title">Backend</h3>
+            <h3 class="skill-card__title" data-i18n="skills.catBackend">Backend</h3>
             <span class="skill-card__index" aria-hidden="true">01</span>
           </header>
           <ul class="skill-badges">
@@ -471,8 +499,8 @@
                 <span>Java</span>
               </button>
               <span id="skill-tip-java" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Intermediário</span>
-                <span class="skill-tooltip__time">2+ anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelIntermediate">Intermediário</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time2Plus">2+ anos de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -484,8 +512,8 @@
                 <span>Spring Boot</span>
               </button>
               <span id="skill-tip-spring" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Intermediário</span>
-                <span class="skill-tooltip__time">2 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelIntermediate">Intermediário</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time2">2 anos de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -498,8 +526,8 @@
                 <span>TypeScript</span>
               </button>
               <span id="skill-tip-ts" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Avançado</span>
-                <span class="skill-tooltip__time">3 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelAdvanced">Avançado</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time3">3 anos de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -511,8 +539,8 @@
                 <span>Node.js</span>
               </button>
               <span id="skill-tip-node" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Avançado</span>
-                <span class="skill-tooltip__time">3 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelAdvanced">Avançado</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time3">3 anos de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -524,8 +552,8 @@
                 <span>NestJS</span>
               </button>
               <span id="skill-tip-nest" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Intermediário</span>
-                <span class="skill-tooltip__time">1,5 ano de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelIntermediate">Intermediário</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time1_5">1,5 ano de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -538,8 +566,8 @@
                 <span>Golang</span>
               </button>
               <span id="skill-tip-go" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Intermediário</span>
-                <span class="skill-tooltip__time">1+ ano de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelIntermediate">Intermediário</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time1Plus">1+ ano de uso</span>
               </span>
             </li>
           </ul>
@@ -547,7 +575,7 @@
 
         <article class="card skill-card">
           <header class="skill-card__header">
-            <h3 class="skill-card__title">Frontend</h3>
+            <h3 class="skill-card__title" data-i18n="skills.catFrontend">Frontend</h3>
             <span class="skill-card__index" aria-hidden="true">02</span>
           </header>
           <ul class="skill-badges">
@@ -560,8 +588,8 @@
                 <span>HTML</span>
               </button>
               <span id="skill-tip-html" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Avançado</span>
-                <span class="skill-tooltip__time">4 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelAdvanced">Avançado</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time4">4 anos de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -573,8 +601,8 @@
                 <span>CSS</span>
               </button>
               <span id="skill-tip-css" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Avançado</span>
-                <span class="skill-tooltip__time">4 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelAdvanced">Avançado</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time4">4 anos de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -586,8 +614,8 @@
                 <span>Tailwind CSS</span>
               </button>
               <span id="skill-tip-tailwind" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Avançado</span>
-                <span class="skill-tooltip__time">2,5 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelAdvanced">Avançado</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time2_5">2,5 anos de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -601,8 +629,8 @@
                 <span>React</span>
               </button>
               <span id="skill-tip-react" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Avançado</span>
-                <span class="skill-tooltip__time">3 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelAdvanced">Avançado</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time3">3 anos de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -614,8 +642,8 @@
                 <span>Next.js</span>
               </button>
               <span id="skill-tip-next" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Avançado</span>
-                <span class="skill-tooltip__time">2+ anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelAdvanced">Avançado</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time2Plus">2+ anos de uso</span>
               </span>
             </li>
           </ul>
@@ -623,7 +651,7 @@
 
         <article class="card skill-card">
           <header class="skill-card__header">
-            <h3 class="skill-card__title">DevOps</h3>
+            <h3 class="skill-card__title" data-i18n="skills.catDevops">DevOps</h3>
             <span class="skill-card__index" aria-hidden="true">03</span>
           </header>
           <ul class="skill-badges">
@@ -636,8 +664,8 @@
                 <span>Docker</span>
               </button>
               <span id="skill-tip-docker" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Intermediário</span>
-                <span class="skill-tooltip__time">2 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelIntermediate">Intermediário</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time2">2 anos de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -651,8 +679,8 @@
                 <span>Docker Hub</span>
               </button>
               <span id="skill-tip-dockerhub" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Intermediário</span>
-                <span class="skill-tooltip__time">1,5 ano de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelIntermediate">Intermediário</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time1_5">1,5 ano de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -666,8 +694,8 @@
                 <span>GitHub Actions</span>
               </button>
               <span id="skill-tip-gha" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Intermediário</span>
-                <span class="skill-tooltip__time">1,5 ano de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelIntermediate">Intermediário</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time1_5">1,5 ano de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -679,8 +707,8 @@
                 <span>Linux</span>
               </button>
               <span id="skill-tip-linux" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Intermediário</span>
-                <span class="skill-tooltip__time">3 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelIntermediate">Intermediário</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time3">3 anos de uso</span>
               </span>
             </li>
           </ul>
@@ -688,7 +716,7 @@
 
         <article class="card skill-card">
           <header class="skill-card__header">
-            <h3 class="skill-card__title">Banco de Dados</h3>
+            <h3 class="skill-card__title" data-i18n="skills.catDatabase">Banco de Dados</h3>
             <span class="skill-card__index" aria-hidden="true">04</span>
           </header>
           <ul class="skill-badges">
@@ -702,8 +730,8 @@
                 <span>MySQL</span>
               </button>
               <span id="skill-tip-mysql" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Intermediário</span>
-                <span class="skill-tooltip__time">2,5 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelIntermediate">Intermediário</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time2_5">2,5 anos de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -717,8 +745,8 @@
                 <span>PostgreSQL</span>
               </button>
               <span id="skill-tip-postgres" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Intermediário</span>
-                <span class="skill-tooltip__time">2+ anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelIntermediate">Intermediário</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time2Plus">2+ anos de uso</span>
               </span>
             </li>
           </ul>
@@ -726,7 +754,7 @@
 
         <article class="card skill-card">
           <header class="skill-card__header">
-            <h3 class="skill-card__title">Skills</h3>
+            <h3 class="skill-card__title" data-i18n="skills.catSkills">Skills</h3>
             <span class="skill-card__index" aria-hidden="true">05</span>
           </header>
           <ul class="skill-badges">
@@ -736,11 +764,11 @@
                   <path d="M12 3 19 7v10l-7 4-7-4V7Z" />
                   <path d="m12 12 7-4M12 12v9M12 12 5 8" />
                 </svg>
-                <span>POO</span>
+                <span data-i18n="skills.pooBadge">POO</span>
               </button>
               <span id="skill-tip-poo" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Avançado</span>
-                <span class="skill-tooltip__time">3 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelAdvanced">Avançado</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time3">3 anos de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -753,8 +781,8 @@
                 <span>Clean Code</span>
               </button>
               <span id="skill-tip-cleancode" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Consolidado</span>
-                <span class="skill-tooltip__time">2,5 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelSolid">Consolidado</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time2_5">2,5 anos de uso</span>
               </span>
             </li>
             <li class="skill-item">
@@ -765,8 +793,8 @@
                 <span>SOLID</span>
               </button>
               <span id="skill-tip-solid" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Consolidado</span>
-                <span class="skill-tooltip__time">2 anos de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelSolid">Consolidado</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time2">2 anos de uso</span>
               </span>
             </li>
           </ul>
@@ -774,7 +802,7 @@
 
         <article class="card skill-card">
           <header class="skill-card__header">
-            <h3 class="skill-card__title">AI Agents</h3>
+            <h3 class="skill-card__title" data-i18n="skills.catAi">AI Agents</h3>
             <span class="skill-card__index" aria-hidden="true">06</span>
           </header>
           <ul class="skill-badges">
@@ -787,8 +815,8 @@
                 <span>AI Agents Skills</span>
               </button>
               <span id="skill-tip-ai" class="skill-tooltip" role="tooltip">
-                <span class="skill-tooltip__level">Intermediário</span>
-                <span class="skill-tooltip__time">1+ ano de uso</span>
+                <span class="skill-tooltip__level" data-i18n="skills.levelIntermediate">Intermediário</span>
+                <span class="skill-tooltip__time" data-i18n="skills.time1Plus">1+ ano de uso</span>
               </span>
             </li>
           </ul>
@@ -797,15 +825,15 @@
     </section>
     <section id="sec-curriculo" class="cv-section" aria-labelledby="cv-title">
       <div class="cv-section__content">
-        <p class="cv-section__eyebrow">CURRÍCULO <span aria-hidden="true">/</span> ATUALIZADO 2026</p>
-        <h2 id="cv-title">Currículo detalhado.</h2>
-        <p class="cv-section__description">
+        <p class="cv-section__eyebrow" data-i18n-html="cv.eyebrow">CURRÍCULO <span aria-hidden="true">/</span> ATUALIZADO 2026</p>
+        <h2 id="cv-title" data-i18n="cv.title">Currículo detalhado.</h2>
+        <p class="cv-section__description" data-i18n="cv.description">
           Conheça minha experiência como desenvolvedor de sistemas, deploy e projetos em produção,
           projetos open source e competências técnicas.
         </p>
-        <p class="cv-section__format">FORMATO: PDF</p>
+        <p class="cv-section__format" data-i18n="cv.format">FORMATO: PDF</p>
         <a class="cv-section__download" href="cv.pdf" download="cv.pdf">
-          <span>BAIXAR CURRÍCULO</span>
+          <span data-i18n="cv.download">BAIXAR CURRÍCULO</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
             <path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
           </svg>
@@ -813,12 +841,12 @@
       </div>
     </section>
     <section id="sec-localizacao" class="region" aria-labelledby="region-title">
-      <h2 id="region-title" class="section-title">Localização &amp; Jornada</h2>
+      <h2 id="region-title" class="section-title" data-i18n="location.title">Localização &amp; Jornada</h2>
 
       <div class="region-grid">
         <div class="card map-card">
           <div class="map-card__bar">
-            <span>BRASIL · MAPA DE ATUAÇÃO</span>
+            <span data-i18n="location.mapBar">BRASIL · MAPA DE ATUAÇÃO</span>
             <span class="map-card__coords" aria-live="polite">12°53′S 38°19′W</span>
           </div>
 
@@ -830,8 +858,8 @@
               role="img"
               aria-labelledby="brazil-map-title brazil-map-desc"
             >
-              <title id="brazil-map-title">Mapa estilizado do Brasil com pontos da jornada acadêmica e profissional</title>
-              <desc id="brazil-map-desc">Mapa destacando a Bahia pelos polos EAD em Lauro de Freitas (SENAC) e Salvador (Descomplica), além do Rio Grande do Norte pelo projeto A Ciência da Lua com a UFRN.</desc>
+              <title id="brazil-map-title" data-i18n="location.mapTitle">Mapa estilizado do Brasil com pontos da jornada acadêmica e profissional</title>
+              <desc id="brazil-map-desc" data-i18n="location.mapDesc">Mapa destacando a Bahia pelos polos EAD em Lauro de Freitas (SENAC) e Salvador (Descomplica), além do Rio Grande do Norte pelo projeto A Ciência da Lua com a UFRN.</desc>
 
               <g class="brazil-map__grid" aria-hidden="true">
                 <line x1="110" y1="20" x2="110" y2="480" />
@@ -859,6 +887,7 @@
                 tabindex="0"
                 aria-pressed="true"
                 aria-label="Bahia: Polo SENAC EAD em Lauro de Freitas e polo Descomplica EAD em Salvador"
+                data-i18n-attr="aria-label:location.pinBahiaAria"
               >
                 <circle class="map-pin__ring" cx="423" cy="234" r="14" />
                 <circle class="map-pin__dot" cx="423" cy="234" r="6" />
@@ -873,6 +902,7 @@
                 tabindex="0"
                 aria-pressed="false"
                 aria-label="Rio Grande do Norte: Projeto em produção com a UFRN"
+                data-i18n-attr="aria-label:location.pinRnAria"
               >
                 <circle class="map-pin__ring" cx="458" cy="154" r="14" />
                 <circle class="map-pin__dot" cx="458" cy="154" r="6" />
@@ -892,9 +922,9 @@
                 data-coords="12°53′S 38°19′W"
                 aria-pressed="true"
               >
-                <span class="location-item__eyebrow">LAURO DE FREITAS, BA · POLO SENAC EAD (2023 – 2025)</span>
-                <span class="location-item__title">Desenvolvimento de Sistemas &amp; Base Full Stack</span>
-                <span class="location-item__desc">Formação técnica EAD concluída pelo polo de Lauro de Freitas do SENAC, com base sólida em sistemas web e distribuídos.</span>
+                <span class="location-item__eyebrow" data-i18n="location.item1Eyebrow">LAURO DE FREITAS, BA · POLO SENAC EAD (2023 – 2025)</span>
+                <span class="location-item__title" data-i18n="location.item1Title">Desenvolvimento de Sistemas &amp; Base Full Stack</span>
+                <span class="location-item__desc" data-i18n="location.item1Desc">Formação técnica EAD concluída pelo polo de Lauro de Freitas do SENAC, com base sólida em sistemas web e distribuídos.</span>
               </button>
             </li>
             <li>
@@ -905,9 +935,9 @@
                 data-coords="12°58′S 38°30′W"
                 aria-pressed="false"
               >
-                <span class="location-item__eyebrow">SALVADOR, BA · POLO DESCOMPLICA (2026 – 2030)</span>
-                <span class="location-item__title">Bacharelado em Engenharia de Software</span>
-                <span class="location-item__desc">Graduação em andamento pelo polo presente em Salvador da Faculdade Digital Descomplica com foco em arquitetura e sistemas escaláveis.</span>
+                <span class="location-item__eyebrow" data-i18n="location.item2Eyebrow">SALVADOR, BA · POLO DESCOMPLICA (2026 – 2030)</span>
+                <span class="location-item__title" data-i18n="location.item2Title">Bacharelado em Engenharia de Software</span>
+                <span class="location-item__desc" data-i18n="location.item2Desc">Graduação em andamento pelo polo presente em Salvador da Faculdade Digital Descomplica com foco em arquitetura e sistemas escaláveis.</span>
               </button>
             </li>
             <li>
@@ -918,9 +948,9 @@
                 data-coords="05°47′S 35°12′W"
                 aria-pressed="false"
               >
-                <span class="location-item__eyebrow">RIO GRANDE DO NORTE · UFRN (2026)</span>
-                <span class="location-item__title">A Ciência da Lua — Plataforma em Produção</span>
-                <span class="location-item__desc">Arquitetura full stack e infraestrutura em VPS para materiais didáticos autorais produzidos pela Profa. Lua (UFRN).</span>
+                <span class="location-item__eyebrow" data-i18n="location.item3Eyebrow">RIO GRANDE DO NORTE · UFRN (2026)</span>
+                <span class="location-item__title" data-i18n="location.item3Title">A Ciência da Lua — Plataforma em Produção</span>
+                <span class="location-item__desc" data-i18n="location.item3Desc">Arquitetura full stack e infraestrutura em VPS para materiais didáticos autorais produzidos pela Profa. Lua (UFRN).</span>
               </button>
             </li>
           </ul>
@@ -930,24 +960,24 @@
     </main>
   </div>
 
-  <footer class="site-footer" aria-label="Rodapé">
-    <nav class="site-footer__links" aria-label="Redes e contato">
+  <footer class="site-footer" aria-label="Rodapé" data-i18n-attr="aria-label:footer.aria">
+    <nav class="site-footer__links" aria-label="Redes e contato" data-i18n-attr="aria-label:footer.linksAria">
       <a href="https://github.com/LuizHenri16" target="_blank" rel="noopener noreferrer">GITHUB</a>
       <span aria-hidden="true">/</span>
       <a href="https://www.linkedin.com/in/luizhenrique-dev16" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
       <span aria-hidden="true">/</span>
       <a href="mailto:lbastos722@gmail.com">EMAIL</a>
     </nav>
-    <p class="site-footer__copyright">© 2026 LUIZ HENRIQUE — TODOS OS DIREITOS RESERVADOS</p>
+    <p class="site-footer__copyright" data-i18n="footer.copyright">© 2026 LUIZ HENRIQUE — TODOS OS DIREITOS RESERVADOS</p>
   </footer>
 
   <dialog id="modal-moviematch" class="modal" closedby="any" aria-labelledby="modal-moviematch-title">
     <header class="modal-header">
       <div>
-        <span class="modal-eyebrow">ARQUITETURA E CÓDIGO</span>
+        <span class="modal-eyebrow" data-i18n="projects.cta">ARQUITETURA E CÓDIGO</span>
         <h2 id="modal-moviematch-title" class="modal-title">MovieMatch</h2>
       </div>
-      <button type="button" class="modal-close" command="close" commandfor="modal-moviematch" aria-label="Fechar">
+      <button type="button" class="modal-close" command="close" commandfor="modal-moviematch" aria-label="Fechar" data-i18n-attr="aria-label:modal.closeAria">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
         </svg>
@@ -956,8 +986,8 @@
     <div class="modal-body">
       <figure class="modal-architecture">
         <svg viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mm-arch-title mm-arch-desc">
-          <title id="mm-arch-title">Arquitetura do projeto MovieMatch</title>
-          <desc id="mm-arch-desc">Diagrama de arquitetura do aplicativo MovieMatch em Kotlin Multiplatform e Compose integrado à TMDB API, Supabase Postgres e Login Google.</desc>
+          <title id="mm-arch-title" data-i18n="modal.mmTitle">Arquitetura do projeto MovieMatch</title>
+          <desc id="mm-arch-desc" data-i18n="modal.mmDesc">Diagrama de arquitetura do aplicativo MovieMatch em Kotlin Multiplatform e Compose integrado à TMDB API, Supabase Postgres e Login Google.</desc>
           <defs>
             <marker id="mm-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M 1 1.5 L 8.5 5 L 1 8.5" fill="none" stroke="#525252" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
@@ -968,52 +998,52 @@
 
           <g class="arch-step arch-step--1">
             <rect x="28" y="162" width="168" height="96" rx="16" fill="#fff0a6" />
-            <text x="112" y="204" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">Grupo de</text>
-            <text x="112" y="226" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">amigos</text>
+            <text x="112" y="204" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111" data-i18n="modal.mmUsers1">Grupo de</text>
+            <text x="112" y="226" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111" data-i18n="modal.mmUsers2">amigos</text>
           </g>
 
           <g class="arch-step arch-step--2">
             <line x1="200" y1="210" x2="270" y2="210" stroke="#525252" stroke-width="2" marker-end="url(#mm-arrow)" />
             <rect x="276" y="132" width="246" height="156" rx="18" fill="#b2f2bb" />
-            <text x="399" y="178" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">App mobile</text>
+            <text x="399" y="178" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111" data-i18n="modal.mmApp">App mobile</text>
             <text x="399" y="202" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="500" fill="#111111">Kotlin Multiplatform</text>
             <text x="399" y="224" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="500" fill="#111111">+ Compose</text>
-            <text x="399" y="248" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626">(Android e iOS)</text>
+            <text x="399" y="248" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626" data-i18n="modal.mmPlatforms">(Android e iOS)</text>
           </g>
 
           <g class="arch-step arch-step--3">
             <line x1="526" y1="174" x2="624" y2="84" stroke="#525252" stroke-width="2" marker-end="url(#mm-arrow)" />
-            <text x="564" y="114" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">busca</text>
+            <text x="564" y="114" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3" data-i18n="modal.mmEdgeSearch">busca</text>
             <rect x="630" y="38" width="262" height="84" rx="16" fill="#ffc9c9" />
             <text x="761" y="74" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">TMDB API</text>
-            <text x="761" y="97" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626">(busca de filmes)</text>
+            <text x="761" y="97" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626" data-i18n="modal.mmTmdbSub">(busca de filmes)</text>
           </g>
 
           <g class="arch-step arch-step--4">
             <line x1="526" y1="210" x2="624" y2="210" stroke="#525252" stroke-width="2" marker-end="url(#mm-arrow)" />
-            <text x="575" y="198" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">salva e avalia</text>
+            <text x="575" y="198" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3" data-i18n="modal.mmEdgeSave">salva e avalia</text>
             <rect x="630" y="164" width="262" height="92" rx="16" fill="#a5d8ff" />
             <text x="761" y="194" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">Supabase</text>
-            <text x="761" y="216" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13.5" fill="#262626">Postgres (filmes, grupos,</text>
-            <text x="761" y="236" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13.5" fill="#262626">sessões, notas)</text>
+            <text x="761" y="216" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13.5" fill="#262626" data-i18n="modal.mmSupa1">Postgres (filmes, grupos,</text>
+            <text x="761" y="236" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13.5" fill="#262626" data-i18n="modal.mmSupa2">sessões, notas)</text>
           </g>
 
           <g class="arch-step arch-step--5">
             <line x1="526" y1="246" x2="624" y2="336" stroke="#525252" stroke-width="2" marker-end="url(#mm-arrow)" />
-            <text x="564" y="308" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">entrar</text>
+            <text x="564" y="308" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3" data-i18n="modal.mmEdgeAuth">entrar</text>
             <rect x="630" y="298" width="262" height="84" rx="16" fill="#d0bfff" />
-            <text x="761" y="334" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">Login Google</text>
+            <text x="761" y="334" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111" data-i18n="modal.mmGoogleTitle">Login Google</text>
             <text x="761" y="357" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626">(Supabase Auth)</text>
           </g>
         </svg>
-        <figcaption>Arquitetura do projeto MovieMatch</figcaption>
+        <figcaption data-i18n="modal.mmCaption">Arquitetura do projeto MovieMatch</figcaption>
       </figure>
     </div>
-    <footer class="modal-footer" aria-label="Repositório do projeto">
+    <footer class="modal-footer" aria-label="Repositório do projeto" data-i18n-attr="aria-label:modal.repoSingleAria">
       <a href="https://github.com/LuizHenri16/Moviematch-APP" target="_blank" rel="noopener noreferrer">
         GitHub
       </a>
-      <a href="https://luizhenri16.github.io/Moviematch-landingpage/" target="_blank" rel="noopener noreferrer">
+      <a href="https://luizhenri16.github.io/Moviematch-landingpage/" target="_blank" rel="noopener noreferrer" data-i18n="modal.projectSite">
         Site do projeto
       </a>
     </footer>
@@ -1022,10 +1052,10 @@
   <dialog id="modal-ciencia-da-lua" class="modal" closedby="any" aria-labelledby="modal-ciencia-da-lua-title">
     <header class="modal-header">
       <div>
-        <span class="modal-eyebrow">ARQUITETURA E CÓDIGO</span>
+        <span class="modal-eyebrow" data-i18n="projects.cta">ARQUITETURA E CÓDIGO</span>
         <h2 id="modal-ciencia-da-lua-title" class="modal-title">A Ciência da Lua</h2>
       </div>
-      <button type="button" class="modal-close" command="close" commandfor="modal-ciencia-da-lua" aria-label="Fechar">
+      <button type="button" class="modal-close" command="close" commandfor="modal-ciencia-da-lua" aria-label="Fechar" data-i18n-attr="aria-label:modal.closeAria">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
         </svg>
@@ -1035,144 +1065,144 @@
       <section class="runtime-dashboard" aria-labelledby="runtime-dashboard-title">
         <header class="runtime-dashboard__header">
           <div>
-            <p class="runtime-dashboard__eyebrow">CONSUMO EM IDLE</p>
-            <h3 id="runtime-dashboard-title">Antes e depois da otimização</h3>
+            <p class="runtime-dashboard__eyebrow" data-i18n="runtime.eyebrow">CONSUMO EM IDLE</p>
+            <h3 id="runtime-dashboard-title" data-i18n="runtime.title">Antes e depois da otimização</h3>
           </div>
-          <div class="runtime-dashboard__capacity" aria-label="Limite total de memória: antes 3.912 MiB, usando 978 MiB por container; depois 704 MiB somados">
-            <span>Limite total de RAM</span>
+          <div class="runtime-dashboard__capacity" aria-label="Limite total de memória: antes 3.912 MiB, usando 978 MiB por container; depois 704 MiB somados" data-i18n-attr="aria-label:runtime.capacityAria">
+            <span data-i18n="runtime.ramLimitLabel">Limite total de RAM</span>
             <strong><span>3.912 MiB</span><span aria-hidden="true">→</span><span>704 MiB</span></strong>
-            <small>978 MiB por container antes <span aria-hidden="true">·</span> otimizado</small>
+            <small data-i18n-html="runtime.capacitySub">978 MiB por container antes <span aria-hidden="true">·</span> otimizado</small>
           </div>
         </header>
 
         <div class="runtime-dashboard__grid">
-          <article class="runtime-card" aria-label="Comparação de uso do backend">
+          <article class="runtime-card" aria-label="Comparação de uso do backend" data-i18n-attr="aria-label:runtime.backendAria">
             <header class="runtime-card__header">
               <h4>Backend</h4>
             </header>
             <div class="runtime-card__comparison">
-              <section class="runtime-card__state runtime-card__state--before" aria-label="Antes da otimização">
-                <h5>NestJS · Antes</h5>
+              <section class="runtime-card__state runtime-card__state--before" aria-label="Antes da otimização" data-i18n-attr="aria-label:runtime.beforeAria">
+                <h5 data-i18n="runtime.nestBefore">NestJS · Antes</h5>
                 <div class="runtime-card__metric">
                   <div class="runtime-card__metric-label"><span>RAM</span><strong>~140 / 978 MiB <span>(~14,31%)</span></strong></div>
-                  <div class="runtime-card__track" role="meter" aria-label="Uso estimado de memória RAM do backend antes da otimização" aria-valuemin="0" aria-valuemax="100" aria-valuenow="14.31"><span style="width: 14.31%"></span></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso estimado de memória RAM do backend antes da otimização" data-i18n-attr="aria-label:runtime.backendRamBeforeAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="14.31"><span style="width: 14.31%"></span></div>
                 </div>
                 <div class="runtime-card__metric">
-                  <div class="runtime-card__metric-label"><span>CPU</span><strong>Não medido</strong></div>
+                  <div class="runtime-card__metric-label"><span>CPU</span><strong data-i18n="runtime.notMeasured">Não medido</strong></div>
                   <div class="runtime-card__track runtime-card__track--unknown" aria-hidden="true"></div>
                 </div>
               </section>
-              <section class="runtime-card__state runtime-card__state--optimized" aria-label="Após a otimização">
-                <h5>Go · Otimizado</h5>
+              <section class="runtime-card__state runtime-card__state--optimized" aria-label="Após a otimização" data-i18n-attr="aria-label:runtime.afterAria">
+                <h5 data-i18n="runtime.goOptimized">Go · Otimizado</h5>
                 <div class="runtime-card__metric">
                   <div class="runtime-card__metric-label"><span>RAM</span><strong>5,434 / 128 MiB <span>(4,24%)</span></strong></div>
-                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do backend otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="4.24"><span style="width: 4.24%"></span></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do backend otimizado" data-i18n-attr="aria-label:runtime.backendRamOptAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="4.24"><span style="width: 4.24%"></span></div>
                 </div>
                 <div class="runtime-card__metric">
                   <div class="runtime-card__metric-label"><span>CPU</span><strong>0,00%</strong></div>
-                  <div class="runtime-card__track" role="meter" aria-label="Uso de CPU do backend otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width: 0%"></span></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de CPU do backend otimizado" data-i18n-attr="aria-label:runtime.backendCpuOptAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width: 0%"></span></div>
                 </div>
               </section>
             </div>
           </article>
 
-          <article class="runtime-card" aria-label="Comparação de uso do Nginx">
+          <article class="runtime-card" aria-label="Comparação de uso do Nginx" data-i18n-attr="aria-label:runtime.nginxAria">
             <header class="runtime-card__header">
               <h4>Nginx</h4>
             </header>
             <div class="runtime-card__comparison">
-              <section class="runtime-card__state runtime-card__state--before" aria-label="Antes da otimização, valor mantido igual ao snapshot atual">
-                <h5>Antes</h5>
+              <section class="runtime-card__state runtime-card__state--before" aria-label="Antes da otimização, valor mantido igual ao snapshot atual" data-i18n-attr="aria-label:runtime.beforeSnapshotAria">
+                <h5 data-i18n="runtime.before">Antes</h5>
                 <div class="runtime-card__metric">
                   <div class="runtime-card__metric-label"><span>RAM</span><strong>1,207 / 978 MiB <span>(0,12%)</span></strong></div>
-                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do Nginx antes da otimização" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0.12"><span style="width: 0.12%"></span></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do Nginx antes da otimização" data-i18n-attr="aria-label:runtime.nginxRamBeforeAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0.12"><span style="width: 0.12%"></span></div>
                 </div>
                 <div class="runtime-card__metric">
-                  <div class="runtime-card__metric-label"><span>CPU</span><strong>Não medido</strong></div>
+                  <div class="runtime-card__metric-label"><span>CPU</span><strong data-i18n="runtime.notMeasured">Não medido</strong></div>
                   <div class="runtime-card__track runtime-card__track--unknown" aria-hidden="true"></div>
                 </div>
               </section>
-              <section class="runtime-card__state runtime-card__state--optimized" aria-label="Após a otimização">
-                <h5>Otimizado</h5>
+              <section class="runtime-card__state runtime-card__state--optimized" aria-label="Após a otimização" data-i18n-attr="aria-label:runtime.afterAria">
+                <h5 data-i18n="runtime.optimized">Otimizado</h5>
                 <div class="runtime-card__metric">
                   <div class="runtime-card__metric-label"><span>RAM</span><strong>1,207 / 32 MiB <span>(3,77%)</span></strong></div>
-                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do Nginx otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="3.77"><span style="width: 3.77%"></span></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do Nginx otimizado" data-i18n-attr="aria-label:runtime.nginxRamOptAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="3.77"><span style="width: 3.77%"></span></div>
                 </div>
                 <div class="runtime-card__metric">
                   <div class="runtime-card__metric-label"><span>CPU</span><strong>0,00%</strong></div>
-                  <div class="runtime-card__track" role="meter" aria-label="Uso de CPU do Nginx otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width: 0%"></span></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de CPU do Nginx otimizado" data-i18n-attr="aria-label:runtime.nginxCpuOptAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width: 0%"></span></div>
                 </div>
               </section>
             </div>
           </article>
 
-          <article class="runtime-card" aria-label="Comparação de uso do banco de dados">
+          <article class="runtime-card" aria-label="Comparação de uso do banco de dados" data-i18n-attr="aria-label:runtime.dbAria">
             <header class="runtime-card__header">
-              <h4>Banco de dados</h4>
+              <h4 data-i18n="runtime.dbTitle">Banco de dados</h4>
             </header>
             <div class="runtime-card__comparison">
-              <section class="runtime-card__state runtime-card__state--before" aria-label="Antes da otimização">
-                <h5>Antes</h5>
+              <section class="runtime-card__state runtime-card__state--before" aria-label="Antes da otimização" data-i18n-attr="aria-label:runtime.beforeAria">
+                <h5 data-i18n="runtime.before">Antes</h5>
                 <div class="runtime-card__metric">
                   <div class="runtime-card__metric-label"><span>RAM</span><strong>~32 / 978 MiB <span>(~3,27%)</span></strong></div>
-                  <div class="runtime-card__track" role="meter" aria-label="Uso estimado de memória RAM do banco de dados antes da otimização" aria-valuemin="0" aria-valuemax="100" aria-valuenow="3.27"><span style="width: 3.27%"></span></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso estimado de memória RAM do banco de dados antes da otimização" data-i18n-attr="aria-label:runtime.dbRamBeforeAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="3.27"><span style="width: 3.27%"></span></div>
                 </div>
                 <div class="runtime-card__metric">
-                  <div class="runtime-card__metric-label"><span>CPU</span><strong>Não medido</strong></div>
+                  <div class="runtime-card__metric-label"><span>CPU</span><strong data-i18n="runtime.notMeasured">Não medido</strong></div>
                   <div class="runtime-card__track runtime-card__track--unknown" aria-hidden="true"></div>
                 </div>
               </section>
-              <section class="runtime-card__state runtime-card__state--optimized" aria-label="Após a otimização">
-                <h5>Otimizado</h5>
+              <section class="runtime-card__state runtime-card__state--optimized" aria-label="Após a otimização" data-i18n-attr="aria-label:runtime.afterAria">
+                <h5 data-i18n="runtime.optimized">Otimizado</h5>
                 <div class="runtime-card__metric">
                   <div class="runtime-card__metric-label"><span>RAM</span><strong>17,8 / 320 MiB <span>(5,56%)</span></strong></div>
-                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do banco de dados otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="5.56"><span style="width: 5.56%"></span></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do banco de dados otimizado" data-i18n-attr="aria-label:runtime.dbRamOptAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="5.56"><span style="width: 5.56%"></span></div>
                 </div>
                 <div class="runtime-card__metric">
                   <div class="runtime-card__metric-label"><span>CPU</span><strong>0,00%</strong></div>
-                  <div class="runtime-card__track" role="meter" aria-label="Uso de CPU do banco de dados otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width: 0%"></span></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de CPU do banco de dados otimizado" data-i18n-attr="aria-label:runtime.dbCpuOptAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width: 0%"></span></div>
                 </div>
               </section>
             </div>
           </article>
 
-          <article class="runtime-card" aria-label="Comparação de uso do frontend">
+          <article class="runtime-card" aria-label="Comparação de uso do frontend" data-i18n-attr="aria-label:runtime.frontendAria">
             <header class="runtime-card__header">
               <h4>Frontend</h4>
             </header>
             <div class="runtime-card__comparison">
-              <section class="runtime-card__state runtime-card__state--before" aria-label="Antes da otimização, valor mantido igual ao snapshot atual">
-                <h5>Antes</h5>
+              <section class="runtime-card__state runtime-card__state--before" aria-label="Antes da otimização, valor mantido igual ao snapshot atual" data-i18n-attr="aria-label:runtime.beforeSnapshotAria">
+                <h5 data-i18n="runtime.before">Antes</h5>
                 <div class="runtime-card__metric">
                   <div class="runtime-card__metric-label"><span>RAM</span><strong>85,55 / 978 MiB <span>(8,75%)</span></strong></div>
-                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do frontend antes da otimização" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8.75"><span style="width: 8.75%"></span></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do frontend antes da otimização" data-i18n-attr="aria-label:runtime.frontendRamBeforeAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8.75"><span style="width: 8.75%"></span></div>
                 </div>
                 <div class="runtime-card__metric">
-                  <div class="runtime-card__metric-label"><span>CPU</span><strong>Não medido</strong></div>
+                  <div class="runtime-card__metric-label"><span>CPU</span><strong data-i18n="runtime.notMeasured">Não medido</strong></div>
                   <div class="runtime-card__track runtime-card__track--unknown" aria-hidden="true"></div>
                 </div>
               </section>
-              <section class="runtime-card__state runtime-card__state--optimized" aria-label="Após a otimização">
-                <h5>Otimizado</h5>
+              <section class="runtime-card__state runtime-card__state--optimized" aria-label="Após a otimização" data-i18n-attr="aria-label:runtime.afterAria">
+                <h5 data-i18n="runtime.optimized">Otimizado</h5>
                 <div class="runtime-card__metric">
                   <div class="runtime-card__metric-label"><span>RAM</span><strong>85,55 / 224 MiB <span>(38,19%)</span></strong></div>
-                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do frontend otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38.19"><span style="width: 38.19%"></span></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de memória RAM do frontend otimizado" data-i18n-attr="aria-label:runtime.frontendRamOptAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38.19"><span style="width: 38.19%"></span></div>
                 </div>
                 <div class="runtime-card__metric">
                   <div class="runtime-card__metric-label"><span>CPU</span><strong>0,00%</strong></div>
-                  <div class="runtime-card__track" role="meter" aria-label="Uso de CPU do frontend otimizado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width: 0%"></span></div>
+                  <div class="runtime-card__track" role="meter" aria-label="Uso de CPU do frontend otimizado" data-i18n-attr="aria-label:runtime.frontendCpuOptAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width: 0%"></span></div>
                 </div>
               </section>
             </div>
           </article>
         </div>
-        <p class="runtime-dashboard__note">Antes, cada container tinha limite de 978 MiB (3.912 MiB no total). Uso anterior do backend e banco estimado; Nginx e frontend mantidos iguais ao snapshot atual. CPU anterior não medida. Barras mostram a porcentagem do limite de RAM de cada container.</p>
+        <p class="runtime-dashboard__note" data-i18n="runtime.note">Antes, cada container tinha limite de 978 MiB (3.912 MiB no total). Uso anterior do backend e banco estimado; Nginx e frontend mantidos iguais ao snapshot atual. CPU anterior não medida. Barras mostram a porcentagem do limite de RAM de cada container.</p>
       </section>
 
       <figure class="modal-architecture">
         <svg viewBox="0 0 920 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="acl-arch-title acl-arch-desc">
-          <title id="acl-arch-title">Arquitetura do projeto A Ciência da Lua</title>
-          <desc id="acl-arch-desc">Diagrama de arquitetura do projeto A Ciência da Lua: Frontend, Nginx proxy, API Go, PostgreSQL e integrações Mercado Pago, Resend e Arquivos.</desc>
+          <title id="acl-arch-title" data-i18n="modal.luaTitle">Arquitetura do projeto A Ciência da Lua</title>
+          <desc id="acl-arch-desc" data-i18n="modal.luaDesc">Diagrama de arquitetura do projeto A Ciência da Lua: Frontend, Nginx proxy, API Go, PostgreSQL e integrações Mercado Pago, Resend e Arquivos.</desc>
           <defs>
             <marker id="acl-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M 1 1.5 L 8.5 5 L 1 8.5" fill="none" stroke="#525252" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
@@ -1196,7 +1226,7 @@
           <g class="arch-step arch-step--3">
             <line x1="426" y1="70" x2="472" y2="70" stroke="#525252" stroke-width="2" marker-end="url(#acl-arrow)" />
             <rect x="478" y="26" width="192" height="88" rx="16" fill="#b2f2bb" />
-            <text x="574" y="76" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">API Go</text>
+            <text x="574" y="76" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111" data-i18n="modal.luaGoApi">API Go</text>
           </g>
 
           <g class="arch-step arch-step--4">
@@ -1209,35 +1239,35 @@
             <line x1="538" y1="118" x2="462" y2="172" stroke="#525252" stroke-width="2" marker-end="url(#acl-arrow)" />
             <rect x="358" y="178" width="178" height="84" rx="16" fill="#ffc9c9" />
             <text x="447" y="214" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15.5" font-weight="600" fill="#111111">Mercado Pago</text>
-            <text x="447" y="237" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626">(pagamentos)</text>
+            <text x="447" y="237" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626" data-i18n="modal.luaPayments">(pagamentos)</text>
           </g>
 
           <g class="arch-step arch-step--6">
             <line x1="574" y1="118" x2="606" y2="172" stroke="#525252" stroke-width="2" marker-end="url(#acl-arrow)" />
             <rect x="552" y="178" width="152" height="84" rx="16" fill="#ffc9c9" />
             <text x="628" y="214" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15.5" font-weight="600" fill="#111111">Resend</text>
-            <text x="628" y="237" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626">(e-mails)</text>
+            <text x="628" y="237" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626" data-i18n="modal.luaEmails">(e-mails)</text>
           </g>
 
           <g class="arch-step arch-step--7">
             <line x1="612" y1="118" x2="778" y2="172" stroke="#525252" stroke-width="2" marker-end="url(#acl-arrow)" />
             <rect x="720" y="178" width="176" height="84" rx="16" fill="#fff0a6" />
-            <text x="808" y="214" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15.5" font-weight="600" fill="#111111">Arquivos</text>
-            <text x="808" y="237" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626">(uploads e files)</text>
+            <text x="808" y="214" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15.5" font-weight="600" fill="#111111" data-i18n="modal.luaFiles">Arquivos</text>
+            <text x="808" y="237" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#262626" data-i18n="modal.luaFilesSub">(uploads e files)</text>
           </g>
         </svg>
-        <figcaption>Arquitetura do projeto A Ciência da Lua</figcaption>
+        <figcaption data-i18n="modal.luaCaption">Arquitetura do projeto A Ciência da Lua</figcaption>
       </figure>
 
     </div>
-    <footer class="modal-footer" aria-label="Repositórios do projeto">
+    <footer class="modal-footer" aria-label="Repositórios do projeto" data-i18n-attr="aria-label:modal.repoMultiAria">
       <a href="https://github.com/LuizHenri16/acienciadalua_frontend" target="_blank" rel="noopener noreferrer">
         GitHub — Frontend
       </a>
       <a href="https://github.com/LuizHenri16/acienciadalua_backend" target="_blank" rel="noopener noreferrer">
         GitHub — Backend
       </a>
-      <a href="https://acienciadalua.com.br/" target="_blank" rel="noopener noreferrer">
+      <a href="https://acienciadalua.com.br/" target="_blank" rel="noopener noreferrer" data-i18n="modal.projectSite">
         Site do projeto
       </a>
     </footer>
@@ -1246,10 +1276,10 @@
   <dialog id="modal-pulse" class="modal" closedby="any" aria-labelledby="modal-pulse-title">
     <header class="modal-header">
       <div>
-        <span class="modal-eyebrow">ARQUITETURA E CÓDIGO</span>
+        <span class="modal-eyebrow" data-i18n="projects.cta">ARQUITETURA E CÓDIGO</span>
         <h2 id="modal-pulse-title" class="modal-title">Pulse</h2>
       </div>
-      <button type="button" class="modal-close" command="close" commandfor="modal-pulse" aria-label="Fechar">
+      <button type="button" class="modal-close" command="close" commandfor="modal-pulse" aria-label="Fechar" data-i18n-attr="aria-label:modal.closeAria">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
         </svg>
@@ -1258,8 +1288,8 @@
     <div class="modal-body">
       <figure class="modal-architecture">
         <svg viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pulse-arch-title pulse-arch-desc">
-          <title id="pulse-arch-title">Arquitetura do projeto Pulse</title>
-          <desc id="pulse-arch-desc">Diagrama de arquitetura offline-first do aplicativo Android Pulse em Kotlin, Jetpack Compose, Material 3 e banco local Room.</desc>
+          <title id="pulse-arch-title" data-i18n="modal.pulseTitle">Arquitetura do projeto Pulse</title>
+          <desc id="pulse-arch-desc" data-i18n="modal.pulseDesc">Diagrama de arquitetura offline-first do aplicativo Android Pulse em Kotlin, Jetpack Compose, Material 3 e banco local Room.</desc>
           <defs>
             <marker id="pulse-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M 1 1.5 L 8.5 5 L 1 8.5" fill="none" stroke="#525252" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
@@ -1270,55 +1300,55 @@
 
           <g class="arch-step arch-step--1">
             <rect x="32" y="162" width="168" height="96" rx="16" fill="#fff0a6" />
-            <text x="116" y="204" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">Usuário</text>
+            <text x="116" y="204" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111" data-i18n="modal.pulseUser">Usuário</text>
             <text x="116" y="226" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626">(Offline-first)</text>
           </g>
 
           <g class="arch-step arch-step--2">
             <line x1="204" y1="210" x2="290" y2="210" stroke="#525252" stroke-width="2" marker-end="url(#pulse-arrow)" />
-            <text x="247" y="198" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">treina</text>
+            <text x="247" y="198" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3" data-i18n="modal.pulseEdgeTrains">treina</text>
 
             <rect x="296" y="138" width="234" height="144" rx="18" fill="#b2f2bb" />
-            <text x="413" y="186" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111">App Android</text>
+            <text x="413" y="186" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#111111" data-i18n="modal.pulseApp">App Android</text>
             <text x="413" y="210" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#111111">Kotlin · Jetpack Compose</text>
-            <text x="413" y="232" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626">(Material 3 · Execução guiada)</text>
+            <text x="413" y="232" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626" data-i18n="modal.pulseAppSub">(Material 3 · Execução guiada)</text>
           </g>
 
           <g class="arch-step arch-step--3">
             <line x1="534" y1="176" x2="634" y2="88" stroke="#525252" stroke-width="2" marker-end="url(#pulse-arrow)" />
-            <text x="572" y="118" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">consulta</text>
+            <text x="572" y="118" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3" data-i18n="modal.pulseEdgeQuery">consulta</text>
 
             <rect x="640" y="42" width="248" height="84" rx="16" fill="#ffc9c9" />
-            <text x="764" y="79" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#111111">Catálogo de Exercícios</text>
-            <text x="764" y="101" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626">(400+ exercícios e músculos)</text>
+            <text x="764" y="79" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#111111" data-i18n="modal.pulseCatalog">Catálogo de Exercícios</text>
+            <text x="764" y="101" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626" data-i18n="modal.pulseCatalogSub">(400+ exercícios e músculos)</text>
           </g>
 
           <g class="arch-step arch-step--4">
             <line x1="534" y1="210" x2="634" y2="210" stroke="#525252" stroke-width="2" marker-end="url(#pulse-arrow)" />
-            <text x="584" y="198" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">salva local</text>
+            <text x="584" y="198" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3" data-i18n="modal.pulseEdgeSave">salva local</text>
 
             <rect x="640" y="168" width="248" height="84" rx="16" fill="#a5d8ff" />
-            <text x="764" y="205" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#111111">Room / SQLite Local</text>
-            <text x="764" y="227" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626">(Fichas, cargas e histórico)</text>
+            <text x="764" y="205" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#111111" data-i18n="modal.pulseRoom">Room / SQLite Local</text>
+            <text x="764" y="227" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626" data-i18n="modal.pulseRoomSub">(Fichas, cargas e histórico)</text>
           </g>
 
           <g class="arch-step arch-step--5">
             <line x1="534" y1="244" x2="634" y2="332" stroke="#525252" stroke-width="2" marker-end="url(#pulse-arrow)" />
-            <text x="572" y="302" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3">renderiza</text>
+            <text x="572" y="302" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#a3a3a3" data-i18n="modal.pulseEdgeRender">renderiza</text>
 
             <rect x="640" y="294" width="248" height="84" rx="16" fill="#d0bfff" />
-            <text x="764" y="331" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#111111">Visualizador Anatômico 3D</text>
-            <text x="764" y="353" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626">(Em desenvolvimento)</text>
+            <text x="764" y="331" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#111111" data-i18n="modal.pulse3d">Visualizador Anatômico 3D</text>
+            <text x="764" y="353" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#262626" data-i18n="modal.pulse3dSub">(Em desenvolvimento)</text>
           </g>
         </svg>
-        <figcaption>Arquitetura do projeto Pulse</figcaption>
+        <figcaption data-i18n="modal.pulseCaption">Arquitetura do projeto Pulse</figcaption>
       </figure>
     </div>
-    <footer class="modal-footer" aria-label="Repositório do projeto">
+    <footer class="modal-footer" aria-label="Repositório do projeto" data-i18n-attr="aria-label:modal.repoSingleAria">
       <a href="https://github.com/LuizHenri16/Pulse-app" target="_blank" rel="noopener noreferrer">
         GitHub
       </a>
-      <a href="https://luizhenri16.github.io/Pulse/" target="_blank" rel="noopener noreferrer">
+      <a href="https://luizhenri16.github.io/Pulse/" target="_blank" rel="noopener noreferrer" data-i18n="modal.projectSite">
         Site do projeto
       </a>
     </footer>
@@ -1329,6 +1359,7 @@
     class="back-to-top"
     aria-label="Voltar ao topo"
     title="Voltar ao topo"
+    data-i18n-attr="aria-label:backToTop.label,title:backToTop.label"
     aria-hidden="true"
     tabindex="-1"
   >
